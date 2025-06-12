@@ -1,0 +1,24 @@
+{
+  "timestamp": 0,
+  "equipment": [
+    {
+      "id": "EQ-TRC-0015",
+      "name": "John Deere 5075E",
+      "category": "tractor",
+      "lastMaintenance": "2023-05-15",
+      "nextMaintenance": "2024-05-15",
+      "year": 2020,
+      "notes": "Needs new tires soon. Currently located in North Field.",
+      "maintenanceHistory": [
+        {
+          "id": "MH-001",
+          "date": "2023-05-15",
+          "type": "Oil Change",
+          "technician": "John Smith",
+          "cost": "125.00",
+          "details": "Performed full oil change and filter replacement"
+        }
+      ]
+    }
+  ]
+}
