@@ -1464,42 +1464,39 @@
 
         // Push data to GitHub
         async function pushDataToGitHub() {
-            if (!GITHUB_PAT || GITHUB_PAT === "your_personal_access_token_here") {
+            if (!GITHUB_PAT) {
                 showToast("GitHub PAT not configured");
                 return false;
             }
 
             const content = JSON.stringify({
                 equipment: equipmentData,
-                timestamp: Date.now(),
-                lastUpdated: new Date().toISOString()
+                timestamp: Date.now()
             });
 
-            const encodedContent = btoa(unescape(encodeURIComponent(content)));
-            
             try {
-                const response = await fetch(`${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`, {
-                    method: "PUT",
-                    headers: {
-                        "Authorization": `token ${GITHUB_PAT}`,
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        message: "Update equipment data",
-                        content: encodedContent,
-                        sha: fileSHA // Required for updates
-                    })
-                });
+                const response = await fetch(
+                    `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `token ${GITHUB_PAT}`,
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            message: "Update equipment data",
+                            content: btoa(unescape(encodeURIComponent(content))),
+                            sha: fileSHA // Include SHA for updates, omit for creates
+                        })
+                    }
+                );
 
                 const result = await response.json();
-                
                 if (result.content) {
-                    fileSHA = result.content.sha; // Store SHA for future updates
+                    fileSHA = result.content.sha;
                     return true;
-                } else {
-                    console.error("Push failed:", result);
-                    return false;
                 }
+                return false;
             } catch (error) {
                 console.error("Push error:", error);
                 return false;
@@ -1531,41 +1528,55 @@
             updateSyncStatus('syncing', 'Syncing data...');
             
             try {
-                // 1. Fetch data from GitHub
-                const response = await fetch(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/${DATA_PATH}?t=${Date.now()}`);
-                
-                if (response.ok) {
-                    const remoteData = await response.json();
-                    const remoteTimestamp = remoteData.timestamp || 0;
-                    
-                    // Store SHA if available (needed for pushing updates)
-                    if (remoteData.sha) fileSHA = remoteData.sha;
-                    
-                    // 2. Merge data (remote wins if newer)
-                    if (remoteTimestamp > lastSyncTimestamp) {
-                        equipmentData = remoteData.equipment || [];
-                        lastSyncTimestamp = remoteTimestamp;
-                        showToast('Data updated from cloud');
-                    }
-                    
-                    // 3. Push local changes if newer
-                    if (lastSyncTimestamp > remoteTimestamp) {
-                        const pushSuccess = await pushDataToGitHub();
-                        if (pushSuccess) {
-                            showToast('Data pushed to cloud');
+                // 1. Fetch file metadata to get SHA
+                const metaResponse = await fetch(
+                    `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
+                    {
+                        headers: {
+                            "Authorization": `token ${GITHUB_PAT}`,
+                            "Accept": "application/vnd.github.v3+json"
                         }
                     }
+                );
+
+                let remoteData = { equipment: [], timestamp: 0 };
+                let remoteSHA = null;
+
+                if (metaResponse.status === 200) {
+                    const fileInfo = await metaResponse.json();
+                    remoteSHA = fileInfo.sha;
+                    
+                    // 2. Fetch actual file content
+                    const contentResponse = await fetch(fileInfo.download_url);
+                    if (contentResponse.ok) {
+                        remoteData = await contentResponse.json();
+                    }
+                } else if (metaResponse.status !== 404) {
+                    throw new Error(`GitHub API returned ${metaResponse.status}`);
                 }
-                
-                // 4. Save to localStorage
-                localStorage.setItem('equipmentData', JSON.stringify(equipmentData));
-                localStorage.setItem('lastSyncTimestamp', lastSyncTimestamp);
-                if (fileSHA) localStorage.setItem('fileSHA', fileSHA);
-                
-                // 5. Update UI
+
+                const remoteTimestamp = remoteData.timestamp || 0;
+
+                // 3. Determine which data is newer
+                if (remoteTimestamp > lastSyncTimestamp) {
+                    equipmentData = remoteData.equipment || [];
+                    lastSyncTimestamp = remoteTimestamp;
+                    fileSHA = remoteSHA;
+                    showToast('Data updated from cloud');
+                }
+
+                // 4. Push local changes if newer
+                if (lastSyncTimestamp > remoteTimestamp) {
+                    const pushSuccess = await pushDataToGitHub();
+                    if (pushSuccess) {
+                        showToast('Data pushed to cloud');
+                    }
+                }
+
+                // 5. Update storage and UI
+                saveDataToStorage();
                 renderEquipment();
                 calculateStats();
-                
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
                 console.error('Sync error:', error);
