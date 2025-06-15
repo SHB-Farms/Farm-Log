@@ -1350,11 +1350,14 @@
         const GITHUB_REPO = "Farm-Log";
         const DATA_PATH = "farmdata.json";
         const SYNC_INTERVAL = 30000; // 30 seconds
+        const GITHUB_API = "https://api.github.com";
+        const GITHUB_PAT = "your_personal_access_token_here"; // Replace with your GitHub PAT
         
         // Equipment data
         let equipmentData = [];
         let lastSyncTimestamp = 0;
         let syncInProgress = false;
+        let fileSHA = null; // Needed for updating files on GitHub
 
         // Current selected equipment
         let selectedEquipment = null;
@@ -1459,6 +1462,67 @@
             }
         }
 
+        // Push data to GitHub
+        async function pushDataToGitHub() {
+            if (!GITHUB_PAT || GITHUB_PAT === "your_personal_access_token_here") {
+                showToast("GitHub PAT not configured");
+                return false;
+            }
+
+            const content = JSON.stringify({
+                equipment: equipmentData,
+                timestamp: Date.now(),
+                lastUpdated: new Date().toISOString()
+            });
+
+            const encodedContent = btoa(unescape(encodeURIComponent(content)));
+            
+            try {
+                const response = await fetch(`${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `token ${GITHUB_PAT}`,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: "Update equipment data",
+                        content: encodedContent,
+                        sha: fileSHA // Required for updates
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.content) {
+                    fileSHA = result.content.sha; // Store SHA for future updates
+                    return true;
+                } else {
+                    console.error("Push failed:", result);
+                    return false;
+                }
+            } catch (error) {
+                console.error("Push error:", error);
+                return false;
+            }
+        }
+
+        // Save changes to both localStorage and GitHub
+        async function saveChanges() {
+            // Update timestamp before saving
+            lastSyncTimestamp = Date.now();
+            
+            // Save to localStorage
+            saveDataToStorage();
+            
+            // Push to GitHub
+            const pushSuccess = await pushDataToGitHub();
+            if (pushSuccess) {
+                showToast('Changes saved to cloud');
+            } else {
+                showToast('Saved locally but failed to sync with cloud');
+            }
+        }
+
         // Sync data with GitHub
         async function syncData() {
             if (syncInProgress) return;
@@ -1467,25 +1531,38 @@
             updateSyncStatus('syncing', 'Syncing data...');
             
             try {
-                // Fetch data from GitHub
+                // 1. Fetch data from GitHub
                 const response = await fetch(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/${DATA_PATH}?t=${Date.now()}`);
-                if (!response.ok) throw new Error('Failed to fetch data');
                 
-                const remoteData = await response.json();
-                const remoteTimestamp = remoteData.timestamp || 0;
-                
-                // Merge data: remote wins if newer
-                if (remoteTimestamp > lastSyncTimestamp) {
-                    equipmentData = remoteData.equipment;
-                    lastSyncTimestamp = remoteTimestamp;
-                    showToast('Data updated from cloud');
+                if (response.ok) {
+                    const remoteData = await response.json();
+                    const remoteTimestamp = remoteData.timestamp || 0;
+                    
+                    // Store SHA if available (needed for pushing updates)
+                    if (remoteData.sha) fileSHA = remoteData.sha;
+                    
+                    // 2. Merge data (remote wins if newer)
+                    if (remoteTimestamp > lastSyncTimestamp) {
+                        equipmentData = remoteData.equipment || [];
+                        lastSyncTimestamp = remoteTimestamp;
+                        showToast('Data updated from cloud');
+                    }
+                    
+                    // 3. Push local changes if newer
+                    if (lastSyncTimestamp > remoteTimestamp) {
+                        const pushSuccess = await pushDataToGitHub();
+                        if (pushSuccess) {
+                            showToast('Data pushed to cloud');
+                        }
+                    }
                 }
                 
-                // Always save local data to storage
+                // 4. Save to localStorage
                 localStorage.setItem('equipmentData', JSON.stringify(equipmentData));
                 localStorage.setItem('lastSyncTimestamp', lastSyncTimestamp);
+                if (fileSHA) localStorage.setItem('fileSHA', fileSHA);
                 
-                // Update UI
+                // 5. Update UI
                 renderEquipment();
                 calculateStats();
                 
@@ -1493,7 +1570,7 @@
             } catch (error) {
                 console.error('Sync error:', error);
                 updateSyncStatus('error', 'Sync failed - using local data');
-                loadDataFromStorage(); // Fallback to local storage
+                loadDataFromStorage();
             } finally {
                 syncInProgress = false;
             }
@@ -1509,6 +1586,7 @@
         function saveDataToStorage() {
             localStorage.setItem('equipmentData', JSON.stringify(equipmentData));
             localStorage.setItem('lastSyncTimestamp', lastSyncTimestamp);
+            if (fileSHA) localStorage.setItem('fileSHA', fileSHA);
         }
 
         // Load data from localStorage
@@ -1521,6 +1599,11 @@
             const savedTimestamp = localStorage.getItem('lastSyncTimestamp');
             if (savedTimestamp) {
                 lastSyncTimestamp = parseInt(savedTimestamp);
+            }
+            
+            const savedSHA = localStorage.getItem('fileSHA');
+            if (savedSHA) {
+                fileSHA = savedSHA;
             }
             
             // Load admin mode state
@@ -1687,7 +1770,7 @@
             }
             
             // Render maintenance history
-            renderMaintenanceHistory(equip.maintenanceHistory);
+            renderMaintenanceHistory(equip.maintenanceHistory || []);
             
             // Open panel
             detailPanel.classList.add('open');
@@ -1697,7 +1780,7 @@
         function renderMaintenanceHistory(history) {
             maintenanceHistory.innerHTML = '';
             
-            if (history.length === 0) {
+            if (!history || history.length === 0) {
                 maintenanceHistory.innerHTML = `
                     <div class="history-item">
                         <div class="history-content">No maintenance records found</div>
@@ -1771,7 +1854,7 @@
         }
 
         // Save edited equipment
-        function saveEditedEquipment() {
+        async function saveEditedEquipment() {
             if (!selectedEquipment || !adminMode) return;
             
             const newId = document.getElementById('editId').value.trim();
@@ -1801,8 +1884,8 @@
             // Update stats
             calculateStats();
             
-            // Save to storage
-            saveDataToStorage();
+            // Save changes
+            await saveChanges();
             
             // Close modal
             editModal.classList.remove('show');
@@ -1828,7 +1911,7 @@
         }
 
         // Add maintenance record
-        function addMaintenanceRecord() {
+        async function addMaintenanceRecord() {
             if (!selectedEquipment) return;
             
             const maintenanceDate = document.getElementById('maintenanceDate').value;
@@ -1848,6 +1931,11 @@
                 details: document.getElementById('maintenanceNotes').value
             };
             
+            // Initialize maintenanceHistory if it doesn't exist
+            if (!selectedEquipment.maintenanceHistory) {
+                selectedEquipment.maintenanceHistory = [];
+            }
+            
             // Add to equipment history
             selectedEquipment.maintenanceHistory.unshift(record);
             
@@ -1866,8 +1954,8 @@
             // Update stats
             calculateStats();
             
-            // Save to storage
-            saveDataToStorage();
+            // Save changes
+            await saveChanges();
             
             // Close modal
             maintenanceModal.classList.remove('show');
@@ -1889,7 +1977,7 @@
         }
 
         // Delete equipment
-        function deleteEquipment() {
+        async function deleteEquipment() {
             if (!selectedEquipment || !adminMode) return;
             
             const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
@@ -1905,8 +1993,8 @@
                 // Update stats
                 calculateStats();
                 
-                // Save to storage
-                saveDataToStorage();
+                // Save changes
+                await saveChanges();
                 
                 showToast('Equipment deleted');
             }
@@ -1932,7 +2020,7 @@
         }
 
         // Add new equipment
-        function addNewEquipment() {
+        async function addNewEquipment() {
             if (!adminMode) return;
             
             const id = document.getElementById('newId').value.trim();
@@ -1988,8 +2076,8 @@
             // Update stats
             calculateStats();
             
-            // Save to storage
-            saveDataToStorage();
+            // Save changes
+            await saveChanges();
             
             // Close modal
             addEquipmentModal.classList.remove('show');
