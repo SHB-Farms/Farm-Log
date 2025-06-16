@@ -991,7 +991,7 @@
     <div class="app-header">
         <div class="sync-status" id="syncStatus">
             <i class="mdi mdi-cloud-sync"></i>
-            <span>Syncing...</span>
+            <span>Initializing sync...</span>
         </div>
         <button class="admin-toggle" id="adminToggle" aria-label="Toggle admin mode">
             <i class="mdi mdi-lock"></i>
@@ -1068,6 +1068,9 @@
             </div>
             
             <div class="equipment-list-container" id="equipmentGrid">
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="spinner"></div>
+                </div>
                 <!-- Equipment items will be inserted here -->
             </div>
         </div>
@@ -1380,6 +1383,7 @@
         const clearSearchBtn = document.getElementById('clearSearch');
         const adminToggle = document.getElementById('adminToggle');
         const syncStatus = document.getElementById('syncStatus');
+        const loadingOverlay = document.getElementById('loadingOverlay');
         const stats = {
             total: document.getElementById('totalEquipment'),
             overdue: document.getElementById('overdueEquipment')
@@ -1480,8 +1484,9 @@
                     {
                         method: "PUT",
                         headers: {
-                            "Authorization": `token ${GITHUB_PAT}`,
-                            "Content-Type": "application/json"
+                            "Authorization": `Bearer ${GITHUB_PAT}`,
+                            "Content-Type": "application/json",
+                            "Accept": "application/vnd.github.v3+json"
                         },
                         body: JSON.stringify({
                             message: "Update equipment data",
@@ -1495,8 +1500,10 @@
                 if (result.content) {
                     fileSHA = result.content.sha;
                     return true;
+                } else {
+                    console.error("Push failed:", result);
+                    return false;
                 }
-                return false;
             } catch (error) {
                 console.error("Push error:", error);
                 return false;
@@ -1526,6 +1533,7 @@
             
             syncInProgress = true;
             updateSyncStatus('syncing', 'Syncing data...');
+            loadingOverlay.classList.add('active');
             
             try {
                 // 1. Fetch file metadata to get SHA
@@ -1533,7 +1541,7 @@
                     `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
                     {
                         headers: {
-                            "Authorization": `token ${GITHUB_PAT}`,
+                            "Authorization": `Bearer ${GITHUB_PAT}`,
                             "Accept": "application/vnd.github.v3+json"
                         }
                     }
@@ -1550,9 +1558,21 @@
                     const contentResponse = await fetch(fileInfo.download_url);
                     if (contentResponse.ok) {
                         remoteData = await contentResponse.json();
+                    } else {
+                        throw new Error(`Failed to fetch content: ${contentResponse.status}`);
                     }
-                } else if (metaResponse.status !== 404) {
-                    throw new Error(`GitHub API returned ${metaResponse.status}`);
+                } else if (metaResponse.status === 404) {
+                    // File doesn't exist yet, will be created on first push
+                    console.log('File not found on GitHub. It will be created on first push.');
+                } else {
+                    let errorMsg = `GitHub API returned ${metaResponse.status}`;
+                    try {
+                        const errorBody = await metaResponse.json();
+                        errorMsg += ` - ${errorBody.message}`;
+                    } catch (e) {
+                        // Ignore
+                    }
+                    throw new Error(errorMsg);
                 }
 
                 const remoteTimestamp = remoteData.timestamp || 0;
@@ -1581,9 +1601,11 @@
             } catch (error) {
                 console.error('Sync error:', error);
                 updateSyncStatus('error', 'Sync failed - using local data');
+                // Load local data if sync fails
                 loadDataFromStorage();
             } finally {
                 syncInProgress = false;
+                loadingOverlay.classList.remove('active');
             }
         }
 
@@ -1605,11 +1627,55 @@
             const savedData = localStorage.getItem('equipmentData');
             if (savedData) {
                 equipmentData = JSON.parse(savedData);
+            } else {
+                // Sample data if no data exists
+                equipmentData = [
+                    {
+                        id: "TR-001",
+                        name: "John Deere Tractor",
+                        category: "tractor",
+                        year: 2020,
+                        lastMaintenance: "2023-06-15",
+                        nextMaintenance: "2024-06-15",
+                        notes: "Primary field tractor",
+                        maintenanceHistory: [
+                            {
+                                id: "MH-001",
+                                date: "2023-06-15",
+                                type: "Full Service",
+                                technician: "Mike Johnson",
+                                cost: 350.00,
+                                details: "Changed oil, filters, and performed full inspection"
+                            }
+                        ]
+                    },
+                    {
+                        id: "TR-002",
+                        name: "Ford F-150",
+                        category: "truck",
+                        year: 2019,
+                        lastMaintenance: "2023-05-20",
+                        nextMaintenance: "2023-11-20",
+                        notes: "Farm utility truck",
+                        maintenanceHistory: [
+                            {
+                                id: "MH-002",
+                                date: "2023-05-20",
+                                type: "Tire Rotation",
+                                technician: "Sarah Williams",
+                                cost: 75.00,
+                                details: "Rotated tires and checked alignment"
+                            }
+                        ]
+                    }
+                ];
             }
             
             const savedTimestamp = localStorage.getItem('lastSyncTimestamp');
             if (savedTimestamp) {
                 lastSyncTimestamp = parseInt(savedTimestamp);
+            } else {
+                lastSyncTimestamp = 0;
             }
             
             const savedSHA = localStorage.getItem('fileSHA');
@@ -1732,9 +1798,9 @@
                     </div>
                     <div class="equipment-id">${equip.id}</div>
                     <div class="equipment-meta">
-                        <span>Year: ${equip.year}</span>
+                        <span>Year: ${equip.year || 'N/A'}</span>
                     </div>
-                    <div class="equipment-notes">${equip.notes}</div>
+                    <div class="equipment-notes">${equip.notes || 'No notes available'}</div>
                 `;
                 
                 item.addEventListener('click', () => {
@@ -1766,11 +1832,11 @@
             document.getElementById('detailId').textContent = equip.id;
             document.getElementById('detailName').textContent = equip.name;
             document.getElementById('detailCategory').textContent = equip.category.charAt(0).toUpperCase() + equip.category.slice(1);
-            document.getElementById('detailYear').textContent = equip.year;
+            document.getElementById('detailYear').textContent = equip.year || 'N/A';
             
             document.getElementById('detailLastService').textContent = formatDate(equip.lastMaintenance);
             document.getElementById('detailNextService').textContent = formatDate(equip.nextMaintenance);
-            document.getElementById('detailNotes').textContent = equip.notes;
+            document.getElementById('detailNotes').textContent = equip.notes || 'No notes available';
             
             // Show/hide maintenance warning
             const warningElement = document.getElementById('maintenanceWarning');
@@ -1858,8 +1924,8 @@
             document.getElementById('editId').value = selectedEquipment.id;
             document.getElementById('editName').value = selectedEquipment.name;
             document.getElementById('editCategory').value = selectedEquipment.category;
-            document.getElementById('editYear').value = selectedEquipment.year;
-            document.getElementById('editNotes').value = selectedEquipment.notes;
+            document.getElementById('editYear').value = selectedEquipment.year || '';
+            document.getElementById('editNotes').value = selectedEquipment.notes || '';
             
             editModal.classList.add('show');
         }
@@ -1883,8 +1949,8 @@
             selectedEquipment.id = newId;
             selectedEquipment.name = document.getElementById('editName').value;
             selectedEquipment.category = document.getElementById('editCategory').value;
-            selectedEquipment.year = document.getElementById('editYear').value;
-            selectedEquipment.notes = document.getElementById('editNotes').value;
+            selectedEquipment.year = document.getElementById('editYear').value || null;
+            selectedEquipment.notes = document.getElementById('editNotes').value || null;
             
             // Update detail panel
             openDetailPanel(selectedEquipment);
@@ -2065,8 +2131,8 @@
                 id,
                 name,
                 category,
-                year,
-                notes,
+                year: year || null,
+                notes: notes || null,
                 lastMaintenance: new Date().toISOString().split('T')[0],
                 nextMaintenance: nextDate.toISOString().split('T')[0],
                 maintenanceHistory: []
@@ -2107,15 +2173,15 @@
             // Load data from storage
             loadDataFromStorage();
             
+            // Render initial equipment
+            renderEquipment();
+            calculateStats();
+            
             // Initial sync
             await syncData();
             
             // Set up periodic sync
             setInterval(syncData, SYNC_INTERVAL);
-            
-            // Render initial equipment
-            renderEquipment();
-            calculateStats();
             
             // Event listeners
             closePanelBtn.addEventListener('click', closeDetailPanel);
