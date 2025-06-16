@@ -1354,7 +1354,7 @@
         const DATA_PATH = "farmdata.json";
         const SYNC_INTERVAL = 30000; // 30 seconds
         const GITHUB_API = "https://api.github.com";
-        const GITHUB_PAT = "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"; // Replace with your GitHub PAT
+        let GITHUB_PAT = localStorage.getItem('github_pat'); // Load PAT from localStorage
         
         // Equipment data
         let equipmentData = [];
@@ -1479,6 +1479,16 @@
             });
 
             try {
+                const bodyData = {
+                    message: "Update equipment data",
+                    content: btoa(unescape(encodeURIComponent(content)))
+                };
+
+                // Only include SHA for updates (not new files)
+                if (fileSHA) {
+                    bodyData.sha = fileSHA;
+                }
+
                 const response = await fetch(
                     `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
                     {
@@ -1488,11 +1498,7 @@
                             "Content-Type": "application/json",
                             "Accept": "application/vnd.github.v3+json"
                         },
-                        body: JSON.stringify({
-                            message: "Update equipment data",
-                            content: btoa(unescape(encodeURIComponent(content))),
-                            sha: fileSHA // Include SHA for updates, omit for creates
-                        })
+                        body: JSON.stringify(bodyData)
                     }
                 );
 
@@ -1502,13 +1508,15 @@
                     fileSHA = result.content.sha;
                     return true;
                 } else {
-                    console.error("Push failed:", result);
-                    showToast(`Push failed: ${result.message || 'Unknown error'}`);
+                    let errorMsg = result.message || 'Unknown error';
+                    if (result.message?.includes("sha")) {
+                        errorMsg = "Missing file reference - try initial sync";
+                    }
+                    showToast(`Push failed: ${errorMsg}`);
                     return false;
                 }
             } catch (error) {
-                console.error("Push error:", error);
-                showToast('Push error: Check console for details');
+                showToast('Network error during sync');
                 return false;
             }
         }
@@ -1532,7 +1540,7 @@
 
         // Sync data with GitHub
         async function syncData() {
-            if (syncInProgress) return;
+            if (syncInProgress || !GITHUB_PAT) return;
             
             syncInProgress = true;
             updateSyncStatus('syncing', 'Syncing data...');
@@ -1555,7 +1563,7 @@
 
                 // Handle 404 - file doesn't exist yet
                 if (metaResponse.status === 404) {
-                    console.log('File not found on GitHub. Creating new file on first push.');
+                    console.log('File not found on GitHub. Will create on first push.');
                 } 
                 // Handle successful response
                 else if (metaResponse.ok) {
@@ -2167,6 +2175,19 @@
 
         // Initialize the app
         async function init() {
+            // Check for GitHub PAT
+            if (!GITHUB_PAT) {
+                const userPAT = prompt("Enter GitHub Personal Access Token (requires repo scope):");
+                if (userPAT) {
+                    localStorage.setItem('github_pat', userPAT);
+                    GITHUB_PAT = userPAT;
+                    location.reload();
+                } else {
+                    showToast("GitHub sync disabled - using local storage only");
+                    updateSyncStatus('error', 'No GitHub PAT configured');
+                }
+            }
+            
             // Load saved theme
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -2180,11 +2201,13 @@
             renderEquipment();
             calculateStats();
             
-            // Initial sync
-            await syncData();
-            
-            // Set up periodic sync
-            setInterval(syncData, SYNC_INTERVAL);
+            // Initial sync if PAT is available
+            if (GITHUB_PAT) {
+                await syncData();
+                
+                // Set up periodic sync
+                setInterval(syncData, SYNC_INTERVAL);
+            }
             
             // Event listeners
             closePanelBtn.addEventListener('click', closeDetailPanel);
