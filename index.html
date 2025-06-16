@@ -1497,15 +1497,18 @@
                 );
 
                 const result = await response.json();
-                if (result.content) {
+                
+                if (response.ok && result.content) {
                     fileSHA = result.content.sha;
                     return true;
                 } else {
                     console.error("Push failed:", result);
+                    showToast(`Push failed: ${result.message || 'Unknown error'}`);
                     return false;
                 }
             } catch (error) {
                 console.error("Push error:", error);
+                showToast('Push error: Check console for details');
                 return false;
             }
         }
@@ -1550,7 +1553,12 @@
                 let remoteData = { equipment: [], timestamp: 0 };
                 let remoteSHA = null;
 
-                if (metaResponse.status === 200) {
+                // Handle 404 - file doesn't exist yet
+                if (metaResponse.status === 404) {
+                    console.log('File not found on GitHub. Creating new file on first push.');
+                } 
+                // Handle successful response
+                else if (metaResponse.ok) {
                     const fileInfo = await metaResponse.json();
                     remoteSHA = fileInfo.sha;
                     
@@ -1561,18 +1569,11 @@
                     } else {
                         throw new Error(`Failed to fetch content: ${contentResponse.status}`);
                     }
-                } else if (metaResponse.status === 404) {
-                    // File doesn't exist yet, will be created on first push
-                    console.log('File not found on GitHub. It will be created on first push.');
-                } else {
-                    let errorMsg = `GitHub API returned ${metaResponse.status}`;
-                    try {
-                        const errorBody = await metaResponse.json();
-                        errorMsg += ` - ${errorBody.message}`;
-                    } catch (e) {
-                        // Ignore
-                    }
-                    throw new Error(errorMsg);
+                } 
+                // Handle other errors
+                else {
+                    const errorBody = await metaResponse.json();
+                    throw new Error(`GitHub API error: ${metaResponse.status} - ${errorBody.message}`);
                 }
 
                 const remoteTimestamp = remoteData.timestamp || 0;
@@ -1601,6 +1602,8 @@
             } catch (error) {
                 console.error('Sync error:', error);
                 updateSyncStatus('error', 'Sync failed - using local data');
+                showToast('Sync failed: Using local data');
+                
                 // Load local data if sync fails
                 loadDataFromStorage();
             } finally {
@@ -2293,4 +2296,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-</html>
+    </html>
