@@ -985,6 +985,89 @@
                 width: 100%;
             }
         }
+        
+        /* GitHub Auth Modal */
+        .github-auth-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+        
+        .auth-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .auth-content h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .auth-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .github-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+        }
+        
+        .auth-instructions {
+            text-align: left;
+            background: var(--background);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .auth-instructions ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .auth-instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .token-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 1rem;
+            font-family: monospace;
+        }
+        
+        .auth-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -1005,7 +1088,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="header">
-                <h1>SHB Farm Equipment</h1>
+                <h1>Farm Equipment</h1>
             </div>
             
             <div class="filter-section">
@@ -1145,6 +1228,39 @@
                 </button>
                 <button class="btn btn-primary" id="addMaintenanceBtn">
                     <i class="mdi mdi-wrench"></i> Add Maintenance
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GitHub Authentication Modal -->
+    <div class="github-auth-modal" id="githubAuthModal">
+        <div class="auth-content">
+            <div class="github-logo">
+                <i class="mdi mdi-github"></i>
+            </div>
+            <h2>GitHub Authentication Required</h2>
+            <p>To enable cloud sync with GitHub, please provide a Personal Access Token (PAT) with repository access.</p>
+            
+            <div class="auth-instructions">
+                <ol>
+                    <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Token Settings</a></li>
+                    <li>Click "Generate new token"</li>
+                    <li>Give your token a name (e.g., "Farm Log")</li>
+                    <li>Select the <strong>repo</strong> scope</li>
+                    <li>Click "Generate token" at the bottom</li>
+                    <li>Copy the generated token and paste it below</li>
+                </ol>
+            </div>
+            
+            <input type="text" id="githubTokenInput" class="token-input" placeholder="Paste your GitHub token here">
+            
+            <div class="auth-actions">
+                <button class="btn btn-outline" id="skipAuthBtn">
+                    Skip Cloud Sync
+                </button>
+                <button class="btn btn-primary" id="saveTokenBtn">
+                    Save Token & Sync
                 </button>
             </div>
         </div>
@@ -1384,20 +1500,24 @@
         const adminToggle = document.getElementById('adminToggle');
         const syncStatus = document.getElementById('syncStatus');
         const loadingOverlay = document.getElementById('loadingOverlay');
+        const githubAuthModal = document.getElementById('githubAuthModal');
+        const githubTokenInput = document.getElementById('githubTokenInput');
+        const saveTokenBtn = document.getElementById('saveTokenBtn');
+        const skipAuthBtn = document.getElementById('skipAuthBtn');
         const stats = {
             total: document.getElementById('totalEquipment'),
             overdue: document.getElementById('overdueEquipment')
         };
 
-        // Category count elements - UPDATED FOR NEW CATEGORIES
+        // Category count elements
         const categoryCounts = {
             all: document.getElementById('count-all'),
             tractor: document.getElementById('count-tractor'),
             truck: document.getElementById('count-truck'),
             trailer: document.getElementById('count-trailer'),
             implement: document.getElementById('count-implement'),
-            cars: document.getElementById('count-cars'),      // Changed from sprayer
-            other: document.getElementById('count-other')     // Changed from mower
+            cars: document.getElementById('count-cars'),
+            other: document.getElementById('count-other')
         };
 
         // Modal elements
@@ -1473,6 +1593,11 @@
                 return false;
             }
 
+            if (!equipmentData || equipmentData.length === 0) {
+                showToast("No data to sync");
+                return false;
+            }
+
             const content = JSON.stringify({
                 equipment: equipmentData,
                 timestamp: Date.now()
@@ -1530,11 +1655,15 @@
             saveDataToStorage();
             
             // Push to GitHub
-            const pushSuccess = await pushDataToGitHub();
-            if (pushSuccess) {
-                showToast('Changes saved to cloud');
+            if (GITHUB_PAT) {
+                const pushSuccess = await pushDataToGitHub();
+                if (pushSuccess) {
+                    showToast('Changes saved to cloud');
+                } else {
+                    showToast('Saved locally but failed to sync with cloud');
+                }
             } else {
-                showToast('Saved locally but failed to sync with cloud');
+                showToast('Changes saved locally (no cloud sync configured)');
             }
         }
 
@@ -1563,7 +1692,18 @@
 
                 // Handle 404 - file doesn't exist yet
                 if (metaResponse.status === 404) {
-                    console.log('File not found on GitHub. Will create on first push.');
+                    console.log('File not found. Creating initial file...');
+                    fileSHA = null; // Reset for new file creation
+                    
+                    // SPECIAL CASE: Push local data if it exists
+                    if (equipmentData.length > 0) {
+                        const pushSuccess = await pushDataToGitHub();
+                        if (pushSuccess) {
+                            showToast('Created new data file on GitHub');
+                            lastSyncTimestamp = Date.now();
+                        }
+                        return; // Exit after initial creation
+                    }
                 } 
                 // Handle successful response
                 else if (metaResponse.ok) {
@@ -1581,7 +1721,17 @@
                 // Handle other errors
                 else {
                     const errorBody = await metaResponse.json();
-                    throw new Error(`GitHub API error: ${metaResponse.status} - ${errorBody.message}`);
+                    let errorMsg = `GitHub API error: ${metaResponse.status} - ${errorBody.message}`;
+                    
+                    if (metaResponse.status === 401 || metaResponse.status === 403) {
+                        errorMsg = "Authentication failed. Please check your GitHub PAT.";
+                        // Remove invalid token
+                        localStorage.removeItem('github_pat');
+                        GITHUB_PAT = null;
+                        githubAuthModal.style.display = 'flex';
+                    }
+                    
+                    throw new Error(errorMsg);
                 }
 
                 const remoteTimestamp = remoteData.timestamp || 0;
@@ -1609,8 +1759,8 @@
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
                 console.error('Sync error:', error);
-                updateSyncStatus('error', 'Sync failed - using local data');
-                showToast('Sync failed: Using local data');
+                updateSyncStatus('error', error.message || 'Sync failed - using local data');
+                showToast(error.message || 'Sync failed: Using local data');
                 
                 // Load local data if sync fails
                 loadDataFromStorage();
@@ -1663,7 +1813,7 @@
                     {
                         id: "CAR-001",
                         name: "Farm Utility Vehicle",
-                        category: "cars",  // Changed to cars
+                        category: "cars",
                         year: 2021,
                         lastMaintenance: "2023-07-10",
                         nextMaintenance: "2024-07-10",
@@ -1682,7 +1832,7 @@
                     {
                         id: "OTHER-001",
                         name: "Specialized Harvester",
-                        category: "other",  // Changed to other
+                        category: "other",
                         year: 2018,
                         lastMaintenance: "2023-05-01",
                         nextMaintenance: "2023-11-01",
@@ -1705,7 +1855,7 @@
             if (savedTimestamp) {
                 lastSyncTimestamp = parseInt(savedTimestamp);
             } else {
-                lastSyncTimestamp = 0;
+                lastSyncTimestamp = equipmentData.length > 0 ? Date.now() : 0;
             }
             
             const savedSHA = localStorage.getItem('fileSHA');
@@ -2194,19 +2344,6 @@
 
         // Initialize the app
         async function init() {
-            // Check for GitHub PAT
-            if (!GITHUB_PAT) {
-                const userPAT = prompt("Enter GitHub Personal Access Token (requires repo scope):");
-                if (userPAT) {
-                    localStorage.setItem('github_pat', userPAT);
-                    GITHUB_PAT = userPAT;
-                    location.reload();
-                } else {
-                    showToast("GitHub sync disabled - using local storage only");
-                    updateSyncStatus('error', 'No GitHub PAT configured');
-                }
-            }
-            
             // Load saved theme
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -2220,8 +2357,12 @@
             renderEquipment();
             calculateStats();
             
-            // Initial sync if PAT is available
-            if (GITHUB_PAT) {
+            // Check if we have a GitHub PAT
+            if (!GITHUB_PAT) {
+                // Show GitHub authentication modal
+                githubAuthModal.style.display = 'flex';
+            } else {
+                // Initial sync if PAT is available
                 await syncData();
                 
                 // Set up periodic sync
@@ -2320,6 +2461,29 @@
             });
             closePinModal.addEventListener('click', () => {
                 pinModal.classList.remove('show');
+            });
+            
+            // GitHub auth buttons
+            saveTokenBtn.addEventListener('click', () => {
+                const token = githubTokenInput.value.trim();
+                if (token) {
+                    localStorage.setItem('github_pat', token);
+                    GITHUB_PAT = token;
+                    githubAuthModal.style.display = 'none';
+                    showToast('GitHub token saved');
+                    
+                    // Start syncing
+                    syncData();
+                    setInterval(syncData, SYNC_INTERVAL);
+                } else {
+                    showToast('Please enter a valid GitHub token');
+                }
+            });
+            
+            skipAuthBtn.addEventListener('click', () => {
+                githubAuthModal.style.display = 'none';
+                updateSyncStatus('error', 'Cloud sync disabled');
+                showToast('Using local storage only');
             });
             
             // Close modals when clicking outside
