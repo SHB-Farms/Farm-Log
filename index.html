@@ -905,6 +905,63 @@
             opacity: 1;
             pointer-events: all;
         }
+        
+        /* Setup Modal Styles */
+        .setup-modal-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .setup-modal-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .setup-modal-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .setup-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            background: var(--background);
+            color: var(--text);
+        }
+        
+        .setup-instructions {
+            text-align: left;
+            background: rgba(46,125,50,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .setup-instructions code {
+            background: rgba(0,0,0,0.05);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .setup-instructions ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .setup-instructions li {
+            margin-bottom: 8px;
+        }
 
         /* Responsive */
         @media (max-width: 1200px) {
@@ -1343,6 +1400,42 @@
         </div>
     </div>
     
+    <!-- Setup Modal -->
+    <div class="modal-overlay show" id="setupModal">
+        <div class="modal-content">
+            <div class="setup-modal-content">
+                <h2>GitHub Setup Required</h2>
+                <p>To enable cloud sync, you need to provide a GitHub Personal Access Token.</p>
+                
+                <div class="setup-instructions">
+                    <p><strong>How to create a token:</strong></p>
+                    <ol>
+                        <li>Go to GitHub → Settings → Developer Settings → Personal Access Tokens</li>
+                        <li>Click "Generate new token"</li>
+                        <li>Give it a name like "Farm Log"</li>
+                        <li>Select <code>repo</code> scope (full repository access)</li>
+                        <li>Generate token and paste it below</li>
+                    </ol>
+                    <p><strong>Note:</strong> This token is stored locally in your browser only.</p>
+                </div>
+                
+                <input type="password" 
+                       class="setup-input" 
+                       id="patInput"
+                       placeholder="Paste your GitHub Personal Access Token here">
+                
+                <div class="confirmation-actions">
+                    <button class="btn btn-outline" id="cancelSetupBtn">
+                        Continue Locally
+                    </button>
+                    <button class="btn btn-primary" id="savePatBtn">
+                        Save & Sync
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div id="toast" class="toast">
         <span id="toastMessage"></span>
     </div>
@@ -1389,15 +1482,15 @@
             overdue: document.getElementById('overdueEquipment')
         };
 
-        // Category count elements - UPDATED FOR NEW CATEGORIES
+        // Category count elements
         const categoryCounts = {
             all: document.getElementById('count-all'),
             tractor: document.getElementById('count-tractor'),
             truck: document.getElementById('count-truck'),
             trailer: document.getElementById('count-trailer'),
             implement: document.getElementById('count-implement'),
-            cars: document.getElementById('count-cars'),      // Changed from sprayer
-            other: document.getElementById('count-other')     // Changed from mower
+            cars: document.getElementById('count-cars'),
+            other: document.getElementById('count-other')
         };
 
         // Modal elements
@@ -1414,6 +1507,10 @@
         const submitPinBtn = document.getElementById('submitPinBtn');
         const cancelPinBtn = document.getElementById('cancelPinBtn');
         const closePinModal = document.getElementById('closePinModal');
+        const setupModal = document.getElementById('setupModal');
+        const patInput = document.getElementById('patInput');
+        const savePatBtn = document.getElementById('savePatBtn');
+        const cancelSetupBtn = document.getElementById('cancelSetupBtn');
 
         // Helper function to format dates
         function formatDate(dateString) {
@@ -1639,7 +1736,7 @@
             if (savedData) {
                 equipmentData = JSON.parse(savedData);
             } else {
-                // Sample data with updated categories
+                // Sample data
                 equipmentData = [
                     {
                         id: "TR-001",
@@ -1663,7 +1760,7 @@
                     {
                         id: "CAR-001",
                         name: "Farm Utility Vehicle",
-                        category: "cars",  // Changed to cars
+                        category: "cars",
                         year: 2021,
                         lastMaintenance: "2023-07-10",
                         nextMaintenance: "2024-07-10",
@@ -1682,7 +1779,7 @@
                     {
                         id: "OTHER-001",
                         name: "Specialized Harvester",
-                        category: "other",  // Changed to other
+                        category: "other",
                         year: 2018,
                         lastMaintenance: "2023-05-01",
                         nextMaintenance: "2023-11-01",
@@ -2194,19 +2291,6 @@
 
         // Initialize the app
         async function init() {
-            // Check for GitHub PAT
-            if (!GITHUB_PAT) {
-                const userPAT = prompt("Enter GitHub Personal Access Token (requires repo scope):");
-                if (userPAT) {
-                    localStorage.setItem('github_pat', userPAT);
-                    GITHUB_PAT = userPAT;
-                    location.reload();
-                } else {
-                    showToast("GitHub sync disabled - using local storage only");
-                    updateSyncStatus('error', 'No GitHub PAT configured');
-                }
-            }
-            
             // Load saved theme
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -2220,8 +2304,35 @@
             renderEquipment();
             calculateStats();
             
-            // Initial sync if PAT is available
-            if (GITHUB_PAT) {
+            // Setup modal handling
+            if (!GITHUB_PAT) {
+                setupModal.classList.add('show');
+                
+                savePatBtn.addEventListener('click', () => {
+                    const pat = patInput.value.trim();
+                    if (pat) {
+                        localStorage.setItem('github_pat', pat);
+                        GITHUB_PAT = pat;
+                        showToast('GitHub PAT saved');
+                        setupModal.classList.remove('show');
+                        
+                        // Sync with GitHub now that we have PAT
+                        syncData();
+                        
+                        // Set up periodic sync
+                        setInterval(syncData, SYNC_INTERVAL);
+                    } else {
+                        showToast('Please enter a valid PAT');
+                    }
+                });
+                
+                cancelSetupBtn.addEventListener('click', () => {
+                    setupModal.classList.remove('show');
+                    showToast('Using local storage only');
+                    updateSyncStatus('error', 'No GitHub PAT configured');
+                });
+            } else if (GITHUB_PAT) {
+                // Sync with GitHub if we already have PAT
                 await syncData();
                 
                 // Set up periodic sync
