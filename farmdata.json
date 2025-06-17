@@ -1,6 +1,16 @@
 {
   "equipment": [
     {
+      "id": "Testing",
+      "name": "Testing",
+      "category": "tractor",
+      "year": "2025",
+      "notes": "Testing",
+      "lastMaintenance": "2025-06-17",
+      "nextMaintenance": "2026-06-17",
+      "maintenanceHistory": []
+    },
+    {
       "id": "1FDYY90L1KVA36937",
       "name": "FORD Crane L9000",
       "category": "truck",
@@ -1091,5 +1101,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750131164598
+  "timestamp": 1750190193135
 }
