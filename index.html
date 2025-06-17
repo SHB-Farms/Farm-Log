@@ -68,13 +68,29 @@
             overflow: hidden;
         }
 
-        /* Header with theme toggle */
+        /* Updated header styles */
         .app-header {
             position: absolute;
             top: 0;
             right: 0;
+            left: 0;
             padding: 16px;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: calc(100% - 100px);
+        }
+
+        .header-right {
             display: flex;
             gap: 10px;
         }
@@ -103,11 +119,7 @@
             background: var(--secondary);
         }
 
-        /* Token indicator */
         .token-indicator {
-            position: absolute;
-            top: 16px;
-            right: 70px;
             background: var(--surface);
             padding: 8px 12px;
             border-radius: 20px;
@@ -116,9 +128,10 @@
             align-items: center;
             gap: 6px;
             box-shadow: var(--shadow);
-            z-index: 100;
             cursor: pointer;
             transition: var(--transition);
+            width: fit-content;
+            max-width: 100%;
         }
         
         .token-indicator:hover {
@@ -138,11 +151,7 @@
             color: var(--warning);
         }
 
-        /* Sync status */
         .sync-status {
-            position: absolute;
-            top: 70px;
-            right: 16px;
             background: var(--surface);
             padding: 8px 12px;
             border-radius: 20px;
@@ -151,7 +160,8 @@
             align-items: center;
             gap: 6px;
             box-shadow: var(--shadow);
-            z-index: 100;
+            width: fit-content;
+            max-width: 100%;
         }
         
         .sync-status.syncing {
@@ -985,6 +995,23 @@
             .stats-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+            
+            .app-header {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            
+            .header-left {
+                align-self: stretch;
+                max-width: 100%;
+            }
+            
+            .token-indicator, .sync-status {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1024,21 +1051,26 @@
 </head>
 <body>
     <div class="app-header">
-        <div class="token-indicator none" id="tokenIndicator">
-            <i class="mdi mdi-key"></i>
-            <span>No GitHub token</span>
+        <div class="header-left">
+            <div class="token-indicator none" id="tokenIndicator">
+                <i class="mdi mdi-key"></i>
+                <span>No GitHub token</span>
+            </div>
+            
+            <div class="sync-status" id="syncStatus">
+                <i class="mdi mdi-cloud-sync"></i>
+                <span>Initializing sync...</span>
+            </div>
         </div>
         
-        <div class="sync-status" id="syncStatus">
-            <i class="mdi mdi-cloud-sync"></i>
-            <span>Initializing sync...</span>
+        <div class="header-right">
+            <button class="admin-toggle" id="adminToggle" aria-label="Toggle admin mode">
+                <i class="mdi mdi-lock"></i>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="mdi mdi-theme-light-dark"></i>
+            </button>
         </div>
-        <button class="admin-toggle" id="adminToggle" aria-label="Toggle admin mode">
-            <i class="mdi mdi-lock"></i>
-        </button>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="mdi mdi-theme-light-dark"></i>
-        </button>
     </div>
     
     <div class="container">
@@ -2481,4 +2513,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-</html>
+    </html>
