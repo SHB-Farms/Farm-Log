@@ -103,6 +103,41 @@
             background: var(--secondary);
         }
 
+        /* Token indicator */
+        .token-indicator {
+            position: absolute;
+            top: 16px;
+            right: 70px;
+            background: var(--surface);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .token-indicator:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+        
+        .token-indicator.valid {
+            color: var(--success);
+        }
+        
+        .token-indicator.invalid {
+            color: var(--error);
+        }
+        
+        .token-indicator.none {
+            color: var(--warning);
+        }
+
         /* Sync status */
         .sync-status {
             position: absolute;
@@ -985,93 +1020,15 @@
                 width: 100%;
             }
         }
-        
-        /* GitHub Auth Modal */
-        .github-auth-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-        }
-        
-        .auth-content {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 30px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        
-        .auth-content h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .auth-content p {
-            margin-bottom: 20px;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .github-logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: white;
-        }
-        
-        .auth-instructions {
-            text-align: left;
-            background: var(--background);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-        
-        .auth-instructions ol {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        
-        .auth-instructions li {
-            margin-bottom: 10px;
-        }
-        
-        .token-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin: 15px 0;
-            font-size: 1rem;
-            font-family: monospace;
-        }
-        
-        .auth-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
     <div class="app-header">
+        <div class="token-indicator none" id="tokenIndicator">
+            <i class="mdi mdi-key"></i>
+            <span>No GitHub token</span>
+        </div>
+        
         <div class="sync-status" id="syncStatus">
             <i class="mdi mdi-cloud-sync"></i>
             <span>Initializing sync...</span>
@@ -1228,39 +1185,6 @@
                 </button>
                 <button class="btn btn-primary" id="addMaintenanceBtn">
                     <i class="mdi mdi-wrench"></i> Add Maintenance
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- GitHub Authentication Modal -->
-    <div class="github-auth-modal" id="githubAuthModal">
-        <div class="auth-content">
-            <div class="github-logo">
-                <i class="mdi mdi-github"></i>
-            </div>
-            <h2>GitHub Authentication Required</h2>
-            <p>To enable cloud sync with GitHub, please provide a Personal Access Token (PAT) with repository access.</p>
-            
-            <div class="auth-instructions">
-                <ol>
-                    <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Token Settings</a></li>
-                    <li>Click "Generate new token"</li>
-                    <li>Give your token a name (e.g., "Farm Log")</li>
-                    <li>Select the <strong>repo</strong> scope</li>
-                    <li>Click "Generate token" at the bottom</li>
-                    <li>Copy the generated token and paste it below</li>
-                </ol>
-            </div>
-            
-            <input type="text" id="githubTokenInput" class="token-input" placeholder="Paste your GitHub token here">
-            
-            <div class="auth-actions">
-                <button class="btn btn-outline" id="skipAuthBtn">
-                    Skip Cloud Sync
-                </button>
-                <button class="btn btn-primary" id="saveTokenBtn">
-                    Save Token & Sync
                 </button>
             </div>
         </div>
@@ -1459,6 +1383,36 @@
         </div>
     </div>
     
+    <!-- Token Configuration Modal -->
+    <div class="modal-overlay" id="tokenModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>GitHub Token Configuration</h2>
+                <button class="close-panel" id="closeTokenModal">
+                    <i class="mdi mdi-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="tokenInput">GitHub Personal Access Token</label>
+                    <input type="password" id="tokenInput" class="form-control" 
+                           placeholder="Enter token with repo scope">
+                    <p style="font-size: 0.85rem; margin-top: 8px; color: var(--text-light);">
+                        <i class="mdi mdi-information-outline"></i>
+                        Create a token with <strong>repo</strong> scope in GitHub Settings
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="removeTokenBtn">
+                    <i class="mdi mdi-delete"></i> Remove Token
+                </button>
+                <button class="btn btn-outline" id="cancelTokenBtn">Cancel</button>
+                <button class="btn btn-primary" id="saveTokenBtn">Save Token</button>
+            </div>
+        </div>
+    </div>
+    
     <div id="toast" class="toast">
         <span id="toastMessage"></span>
     </div>
@@ -1500,10 +1454,13 @@
         const adminToggle = document.getElementById('adminToggle');
         const syncStatus = document.getElementById('syncStatus');
         const loadingOverlay = document.getElementById('loadingOverlay');
-        const githubAuthModal = document.getElementById('githubAuthModal');
-        const githubTokenInput = document.getElementById('githubTokenInput');
+        const tokenIndicator = document.getElementById('tokenIndicator');
+        const tokenModal = document.getElementById('tokenModal');
+        const tokenInput = document.getElementById('tokenInput');
         const saveTokenBtn = document.getElementById('saveTokenBtn');
-        const skipAuthBtn = document.getElementById('skipAuthBtn');
+        const removeTokenBtn = document.getElementById('removeTokenBtn');
+        const cancelTokenBtn = document.getElementById('cancelTokenBtn');
+        const closeTokenModal = document.getElementById('closeTokenModal');
         const stats = {
             total: document.getElementById('totalEquipment'),
             overdue: document.getElementById('overdueEquipment')
@@ -1548,6 +1505,17 @@
             const today = new Date();
             const nextDate = new Date(equip.nextMaintenance);
             return nextDate < today;
+        }
+
+        // Update token indicator UI
+        function updateTokenIndicator() {
+            if (GITHUB_PAT) {
+                tokenIndicator.className = 'token-indicator valid';
+                tokenIndicator.innerHTML = '<i class="mdi mdi-key"></i> <span>GitHub token configured</span>';
+            } else {
+                tokenIndicator.className = 'token-indicator none';
+                tokenIndicator.innerHTML = '<i class="mdi mdi-key"></i> <span>No GitHub token</span>';
+            }
         }
 
         // Toggle admin mode
@@ -1654,7 +1622,7 @@
             // Save to localStorage
             saveDataToStorage();
             
-            // Push to GitHub
+            // Only push to GitHub if token is configured
             if (GITHUB_PAT) {
                 const pushSuccess = await pushDataToGitHub();
                 if (pushSuccess) {
@@ -1663,13 +1631,16 @@
                     showToast('Saved locally but failed to sync with cloud');
                 }
             } else {
-                showToast('Changes saved locally (no cloud sync configured)');
+                showToast('Changes saved locally (no GitHub token)');
             }
         }
 
         // Sync data with GitHub
         async function syncData() {
-            if (syncInProgress || !GITHUB_PAT) return;
+            if (syncInProgress || !GITHUB_PAT) {
+                updateSyncStatus('error', 'No GitHub token configured');
+                return;
+            }
             
             syncInProgress = true;
             updateSyncStatus('syncing', 'Syncing data...');
@@ -1721,17 +1692,7 @@
                 // Handle other errors
                 else {
                     const errorBody = await metaResponse.json();
-                    let errorMsg = `GitHub API error: ${metaResponse.status} - ${errorBody.message}`;
-                    
-                    if (metaResponse.status === 401 || metaResponse.status === 403) {
-                        errorMsg = "Authentication failed. Please check your GitHub PAT.";
-                        // Remove invalid token
-                        localStorage.removeItem('github_pat');
-                        GITHUB_PAT = null;
-                        githubAuthModal.style.display = 'flex';
-                    }
-                    
-                    throw new Error(errorMsg);
+                    throw new Error(`GitHub API error: ${metaResponse.status} - ${errorBody.message}`);
                 }
 
                 const remoteTimestamp = remoteData.timestamp || 0;
@@ -1759,8 +1720,8 @@
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
                 console.error('Sync error:', error);
-                updateSyncStatus('error', error.message || 'Sync failed - using local data');
-                showToast(error.message || 'Sync failed: Using local data');
+                updateSyncStatus('error', 'Sync failed - using local data');
+                showToast('Sync failed: Using local data');
                 
                 // Load local data if sync fails
                 loadDataFromStorage();
@@ -2344,6 +2305,9 @@
 
         // Initialize the app
         async function init() {
+            // Update token indicator
+            updateTokenIndicator();
+            
             // Load saved theme
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
@@ -2357,19 +2321,56 @@
             renderEquipment();
             calculateStats();
             
-            // Check if we have a GitHub PAT
-            if (!GITHUB_PAT) {
-                // Show GitHub authentication modal
-                githubAuthModal.style.display = 'flex';
-            } else {
-                // Initial sync if PAT is available
+            // Initial sync if PAT is available
+            if (GITHUB_PAT) {
                 await syncData();
                 
                 // Set up periodic sync
                 setInterval(syncData, SYNC_INTERVAL);
+            } else {
+                updateSyncStatus('error', 'No GitHub token configured');
             }
             
             // Event listeners
+            tokenIndicator.addEventListener('click', () => {
+                tokenInput.value = GITHUB_PAT || '';
+                tokenModal.classList.add('show');
+            });
+            
+            saveTokenBtn.addEventListener('click', () => {
+                const newToken = tokenInput.value.trim();
+                if (newToken) {
+                    localStorage.setItem('github_pat', newToken);
+                    GITHUB_PAT = newToken;
+                    tokenModal.classList.remove('show');
+                    updateTokenIndicator();
+                    showToast('GitHub token saved');
+                    
+                    // Reinitialize sync
+                    syncData();
+                    setInterval(syncData, SYNC_INTERVAL);
+                } else {
+                    showToast('Please enter a valid token');
+                }
+            });
+            
+            removeTokenBtn.addEventListener('click', () => {
+                localStorage.removeItem('github_pat');
+                GITHUB_PAT = null;
+                tokenModal.classList.remove('show');
+                updateTokenIndicator();
+                updateSyncStatus('error', 'GitHub token removed');
+                showToast('GitHub token removed');
+            });
+            
+            cancelTokenBtn.addEventListener('click', () => {
+                tokenModal.classList.remove('show');
+            });
+            
+            closeTokenModal.addEventListener('click', () => {
+                tokenModal.classList.remove('show');
+            });
+            
             closePanelBtn.addEventListener('click', closeDetailPanel);
             themeToggle.addEventListener('click', toggleTheme);
             adminToggle.addEventListener('click', toggleAdminMode);
@@ -2463,29 +2464,6 @@
                 pinModal.classList.remove('show');
             });
             
-            // GitHub auth buttons
-            saveTokenBtn.addEventListener('click', () => {
-                const token = githubTokenInput.value.trim();
-                if (token) {
-                    localStorage.setItem('github_pat', token);
-                    GITHUB_PAT = token;
-                    githubAuthModal.style.display = 'none';
-                    showToast('GitHub token saved');
-                    
-                    // Start syncing
-                    syncData();
-                    setInterval(syncData, SYNC_INTERVAL);
-                } else {
-                    showToast('Please enter a valid GitHub token');
-                }
-            });
-            
-            skipAuthBtn.addEventListener('click', () => {
-                githubAuthModal.style.display = 'none';
-                updateSyncStatus('error', 'Cloud sync disabled');
-                showToast('Using local storage only');
-            });
-            
             // Close modals when clicking outside
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('modal-overlay')) {
@@ -2494,6 +2472,7 @@
                     addEquipmentModal.classList.remove('show');
                     confirmationModal.classList.remove('show');
                     pinModal.classList.remove('show');
+                    tokenModal.classList.remove('show');
                 }
             });
         }
