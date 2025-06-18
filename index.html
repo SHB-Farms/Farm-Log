@@ -831,6 +831,14 @@
             gap: 12px;
         }
 
+        /* Conflict Resolution Modal */
+        .conflict-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
         /* PIN Modal */
         .pin-input {
             font-size: 1.5rem;
@@ -1256,6 +1264,31 @@
     </div>
     
     <!-- Modals -->
+    <div class="modal-overlay" id="conflictModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resolve Conflict</h2>
+                <button class="close-panel" id="closeConflictModal">
+                    <i class="mdi mdi-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Remote file has changed. Choose how to resolve:</p>
+                <div class="conflict-options">
+                    <button class="btn btn-outline" id="useLocalBtn">
+                        <i class="mdi mdi-desktop-classic"></i> Use Local Version
+                    </button>
+                    <button class="btn btn-outline" id="useRemoteBtn">
+                        <i class="mdi mdi-cloud"></i> Use Remote Version
+                    </button>
+                    <button class="btn btn-primary" id="mergeBtn">
+                        <i class="mdi mdi-merge"></i> Merge Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="editModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1559,6 +1592,11 @@
         const submitPinBtn = document.getElementById('submitPinBtn');
         const cancelPinBtn = document.getElementById('cancelPinBtn');
         const closePinModal = document.getElementById('closePinModal');
+        const conflictModal = document.getElementById('conflictModal');
+        const useLocalBtn = document.getElementById('useLocalBtn');
+        const useRemoteBtn = document.getElementById('useRemoteBtn');
+        const mergeBtn = document.getElementById('mergeBtn');
+        const closeConflictModal = document.getElementById('closeConflictModal');
 
         // Helper function to format dates
         function formatDate(dateString) {
@@ -1634,6 +1672,26 @@
             }
         }
 
+        // Fetch remote data from GitHub
+        async function fetchRemoteData() {
+            const metaResponse = await fetch(
+                `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
+                { headers: { "Authorization": `Bearer ${GITHUB_PAT}` } }
+            );
+
+            if (!metaResponse.ok) throw new Error('Failed to fetch metadata');
+            
+            const fileInfo = await metaResponse.json();
+            const contentResponse = await fetch(fileInfo.download_url);
+            
+            if (!contentResponse.ok) throw new Error('Failed to fetch content');
+            
+            return {
+                equipment: (await contentResponse.json()).equipment || [],
+                sha: fileInfo.sha
+            };
+        }
+
         // Push data to GitHub
         async function pushDataToGitHub() {
             if (!GITHUB_PAT) {
@@ -1680,9 +1738,14 @@
                     
                     // Handle conflict error specifically
                     if (response.status === 409) {
-                        errorMsg = "Conflict: Remote file has changed. Syncing latest data...";
-                        // Trigger sync after a delay
-                        setTimeout(syncData, 3000);
+                        errorMsg = "Conflict: Remote file has changed";
+                        // Save local changes to temporary storage
+                        localStorage.setItem('pendingChanges', JSON.stringify({
+                            data: equipmentData,
+                            timestamp: Date.now()
+                        }));
+                        // Show conflict resolution toast
+                        showToast('Conflict detected! Click here to resolve', 10000, true);
                     }
                     // Handle missing SHA (422 Unprocessable Entity)
                     else if (response.status === 422 && errorMsg.toLowerCase().includes('sha')) {
@@ -2174,13 +2237,19 @@
         }
 
         // Show toast notification
-        function showToast(message) {
+        function showToast(message, duration = 3000, clickable = false) {
             toastMessage.textContent = message;
             toast.classList.add('show');
             
+            if (clickable) {
+                toast.style.cursor = 'pointer';
+            } else {
+                toast.style.cursor = 'default';
+            }
+            
             setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3000);
+            }, duration);
         }
 
         // Open edit modal
@@ -2433,6 +2502,62 @@
             showToast('New equipment added');
         }
 
+        // Resolve conflict with selected option
+        async function resolveConflict(option) {
+            const pendingChanges = JSON.parse(localStorage.getItem('pendingChanges'));
+            
+            try {
+                // Fetch latest remote data
+                const remoteData = await fetchRemoteData();
+                
+                if (option === 'remote') {
+                    // Use remote version
+                    equipmentData = remoteData.equipment;
+                    showToast('Using remote version');
+                } 
+                else if (option === 'local') {
+                    // Use local version (override remote)
+                    equipmentData = pendingChanges.data;
+                    showToast('Using local version');
+                }
+                else if (option === 'merge') {
+                    // Simple merge by ID (last edit wins)
+                    const merged = [...remoteData.equipment];
+                    
+                    pendingChanges.data.forEach(localItem => {
+                        const index = merged.findIndex(r => r.id === localItem.id);
+                        if (index > -1) {
+                            merged[index] = localItem;  // Overwrite with local
+                        } else {
+                            merged.push(localItem);     // Add new item
+                        }
+                    });
+                    
+                    equipmentData = merged;
+                    showToast('Changes merged');
+                }
+
+                // Update SHA and timestamp
+                fileSHA = remoteData.sha;
+                lastSyncTimestamp = Date.now();
+                
+                // Save and render
+                saveDataToStorage();
+                renderEquipment();
+                calculateStats();
+                
+                // Retry push
+                const success = await pushDataToGitHub();
+                if (success) showToast('Conflict resolved and data pushed');
+                
+            } catch (error) {
+                showToast('Conflict resolution failed: ' + error.message);
+            } finally {
+                localStorage.removeItem('pendingChanges');
+                conflictModal.classList.remove('show');
+            }
+        }
+
         // Initialize the app
         async function init() {
             // Update token indicator
@@ -2599,6 +2724,21 @@
                 pinModal.classList.remove('show');
             });
             
+            // Conflict resolution buttons
+            useLocalBtn.addEventListener('click', () => resolveConflict('local'));
+            useRemoteBtn.addEventListener('click', () => resolveConflict('remote'));
+            mergeBtn.addEventListener('click', () => resolveConflict('merge'));
+            closeConflictModal.addEventListener('click', () => {
+                conflictModal.classList.remove('show');
+            });
+            
+            // Toast click handler for conflict resolution
+            toast.addEventListener('click', () => {
+                if (toastMessage.textContent.includes('Conflict detected')) {
+                    conflictModal.classList.add('show');
+                }
+            });
+            
             // Close modals when clicking outside
             document.addEventListener('click', (e) => {
                 if (e.target.classList.contains('modal-overlay')) {
@@ -2608,6 +2748,7 @@
                     confirmationModal.classList.remove('show');
                     pinModal.classList.remove('show');
                     tokenModal.classList.remove('show');
+                    conflictModal.classList.remove('show');
                 }
             });
         }
@@ -2616,4 +2757,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-    </html>
+                        </html>
