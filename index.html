@@ -123,6 +123,7 @@
 
         .status-icon.syncing {
             color: var(--warning);
+            animation: pulse 1.5s infinite;
         }
         
         .status-icon.synced {
@@ -148,6 +149,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.2s;
+            z-index: 1000;
         }
 
         .status-icon:hover::after {
@@ -358,6 +360,26 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-dark);
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .sort-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .sort-select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
         }
 
         .add-equipment-btn {
@@ -1009,6 +1031,11 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
+
+            .sort-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1130,6 +1157,16 @@
         <div class="equipment-list">
             <div class="list-header">
                 <h2>Equipment Inventory</h2>
+                <div class="sort-controls">
+                    <span class="sort-label">Sort by:</span>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="year-asc">Year (Oldest)</option>
+                        <option value="year-desc">Year (Newest)</option>
+                        <option value="nextService">Next Service</option>
+                    </select>
+                </div>
                 <button class="add-equipment-btn" id="addEquipmentBtn" style="display: none;">
                     <i class="mdi mdi-plus"></i> Add Equipment
                 </button>
@@ -1505,6 +1542,9 @@
             other: document.getElementById('count-other')
         };
 
+        // Sorting control
+        const sortSelect = document.getElementById('sortSelect');
+
         // Modal elements
         const editModal = document.getElementById('editModal');
         const maintenanceModal = document.getElementById('maintenanceModal');
@@ -1637,6 +1677,13 @@
                     return true;
                 } else {
                     let errorMsg = result.message || 'Unknown error';
+                    
+                    // Handle conflict error specifically
+                    if (response.status === 409) {
+                        errorMsg = "Conflict: Remote file has changed. Syncing latest data...";
+                        setTimeout(syncData, 3000);
+                    }
+                    
                     showToast(`Push failed: ${errorMsg}`);
                     return false;
                 }
@@ -1955,13 +2002,38 @@
             renderEquipment();
         }
 
+        // Sort equipment
+        function sortEquipment(equipment) {
+            const sortValue = sortSelect.value;
+            
+            switch(sortValue) {
+                case 'name-asc':
+                    return [...equipment].sort((a, b) => a.name.localeCompare(b.name));
+                case 'name-desc':
+                    return [...equipment].sort((a, b) => b.name.localeCompare(a.name));
+                case 'year-asc':
+                    return [...equipment].sort((a, b) => (a.year || 0) - (b.year || 0));
+                case 'year-desc':
+                    return [...equipment].sort((a, b) => (b.year || 0) - (a.year || 0));
+                case 'nextService':
+                    return [...equipment].sort((a, b) => {
+                        const dateA = a.nextMaintenance ? new Date(a.nextMaintenance) : new Date(0);
+                        const dateB = b.nextMaintenance ? new Date(b.nextMaintenance) : new Date(0);
+                        return dateA - dateB;
+                    });
+                default:
+                    return [...equipment].sort((a, b) => a.name.localeCompare(b.name));
+            }
+        }
+
         // Render equipment list
         function renderEquipment() {
             equipmentGrid.innerHTML = '';
             
             const filteredEquipment = filterEquipment();
+            const sortedEquipment = sortEquipment(filteredEquipment);
             
-            if (filteredEquipment.length === 0) {
+            if (sortedEquipment.length === 0) {
                 equipmentGrid.innerHTML = `
                     <div class="empty-state">
                         <h3>No Equipment Found</h3>
@@ -1979,7 +2051,7 @@
             // Use document fragment for better performance
             const fragment = document.createDocumentFragment();
             
-            filteredEquipment.forEach(equip => {
+            sortedEquipment.forEach(equip => {
                 const item = document.createElement('div');
                 item.className = 'equipment-item';
                 
@@ -1991,6 +2063,7 @@
                     <div class="equipment-id">${equip.id}</div>
                     <div class="equipment-meta">
                         <span>Year: ${equip.year || 'N/A'}</span>
+                        <span>Next Service: ${formatDate(equip.nextMaintenance)}</span>
                     </div>
                     <div class="equipment-notes">${equip.notes || 'No notes available'}</div>
                 `;
@@ -2449,6 +2522,11 @@
             clearSearchBtn.addEventListener('click', () => {
                 searchInput.value = '';
                 clearSearchBtn.style.display = 'none';
+                renderEquipment();
+            });
+            
+            // Sort selector
+            sortSelect.addEventListener('change', () => {
                 renderEquipment();
             });
             
