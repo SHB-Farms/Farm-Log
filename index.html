@@ -1681,6 +1681,12 @@
                     // Handle conflict error specifically
                     if (response.status === 409) {
                         errorMsg = "Conflict: Remote file has changed. Syncing latest data...";
+                        // Trigger sync after a delay
+                        setTimeout(syncData, 3000);
+                    }
+                    // Handle missing SHA (422 Unprocessable Entity)
+                    else if (response.status === 422 && errorMsg.toLowerCase().includes('sha')) {
+                        errorMsg = "Invalid request: Missing file version. Syncing to fix...";
                         setTimeout(syncData, 3000);
                     }
                     
@@ -1958,7 +1964,7 @@
             stats.overdue.textContent = equipmentData.filter(isMaintenanceOverdue).length;
         }
 
-        // Filter equipment (FIXED SEARCH FUNCTIONALITY)
+        // Filter equipment
         function filterEquipment() {
             const searchTerm = searchInput.value.trim().toLowerCase();
             const activeCategory = document.querySelector('.category-chip.active').dataset.category;
@@ -2509,7 +2515,7 @@
                 });
             });
             
-            // Search input (FIXED)
+            // Search input
             let searchTimeout;
             searchInput.addEventListener('input', () => {
                 clearSearchBtn.style.display = searchInput.value ? 'flex' : 'none';
@@ -2610,4 +2616,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-</html>
+    </html>
