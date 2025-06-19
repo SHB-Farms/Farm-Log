@@ -862,6 +862,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--text); /* This ensures the PIN numbers match the theme */
         }
 
         .pin-btn:hover {
@@ -2040,20 +2041,77 @@
                 equipmentData = [
                     {
                         id: "TR-001",
-                        name: "Test Tractor",
+                        name: "John Deere Tractor",
                         category: "tractor",
                         year: 2020,
                         lastMaintenance: "2023-06-15",
                         nextMaintenance: "2024-06-15",
-                        notes: "Test tractor",
+                        notes: "Primary field tractor",
                         maintenanceHistory: [
                             {
-                                id: "1234",
+                                id: "MH-001",
                                 date: "2023-06-15",
                                 type: "Full Service",
                                 technician: "Mike Johnson",
-                                cost: 1234.00,
-                                details: "TEST"
+                                cost: 350.00,
+                                details: "Changed oil, filters, and performed full inspection"
+                            }
+                        ]
+                    },
+                    {
+                        id: "TRK-001",
+                        name: "Ford F-150",
+                        category: "truck",
+                        year: 2019,
+                        lastMaintenance: "2023-08-20",
+                        nextMaintenance: "2024-08-20",
+                        notes: "Utility truck for field work",
+                        maintenanceHistory: [
+                            {
+                                id: "MH-002",
+                                date: "2023-08-20",
+                                type: "Brake Service",
+                                technician: "Sarah Davis",
+                                cost: 280.00,
+                                details: "Replaced brake pads and rotors"
+                            }
+                        ]
+                    },
+                    {
+                        id: "CAR-001",
+                        name: "Farm Utility Vehicle",
+                        category: "cars",
+                        year: 2021,
+                        lastMaintenance: "2023-07-10",
+                        nextMaintenance: "2024-07-10",
+                        notes: "All-terrain farm vehicle",
+                        maintenanceHistory: [
+                            {
+                                id: "MH-003",
+                                date: "2023-07-10",
+                                type: "Tire Replacement",
+                                technician: "James Wilson",
+                                cost: 220.00,
+                                details: "Replaced all 4 tires with off-road versions"
+                            }
+                        ]
+                    },
+                    {
+                        id: "OTHER-001",
+                        name: "Specialized Harvester",
+                        category: "other",
+                        year: 2018,
+                        lastMaintenance: "2023-05-01",
+                        nextMaintenance: "2023-11-01",
+                        notes: "For specialty crops",
+                        maintenanceHistory: [
+                            {
+                                id: "MH-004",
+                                date: "2023-05-01",
+                                type: "Blade Sharpening",
+                                technician: "Emma Thompson",
+                                cost: 150.00,
+                                details: "Sharpened cutting blades and calibrated sensors"
                             }
                         ]
                     }
