@@ -6,9 +6,18 @@
       "category": "tractor",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-17",
-      "nextMaintenance": "2026-06-17",
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-06-19",
+      "nextMaintenance": "2026-06-19",
+      "maintenanceHistory": [
+        {
+          "id": "MH-008542",
+          "date": "2025-06-19",
+          "type": "Other",
+          "technician": "Testing iphone",
+          "cost": 9999,
+          "details": "Testing iphone"
+        }
+      ]
     },
     {
       "id": "1FDYY90L1KVA36937",
@@ -1101,5 +1110,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750298198635
+  "timestamp": 1750310008543
 }
