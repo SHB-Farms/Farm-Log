@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
     <style>
+        /* Added mobile-specific fixes and token modal styling */
         :root {
             --primary: #2e7d32;
             --primary-light: #60ad5e;
@@ -26,7 +27,6 @@
             --animation-duration: 0.3s;
         }
 
-        /* Dark theme variables */
         [data-theme="dark"] {
             --primary: #4caf50;
             --primary-light: #81c784;
@@ -68,7 +68,14 @@
             overflow: hidden;
         }
 
-        /* Updated header styles */
+        /* Mobile height fix */
+        @media (max-height: 700px) {
+            .container {
+                height: auto;
+                min-height: 100vh;
+            }
+        }
+
         .app-header {
             position: absolute;
             top: 0;
@@ -336,7 +343,7 @@
             color: var(--text-light);
         }
 
-        /* Equipment List */
+        /* Equipment List - FIXED FOR MOBILE */
         .equipment-list {
             flex: 1;
             padding: 20px;
@@ -411,6 +418,8 @@
             flex: 1;
             overflow-y: auto;
             padding-bottom: 20px;
+            /* Fix for iPhone scrolling */
+            -webkit-overflow-scrolling: touch;
         }
 
         .equipment-item {
@@ -981,6 +990,31 @@
             pointer-events: all;
         }
 
+        /* Token Modal */
+        .token-modal-content {
+            background: var(--surface);
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .token-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .detail-panel.open {
@@ -1003,7 +1037,8 @@
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                height: auto;
+                height: auto; /* Changed to auto for mobile */
+                min-height: 100vh; /* Ensure it takes full height */
             }
             
             .sidebar {
@@ -1014,7 +1049,9 @@
             }
             
             .equipment-list {
-                height: calc(100vh - 300px);
+                height: auto; /* Changed from fixed height to auto */
+                flex: 1; /* Allow it to grow */
+                min-height: 300px; /* Minimum height */
             }
             
             .detail-panel.open {
@@ -1075,6 +1112,13 @@
 
             .add-equipment-btn {
                 width: 100%;
+            }
+        }
+
+        /* Mobile-specific height fixes */
+        @media (max-width: 768px) and (max-height: 1000px) {
+            .equipment-list-container {
+                min-height: 50vh; /* Minimum height for equipment list */
             }
         }
     </style>
@@ -1265,6 +1309,39 @@
         </div>
     </div>
     
+    <!-- GitHub Token Modal -->
+    <div class="modal-overlay" id="tokenModal">
+        <div class="modal-content token-modal-content">
+            <div class="modal-header">
+                <h2>GitHub Token Setup</h2>
+                <button class="close-panel" id="closeTokenModal">
+                    <i class="mdi mdi-close"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your GitHub Personal Access Token (PAT) to enable cloud sync:</p>
+                
+                <div class="form-group">
+                    <input type="password" class="token-input" 
+                           id="tokenInput" 
+                           placeholder="Enter your GitHub PAT">
+                </div>
+                
+                <div class="form-group">
+                    <p><small>
+                        <i class="mdi mdi-information"></i> 
+                        To create a token, go to GitHub Settings > Developer Settings > Personal Access Tokens. 
+                        Required permissions: <code>repo</code>.
+                    </small></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="clearTokenBtn">Clear Token</button>
+                <button class="btn btn-primary" id="saveTokenBtn">Save Token</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Modals -->
     <div class="modal-overlay" id="conflictModal">
         <div class="modal-content">
@@ -1515,6 +1592,13 @@
             total: document.getElementById('totalEquipment'),
             overdue: document.getElementById('overdueEquipment')
         };
+
+        // Token modal elements
+        const tokenModal = document.getElementById('tokenModal');
+        const tokenInput = document.getElementById('tokenInput');
+        const saveTokenBtn = document.getElementById('saveTokenBtn');
+        const clearTokenBtn = document.getElementById('clearTokenBtn');
+        const closeTokenModal = document.getElementById('closeTokenModal');
 
         // PIN modal elements
         const pinModal = document.getElementById('pinModal');
@@ -2430,6 +2514,41 @@
             // Event listeners for top-right buttons
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
             document.getElementById('adminToggle').addEventListener('click', toggleAdminMode);
+            
+            // Token indicator click handler
+            tokenIndicator.addEventListener('click', () => {
+                tokenInput.value = GITHUB_PAT || '';
+                tokenModal.classList.add('show');
+            });
+            
+            // Token modal event listeners
+            saveTokenBtn.addEventListener('click', () => {
+                const token = tokenInput.value.trim();
+                if (token) {
+                    GITHUB_PAT = token;
+                    localStorage.setItem('github_pat', token);
+                    updateTokenIndicator();
+                    tokenModal.classList.remove('show');
+                    showToast('GitHub token saved');
+                    
+                    // Try to sync with new token
+                    setTimeout(syncData, 1000);
+                } else {
+                    showToast('Please enter a valid token');
+                }
+            });
+            
+            clearTokenBtn.addEventListener('click', () => {
+                GITHUB_PAT = '';
+                localStorage.removeItem('github_pat');
+                updateTokenIndicator();
+                tokenModal.classList.remove('show');
+                showToast('GitHub token cleared');
+            });
+            
+            closeTokenModal.addEventListener('click', () => {
+                tokenModal.classList.remove('show');
+            });
             
             // PIN modal event listeners
             pinBtns.forEach(btn => {
