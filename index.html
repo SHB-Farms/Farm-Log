@@ -264,6 +264,23 @@
             display: none;
         }
 
+        .search-loading {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+        
+        .search-loading.active {
+            display: block;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
         .filter-title {
             font-size: 0.9rem;
             font-weight: 600;
@@ -1158,6 +1175,9 @@
                     <input type="text" class="search-input" 
                            placeholder="Search equipment..." 
                            id="equipmentSearch">
+                    <div class="search-loading">
+                        <i class="mdi mdi-loading"></i>
+                    </div>
                     <button class="clear-search" id="clearSearch" aria-label="Clear search">
                         <i class="mdi mdi-close"></i>
                     </button>
@@ -1565,6 +1585,12 @@
         let adminMode = false;
         const ADMIN_PIN = "1234"; // Default PIN
 
+        // Cache for filtered equipment
+        let cachedFilteredEquipment = [];
+        let lastSearchTerm = '';
+        let lastActiveCategory = 'all';
+        let lastSortValue = 'name-asc';
+
         // DOM Elements
         const equipmentGrid = document.getElementById('equipmentGrid');
         const detailPanel = document.getElementById('detailPanel');
@@ -1796,7 +1822,7 @@
             }
             
             saveChanges();
-            renderEquipment();
+            optimizedRenderEquipment();
             calculateStats();
             closeEquipmentModal();
         }
@@ -1868,7 +1894,7 @@
                 equipmentData[index].nextMaintenance = nextServiceDate.toISOString().split('T')[0];
                 
                 saveChanges();
-                renderEquipment();
+                optimizedRenderEquipment();
                 openDetailPanel(equipmentData[index]);
                 showToast('Maintenance record added');
             }
@@ -1892,7 +1918,7 @@
             if (index !== -1) {
                 equipmentData.splice(index, 1);
                 saveChanges();
-                renderEquipment();
+                optimizedRenderEquipment();
                 calculateStats();
                 closeDetailPanel();
                 showToast('Equipment deleted');
@@ -2092,7 +2118,7 @@
 
                 // 5. Update storage and UI
                 saveDataToStorage();
-                renderEquipment();
+                optimizedRenderEquipment();
                 calculateStats();
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
@@ -2257,10 +2283,39 @@
             stats.overdue.textContent = equipmentData.filter(isMaintenanceOverdue).length;
         }
 
-        // Filter equipment
-        function filterEquipment() {
+        // Debounce function to limit search frequency
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Optimized filter function
+        function optimizedFilterEquipment() {
             const searchTerm = searchInput.value.trim().toLowerCase();
             const activeCategory = document.querySelector('.category-chip.active').dataset.category;
+            const sortValue = sortSelect.value;
+            
+            // Check if we can use cached results
+            if (searchTerm === lastSearchTerm && 
+                activeCategory === lastActiveCategory && 
+                sortValue === lastSortValue &&
+                cachedFilteredEquipment.length > 0) {
+                return cachedFilteredEquipment;
+            }
+            
+            // Show loading indicator during heavy filtering
+            const loadingIndicator = document.querySelector('.search-loading');
+            loadingIndicator.classList.add('active');
+            
+            // Start timing for performance measurement
+            const startTime = performance.now();
             
             let filtered = equipmentData;
             
@@ -2269,70 +2324,76 @@
                 filtered = filtered.filter(equip => equip.category === activeCategory);
             }
             
-            // Apply search filter
+            // Apply search filter only if term has changed
             if (searchTerm) {
                 filtered = filtered.filter(equip => {
-                    const name = equip.name ? equip.name.toLowerCase() : '';
-                    const id = equip.id ? equip.id.toLowerCase() : '';
-                    const notes = equip.notes ? equip.notes.toLowerCase() : '';
-                    const year = equip.year ? equip.year.toString() : '';
+                    // Create a search string once per equipment item
+                    const searchString = (
+                        (equip.name || '') + '|' +
+                        (equip.id || '') + '|' +
+                        (equip.notes || '') + '|' +
+                        (equip.year ? equip.year.toString() : '')
+                    ).toLowerCase();
                     
-                    return name.includes(searchTerm) || 
-                           id.includes(searchTerm) || 
-                           notes.includes(searchTerm) ||
-                           year.includes(searchTerm);
+                    return searchString.includes(searchTerm);
                 });
             }
+            
+            // Sort equipment
+            filtered = optimizedSortEquipment(filtered, sortValue);
+            
+            // Cache the result
+            cachedFilteredEquipment = filtered;
+            lastSearchTerm = searchTerm;
+            lastActiveCategory = activeCategory;
+            lastSortValue = sortValue;
+            
+            // Log performance
+            const duration = performance.now() - startTime;
+            console.log(`Filtered ${filtered.length} items in ${duration.toFixed(2)}ms`);
+            
+            // Hide loading indicator
+            loadingIndicator.classList.remove('active');
             
             return filtered;
         }
 
-        // Reset all filters
-        function resetFilters() {
-            searchInput.value = '';
-            clearSearchBtn.style.display = 'none';
+        // Optimized sorting
+        function optimizedSortEquipment(equipment, sortValue) {
+            // Check if we can return cached sorted array
+            if (sortValue === lastSortValue && 
+                equipment === cachedFilteredEquipment && 
+                cachedFilteredEquipment.length > 0) {
+                return equipment;
+            }
             
-            document.querySelectorAll('.category-chip').forEach(chip => {
-                chip.classList.remove('active');
-            });
-            
-            document.querySelector('.category-chip[data-category="all"]').classList.add('active');
-            
-            renderEquipment();
-        }
-
-        // Sort equipment
-        function sortEquipment(equipment) {
-            const sortValue = sortSelect.value;
-            
+            // Optimized sorting logic
             switch(sortValue) {
                 case 'name-asc':
-                    return [...equipment].sort((a, b) => a.name.localeCompare(b.name));
+                    return equipment.sort((a, b) => a.name.localeCompare(b.name));
                 case 'name-desc':
-                    return [...equipment].sort((a, b) => b.name.localeCompare(a.name));
+                    return equipment.sort((a, b) => b.name.localeCompare(a.name));
                 case 'year-asc':
-                    return [...equipment].sort((a, b) => (a.year || 0) - (b.year || 0));
+                    return equipment.sort((a, b) => (a.year || 0) - (b.year || 0));
                 case 'year-desc':
-                    return [...equipment].sort((a, b) => (b.year || 0) - (a.year || 0));
+                    return equipment.sort((a, b) => (b.year || 0) - (a.year || 0));
                 case 'nextService':
-                    return [...equipment].sort((a, b) => {
+                    return equipment.sort((a, b) => {
                         const dateA = a.nextMaintenance ? new Date(a.nextMaintenance) : new Date(0);
                         const dateB = b.nextMaintenance ? new Date(b.nextMaintenance) : new Date(0);
                         return dateA - dateB;
                     });
                 default:
-                    return [...equipment].sort((a, b) => a.name.localeCompare(b.name));
+                    return equipment.sort((a, b) => a.name.localeCompare(b.name));
             }
         }
 
-        // Render equipment list
-        function renderEquipment() {
-            equipmentGrid.innerHTML = '';
+        // Optimized render function
+        function optimizedRenderEquipment() {
+            const filteredEquipment = optimizedFilterEquipment();
             
-            const filteredEquipment = filterEquipment();
-            const sortedEquipment = sortEquipment(filteredEquipment);
-            
-            if (sortedEquipment.length === 0) {
+            // Only re-render if necessary
+            if (filteredEquipment.length === 0) {
                 equipmentGrid.innerHTML = `
                     <div class="empty-state">
                         <h3>No Equipment Found</h3>
@@ -2350,7 +2411,7 @@
             // Use document fragment for better performance
             const fragment = document.createDocumentFragment();
             
-            sortedEquipment.forEach(equip => {
+            filteredEquipment.forEach(equip => {
                 const item = document.createElement('div');
                 item.className = 'equipment-item';
                 
@@ -2386,7 +2447,28 @@
                 fragment.appendChild(item);
             });
             
+            equipmentGrid.innerHTML = '';
             equipmentGrid.appendChild(fragment);
+        }
+
+        // Reset all filters
+        function resetFilters() {
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            
+            document.querySelector('.category-chip[data-category="all"]').classList.add('active');
+            
+            // Clear cache to force a full re-render
+            cachedFilteredEquipment = [];
+            lastSearchTerm = '';
+            lastActiveCategory = 'all';
+            lastSortValue = 'name-asc';
+            
+            optimizedRenderEquipment();
         }
 
         // Open detail panel with equipment data
@@ -2498,7 +2580,7 @@
             loadDataFromStorage();
             
             // Render initial equipment
-            renderEquipment();
+            optimizedRenderEquipment();
             calculateStats();
             
             // Initial sync if PAT is available
@@ -2641,6 +2723,33 @@
             });
             closeDeleteModal.addEventListener('click', () => {
                 deleteModal.classList.remove('show');
+            });
+            
+            // Set up optimized search with debouncing
+            searchInput.addEventListener('input', debounce(() => {
+                clearSearchBtn.style.display = searchInput.value ? 'block' : 'none';
+                optimizedRenderEquipment();
+            }, 300));
+            
+            // Clear search button
+            clearSearchBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearSearchBtn.style.display = 'none';
+                optimizedRenderEquipment();
+            });
+            
+            // Category filter event listeners
+            categoryFilters.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    categoryFilters.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    optimizedRenderEquipment();
+                });
+            });
+            
+            // Sort control event listener
+            sortSelect.addEventListener('change', () => {
+                optimizedRenderEquipment();
             });
         }
 
