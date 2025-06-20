@@ -1056,6 +1056,12 @@
             margin-bottom: 15px;
         }
 
+        /* Editable ID indicator */
+        .editable-id {
+            border-bottom: 2px dashed var(--primary-light);
+            padding-bottom: 2px;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .detail-panel.open {
@@ -1484,7 +1490,7 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="equipId">ID</label>
+                        <label for="equipId">ID (Serial Number)</label>
                         <input type="text" id="equipId" class="form-control" placeholder="Equipment ID">
                     </div>
                     <div class="form-group">
@@ -1765,7 +1771,17 @@
                 equipName.value = equipment.name || '';
                 equipCategory.value = equipment.category || 'tractor';
                 equipId.value = equipment.id || '';
-                equipId.disabled = true; // Don't allow editing ID
+                
+                // Enable ID field only in admin mode
+                equipId.disabled = !adminMode;
+                
+                // Add visual indicator when editable
+                if (adminMode) {
+                    equipId.classList.add('editable-id');
+                } else {
+                    equipId.classList.remove('editable-id');
+                }
+                
                 equipYear.value = equipment.year || '';
                 equipNotes.value = equipment.notes || '';
                 lastService.value = equipment.lastMaintenance || '';
@@ -1776,6 +1792,7 @@
                 equipCategory.value = 'tractor';
                 equipId.value = '';
                 equipId.disabled = false;
+                equipId.classList.remove('editable-id');
                 equipYear.value = '';
                 equipNotes.value = '';
                 lastService.value = '';
@@ -1789,7 +1806,7 @@
         function saveEquipment() {
             const name = equipName.value.trim();
             const category = equipCategory.value;
-            const id = equipId.value.trim();
+            let id = equipId.value.trim().toUpperCase(); // Ensure uppercase
             const year = equipYear.value;
             const notes = equipNotes.value;
             const lastServiceDate = lastService.value;
@@ -1800,8 +1817,14 @@
                 return;
             }
             
+            // Validate ID format
             if (!id) {
-                showToast('ID is required');
+                showToast('Equipment ID is required');
+                return;
+            }
+            
+            if (!/^[A-Z0-9-]{3,20}$/.test(id)) {
+                showToast('ID must be 3-20 characters (letters, numbers, dashes)');
                 return;
             }
             
@@ -1811,8 +1834,17 @@
                 // Update existing equipment
                 const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
                 if (index !== -1) {
+                    // Check for duplicate ID if changed
+                    if (id !== selectedEquipment.id) {
+                        if (equipmentData.some(e => e.id === id)) {
+                            showToast('Equipment ID already exists');
+                            return;
+                        }
+                    }
+                    
                     equipmentData[index] = {
                         ...equipmentData[index],
+                        id, // Allow ID update
                         name,
                         category,
                         year,
