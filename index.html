@@ -669,6 +669,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
+            position: relative;
         }
 
         .history-date {
@@ -695,6 +696,29 @@
             color: var(--text-light);
             display: flex;
             justify-content: space-between;
+        }
+
+        /* Edit maintenance button styles */
+        .edit-maintenance {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .history-item:hover .edit-maintenance {
+            opacity: 1;
         }
 
         .panel-actions {
@@ -1496,7 +1520,7 @@
     <div class="modal-overlay" id="maintenanceModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Add Maintenance Record</h2>
+                <h2 id="maintenanceModalTitle">Add Maintenance Record</h2>
                 <button class="close-panel" id="closeMaintenanceModal">
                     <i class="mdi mdi-close"></i>
                 </button>
@@ -1508,15 +1532,9 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="maintenanceType">Type</label>
-                    <select id="maintenanceType" class="form-control">
-                        <option value="Full Service">Full Service</option>
-                        <option value="Oil Change">Oil Change</option>
-                        <option value="Brake Service">Brake Service</option>
-                        <option value="Tire Replacement">Tire Replacement</option>
-                        <option value="Engine Repair">Engine Repair</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <label for="maintenanceType">Maintenance Type</label>
+                    <input type="text" id="maintenanceType" class="form-control" 
+                           placeholder="Oil change, brake service, etc.">
                 </div>
                 
                 <div class="form-group">
@@ -1591,6 +1609,9 @@
         let lastActiveCategory = 'all';
         let lastSortValue = 'name-asc';
 
+        // Track maintenance record being edited
+        let maintenanceId = null;
+
         // DOM Elements
         const equipmentGrid = document.getElementById('equipmentGrid');
         const detailPanel = document.getElementById('detailPanel');
@@ -1650,6 +1671,7 @@
 
         // Maintenance modal elements
         const maintenanceModal = document.getElementById('maintenanceModal');
+        const maintenanceModalTitle = document.getElementById('maintenanceModalTitle');
         const maintenanceDate = document.getElementById('maintenanceDate');
         const maintenanceType = document.getElementById('maintenanceType');
         const maintenanceTech = document.getElementById('maintenanceTech');
@@ -1828,18 +1850,31 @@
         }
 
         // Show maintenance form modal
-        function showMaintenanceModal() {
-            if (!selectedEquipment) return;
+        function showMaintenanceModal(record = null) {
+            const isEditMode = !!record;
             
-            // Set default date to today
-            const today = new Date();
-            const formattedDate = today.toISOString().split('T')[0];
-            maintenanceDate.value = formattedDate;
-            
-            maintenanceType.value = 'Full Service';
-            maintenanceTech.value = '';
-            maintenanceCost.value = '';
-            maintenanceDetails.value = '';
+            // Set modal title based on mode
+            maintenanceModalTitle.textContent = isEditMode ? 
+                'Edit Maintenance Record' : 'Add Maintenance Record';
+
+            // Fill form with record data if editing
+            if (isEditMode) {
+                maintenanceDate.value = record.date;
+                maintenanceType.value = record.type;
+                maintenanceTech.value = record.technician;
+                maintenanceCost.value = record.cost;
+                maintenanceDetails.value = record.details;
+                maintenanceId = record.id; // Store the ID for updating
+            } else {
+                // Default values for new records
+                const today = new Date().toISOString().split('T')[0];
+                maintenanceDate.value = today;
+                maintenanceType.value = '';
+                maintenanceTech.value = '';
+                maintenanceCost.value = '';
+                maintenanceDetails.value = '';
+                maintenanceId = null; // Clear any previous edit state
+            }
             
             maintenanceModal.classList.add('show');
         }
@@ -1849,7 +1884,7 @@
             if (!selectedEquipment) return;
             
             const date = maintenanceDate.value;
-            const type = maintenanceType.value;
+            const type = maintenanceType.value.trim();
             const tech = maintenanceTech.value.trim();
             const cost = parseFloat(maintenanceCost.value) || 0;
             const details = maintenanceDetails.value.trim();
@@ -1860,16 +1895,13 @@
             }
             
             if (!type) {
-                showToast('Type is required');
+                showToast('Maintenance type is required');
                 return;
             }
             
-            // Generate unique ID for maintenance record
-            const id = 'MH-' + Date.now().toString().slice(-6);
-            
-            // Add to maintenance history
+            // Create or update record
             const record = {
-                id,
+                id: maintenanceId || 'MH-' + Date.now().toString().slice(-6),
                 date,
                 type,
                 technician: tech,
@@ -1877,18 +1909,32 @@
                 details
             };
             
-            // Find the equipment and add the record
+            // Find equipment index
             const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
+            
             if (index !== -1) {
+                // Initialize history array if needed
                 if (!equipmentData[index].maintenanceHistory) {
                     equipmentData[index].maintenanceHistory = [];
                 }
-                equipmentData[index].maintenanceHistory.unshift(record);
+                
+                if (maintenanceId) {
+                    // Update existing record
+                    const recordIndex = equipmentData[index].maintenanceHistory.findIndex(r => r.id === maintenanceId);
+                    if (recordIndex !== -1) {
+                        equipmentData[index].maintenanceHistory[recordIndex] = record;
+                        showToast('Maintenance record updated');
+                    }
+                } else {
+                    // Add new record
+                    equipmentData[index].maintenanceHistory.unshift(record);
+                    showToast('Maintenance record added');
+                }
                 
                 // Update last service date
                 equipmentData[index].lastMaintenance = date;
                 
-                // Set next service to 1 year from now
+                // Update next service date (1 year from service date)
                 const nextServiceDate = new Date(date);
                 nextServiceDate.setFullYear(nextServiceDate.getFullYear() + 1);
                 equipmentData[index].nextMaintenance = nextServiceDate.toISOString().split('T')[0];
@@ -1896,10 +1942,10 @@
                 saveChanges();
                 optimizedRenderEquipment();
                 openDetailPanel(equipmentData[index]);
-                showToast('Maintenance record added');
             }
             
             maintenanceModal.classList.remove('show');
+            maintenanceId = null; // Reset edit state
         }
 
         // Confirm equipment deletion
@@ -2346,10 +2392,17 @@
                 const item = document.createElement('div');
                 item.className = 'history-item';
                 
+                // Add edit button when in admin mode
+                const editBtn = adminMode ? 
+                    `<button class="edit-maintenance" data-id="${record.id}">
+                        <i class="mdi mdi-pencil"></i>
+                    </button>` : '';
+                
                 item.innerHTML = `
                     <div class="history-header">
                         <span class="history-date">${formatDate(record.date)}</span>
                         <span class="history-type">${record.type}</span>
+                        ${editBtn}
                     </div>
                     <div class="history-content">
                         ${record.details}
@@ -2359,6 +2412,14 @@
                         <span>Cost: $${record.cost}</span>
                     </div>
                 `;
+                
+                // Add click handler for edit button
+                if (adminMode) {
+                    item.querySelector('.edit-maintenance').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showMaintenanceModal(record);
+                    });
+                }
                 
                 fragment.appendChild(item);
             });
@@ -2591,4 +2652,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-    </html>
+</html>
