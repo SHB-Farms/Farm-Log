@@ -1016,9 +1016,17 @@
       "category": "tractor",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-19",
-      "nextMaintenance": "2026-06-19",
+      "lastMaintenance": "2025-06-20",
+      "nextMaintenance": "2026-06-20",
       "maintenanceHistory": [
+        {
+          "id": "MH-855942",
+          "date": "2025-06-20",
+          "type": "Full Service",
+          "technician": "Lcg",
+          "cost": 1234,
+          "details": "Testing"
+        },
         {
           "id": "MH-008542",
           "date": "2025-06-19",
@@ -1110,5 +1118,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750391411760
+  "timestamp": 1750435855944
 }
