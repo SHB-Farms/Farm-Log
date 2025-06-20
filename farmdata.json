@@ -1011,13 +1011,13 @@
       "maintenanceHistory": []
     },
     {
-      "id": "Testing123!@#",
+      "id": "Testing11245!",
       "name": "Testing",
       "category": "tractor",
-      "year": "2020",
-      "notes": "Testing12!@",
+      "year": "2025",
+      "notes": "Testing",
       "lastMaintenance": "2025-06-20",
-      "nextMaintenance": "2025-06-21",
+      "nextMaintenance": "2026-06-20",
       "maintenanceHistory": [
         {
           "id": "MH-855942",
@@ -1118,5 +1118,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750457880339
+  "timestamp": 1750457924583
 }
