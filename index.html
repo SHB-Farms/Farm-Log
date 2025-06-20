@@ -1941,8 +1941,11 @@
             
             if (!contentResponse.ok) throw new Error('Failed to fetch content');
             
+            const remoteData = await contentResponse.json();
+            
             return {
-                equipment: (await contentResponse.json()).equipment || [],
+                equipment: remoteData.equipment || [],
+                timestamp: remoteData.timestamp || 0,
                 sha: fileInfo.sha
             };
         }
@@ -1987,6 +1990,7 @@
                 
                 if (response.ok && result.content) {
                     fileSHA = result.content.sha;
+                    lastSyncTimestamp = Date.now();
                     return true;
                 } else {
                     let errorMsg = result.message || 'Unknown error';
@@ -1994,11 +1998,6 @@
                     // Handle conflict error specifically
                     if (response.status === 409) {
                         errorMsg = "Conflict: Remote file has changed";
-                        // Save local changes to temporary storage
-                        localStorage.setItem('pendingChanges', JSON.stringify({
-                            data: equipmentData,
-                            timestamp: Date.now()
-                        }));
                         // Show conflict resolution modal
                         showConflictModal();
                     }
@@ -2017,24 +2016,18 @@
             }
         }
 
-        // Save changes to both localStorage and GitHub
+        // Save changes to GitHub
         async function saveChanges() {
-            // Update timestamp before saving
-            lastSyncTimestamp = Date.now();
-            
-            // Save to localStorage
-            saveDataToStorage();
-            
             // Only push to GitHub if token is configured
             if (GITHUB_PAT) {
                 const pushSuccess = await pushDataToGitHub();
                 if (pushSuccess) {
-                    showToast('Changes saved to cloud');
+                    showToast('Changes saved to GitHub');
                 } else {
-                    showToast('Saved locally but failed to sync with cloud');
+                    showToast('Failed to sync with GitHub');
                 }
             } else {
-                showToast('Changes saved locally (no GitHub token)');
+                showToast('GitHub token not configured - changes not saved');
             }
         }
 
@@ -2050,204 +2043,37 @@
             loadingOverlay.classList.add('active');
             
             try {
-                // 1. Fetch file metadata to get SHA
-                const metaResponse = await fetch(
-                    `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
-                    {
-                        headers: {
-                            "Authorization": `Bearer ${GITHUB_PAT}`,
-                            "Accept": "application/vnd.github.v3+json"
-                        }
-                    }
-                );
+                // Try to fetch data from GitHub
+                const { equipment: remoteEquipment, timestamp: remoteTimestamp, sha: remoteSHA } = await fetchRemoteData();
+                
+                // Update local state with remote data
+                equipmentData = remoteEquipment;
+                lastSyncTimestamp = remoteTimestamp;
+                fileSHA = remoteSHA;
 
-                let remoteData = { equipment: [], timestamp: 0 };
-                let remoteSHA = null;
-
-                // Handle 404 - file doesn't exist yet
-                if (metaResponse.status === 404) {
-                    console.log('File not found. Creating initial file...');
-                    fileSHA = null; // Reset for new file creation
-                    
-                    // SPECIAL CASE: Push local data if it exists
-                    if (equipmentData.length > 0) {
-                        const pushSuccess = await pushDataToGitHub();
-                        if (pushSuccess) {
-                            showToast('Created new data file on GitHub');
-                            lastSyncTimestamp = Date.now();
-                        }
-                        return; // Exit after initial creation
-                    }
-                } 
-                // Handle successful response
-                else if (metaResponse.ok) {
-                    const fileInfo = await metaResponse.json();
-                    remoteSHA = fileInfo.sha;
-                    
-                    // 2. Fetch actual file content
-                    const contentResponse = await fetch(fileInfo.download_url);
-                    if (contentResponse.ok) {
-                        remoteData = await contentResponse.json();
-                    } else {
-                        throw new Error(`Failed to fetch content: ${contentResponse.status}`);
-                    }
-                } 
-                // Handle other errors
-                else {
-                    const errorBody = await metaResponse.json();
-                    throw new Error(`GitHub API error: ${metaResponse.status} - ${errorBody.message}`);
-                }
-
-                const remoteTimestamp = remoteData.timestamp || 0;
-
-                // 3. Determine which data is newer
-                if (remoteTimestamp > lastSyncTimestamp) {
-                    equipmentData = remoteData.equipment || [];
-                    lastSyncTimestamp = remoteTimestamp;
-                    fileSHA = remoteSHA;
-                    showToast('Data updated from cloud');
-                }
-
-                // 4. Push local changes if newer
-                if (lastSyncTimestamp > remoteTimestamp) {
-                    const pushSuccess = await pushDataToGitHub();
-                    if (pushSuccess) {
-                        showToast('Data pushed to cloud');
-                    }
-                }
-
-                // 5. Update storage and UI
-                saveDataToStorage();
-                optimizedRenderEquipment();
-                calculateStats();
+                showToast('Data loaded from GitHub');
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
                 console.error('Sync error:', error);
-                updateSyncStatus('error', 'Sync failed - using local data');
-                showToast('Sync failed: Using local data');
                 
-                // Load local data if sync fails
-                loadDataFromStorage();
+                if (error.message.includes('404')) {
+                    // File doesn't exist yet - create it with empty data
+                    equipmentData = [];
+                    const pushSuccess = await pushDataToGitHub();
+                    if (pushSuccess) {
+                        showToast('Created new data file on GitHub');
+                    } else {
+                        showToast('Failed to create data file on GitHub');
+                    }
+                } else {
+                    updateSyncStatus('error', 'Sync failed - check token');
+                    showToast('Sync failed: ' + error.message);
+                }
             } finally {
                 syncInProgress = false;
                 loadingOverlay.classList.remove('active');
-            }
-        }
-
-        // Save data to localStorage
-        function saveDataToStorage() {
-            localStorage.setItem('equipmentData', JSON.stringify(equipmentData));
-            localStorage.setItem('lastSyncTimestamp', lastSyncTimestamp);
-            if (fileSHA) localStorage.setItem('fileSHA', fileSHA);
-        }
-
-        // Load data from localStorage
-        function loadDataFromStorage() {
-            const savedData = localStorage.getItem('equipmentData');
-            if (savedData) {
-                equipmentData = JSON.parse(savedData);
-            } else {
-                // Sample data with updated categories
-                equipmentData = [
-                    {
-                        id: "TR-001",
-                        name: "John Deere Tractor",
-                        category: "tractor",
-                        year: 2020,
-                        lastMaintenance: "2023-06-15",
-                        nextMaintenance: "2024-06-15",
-                        notes: "Primary field tractor",
-                        maintenanceHistory: [
-                            {
-                                id: "MH-001",
-                                date: "2023-06-15",
-                                type: "Full Service",
-                                technician: "Mike Johnson",
-                                cost: 350.00,
-                                details: "Changed oil, filters, and performed full inspection"
-                            }
-                        ]
-                    },
-                    {
-                        id: "TRK-001",
-                        name: "Ford F-150",
-                        category: "truck",
-                        year: 2019,
-                        lastMaintenance: "2023-08-20",
-                        nextMaintenance: "2024-08-20",
-                        notes: "Utility truck for field work",
-                        maintenanceHistory: [
-                            {
-                                id: "MH-002",
-                                date: "2023-08-20",
-                                type: "Brake Service",
-                                technician: "Sarah Davis",
-                                cost: 280.00,
-                                details: "Replaced brake pads and rotors"
-                            }
-                        ]
-                    },
-                    {
-                        id: "CAR-001",
-                        name: "Farm Utility Vehicle",
-                        category: "cars",
-                        year: 2021,
-                        lastMaintenance: "2023-07-10",
-                        nextMaintenance: "2024-07-10",
-                        notes: "All-terrain farm vehicle",
-                        maintenanceHistory: [
-                            {
-                                id: "MH-003",
-                                date: "2023-07-10",
-                                type: "Tire Replacement",
-                                technician: "James Wilson",
-                                cost: 220.00,
-                                details: "Replaced all 4 tires with off-road versions"
-                            }
-                        ]
-                    },
-                    {
-                        id: "OTHER-001",
-                        name: "Specialized Harvester",
-                        category: "other",
-                        year: 2018,
-                        lastMaintenance: "2023-05-01",
-                        nextMaintenance: "2023-11-01",
-                        notes: "For specialty crops",
-                        maintenanceHistory: [
-                            {
-                                id: "MH-004",
-                                date: "2023-05-01",
-                                type: "Blade Sharpening",
-                                technician: "Emma Thompson",
-                                cost: 150.00,
-                                details: "Sharpened cutting blades and calibrated sensors"
-                            }
-                        ]
-                    }
-                ];
-            }
-            
-            const savedTimestamp = localStorage.getItem('lastSyncTimestamp');
-            if (savedTimestamp) {
-                lastSyncTimestamp = parseInt(savedTimestamp);
-            } else {
-                lastSyncTimestamp = equipmentData.length > 0 ? Date.now() : 0;
-            }
-            
-            const savedSHA = localStorage.getItem('fileSHA');
-            if (savedSHA) {
-                fileSHA = savedSHA;
-            }
-            
-            // Load admin mode state
-            const savedAdminMode = localStorage.getItem('adminMode');
-            adminMode = savedAdminMode === 'true';
-            if (adminMode) {
-                adminToggle.classList.add('active');
-                addEquipmentBtn.style.display = 'flex';
-                editEquipmentBtn.style.display = 'flex';
-                deleteEquipmentBtn.style.display = 'flex';
+                optimizedRenderEquipment();
+                calculateStats();
             }
         }
 
@@ -2576,12 +2402,20 @@
                 document.documentElement.setAttribute('data-theme', savedTheme);
             }
             
-            // Load data from storage
-            loadDataFromStorage();
+            // Initialize empty equipment data
+            equipmentData = [];
+            lastSyncTimestamp = 0;
+            fileSHA = null;
             
-            // Render initial equipment
-            optimizedRenderEquipment();
-            calculateStats();
+            // Load admin mode state
+            const savedAdminMode = localStorage.getItem('adminMode');
+            adminMode = savedAdminMode === 'true';
+            if (adminMode) {
+                adminToggle.classList.add('active');
+                addEquipmentBtn.style.display = 'flex';
+                editEquipmentBtn.style.display = 'flex';
+                deleteEquipmentBtn.style.display = 'flex';
+            }
             
             // Initial sync if PAT is available
             if (GITHUB_PAT) {
