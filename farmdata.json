@@ -1011,13 +1011,13 @@
       "maintenanceHistory": []
     },
     {
-      "id": "Testing serial number",
+      "id": "1",
       "name": "Testing",
       "category": "tractor",
       "year": "2025",
       "notes": "Testing",
       "lastMaintenance": "2025-06-20",
-      "nextMaintenance": "2025-06-21",
+      "nextMaintenance": "2026-06-20",
       "maintenanceHistory": [
         {
           "id": "MH-855942",
@@ -1118,5 +1118,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750459086707
+  "timestamp": 1750459188092
 }
