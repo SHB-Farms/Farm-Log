@@ -1013,11 +1013,11 @@
     {
       "id": "10",
       "name": "Testing",
-      "category": "tractor",
+      "category": "implement",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-01",
-      "nextMaintenance": "2026-06-01",
+      "lastMaintenance": "2025-06-21",
+      "nextMaintenance": "2026-06-21",
       "maintenanceHistory": [
         {
           "id": "MH-952133",
@@ -1043,9 +1043,10 @@
         },
         {
           "id": "MH-008542",
-          "date": "2025-06-01",
+          "date": "2025-06-19",
           "type": "Other",
           "technician": "Testing iphone",
+          "cost": 9999,
           "details": "Testing iphone"
         }
       ]
@@ -1131,5 +1132,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750469058581
+  "timestamp": 1750469193386
 }
