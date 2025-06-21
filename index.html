@@ -884,31 +884,6 @@
         .pin-btn:hover { background: var(--surface); }
         .pin-btn:active { transform: scale(0.95); }
 
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--primary);
-            color: white;
-            padding: 12px 20px;
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            max-width: calc(100% - 32px);
-            z-index: 1000;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
         /* Empty State */
         .empty-state {
             display: flex;
@@ -1534,10 +1509,6 @@
             </div>
         </div>
     </div>
-    
-    <div id="toast" class="toast">
-        <span id="toastMessage"></span>
-    </div>
 
     <script>
         // GitHub-based data storage
@@ -1572,8 +1543,6 @@
         const equipmentGrid = document.getElementById('equipmentGrid');
         const detailPanel = document.getElementById('detailPanel');
         const closePanelBtn = document.getElementById('closePanel');
-        const toast = document.getElementById('toast');
-        const toastMessage = document.getElementById('toastMessage');
         const categoryFilters = document.querySelectorAll('.category-chip');
         const addEquipmentBtn = document.getElementById('addEquipmentBtn');
         const editEquipmentBtn = document.getElementById('editEquipmentBtn');
@@ -1699,7 +1668,6 @@
                 addEquipmentBtn.style.display = 'none';
                 editEquipmentBtn.style.display = 'none';
                 deleteEquipmentBtn.style.display = 'none';
-                showToast('Admin mode deactivated');
             } else {
                 pinInput.value = '';
                 pinModal.classList.add('show');
@@ -1744,12 +1712,10 @@
             const nextServiceDate = nextService.value;
             
             if (!name) {
-                showToast('Name is required');
                 return;
             }
             
             if (!id) {
-                showToast('Equipment ID is required');
                 return;
             }
             
@@ -1759,7 +1725,6 @@
                 const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
                 if (index !== -1) {
                     if (id !== selectedEquipment.id && equipmentData.some(e => e.id === id)) {
-                        showToast('Equipment ID already exists');
                         return;
                     }
                     
@@ -1773,7 +1738,6 @@
                         lastMaintenance: lastServiceDate,
                         nextMaintenance: nextServiceDate
                     };
-                    showToast('Equipment updated');
                     // Update the selected equipment reference
                     selectedEquipment = equipmentData[index];
                     // Refresh detail panel if open
@@ -1783,7 +1747,6 @@
                 }
             } else {
                 if (equipmentData.some(e => e.id === id)) {
-                    showToast('Equipment ID already exists');
                     return;
                 }
                 
@@ -1797,7 +1760,6 @@
                     nextMaintenance: nextServiceDate,
                     maintenanceHistory: []
                 });
-                showToast('Equipment added');
             }
             
             saveChanges();
@@ -1845,12 +1807,10 @@
             const nextServiceValue = nextServiceDate.value;
             
             if (!date) {
-                showToast('Date is required');
                 return;
             }
             
             if (!type) {
-                showToast('Maintenance type is required');
                 return;
             }
             
@@ -1872,11 +1832,9 @@
                     const recordIndex = equipmentData[index].maintenanceHistory.findIndex(r => r.id === maintenanceId);
                     if (recordIndex !== -1) {
                         equipmentData[index].maintenanceHistory[recordIndex] = record;
-                        showToast('Maintenance record updated');
                     }
                 } else {
                     equipmentData[index].maintenanceHistory.unshift(record);
-                    showToast('Maintenance record added');
                     
                     // Update next service date to 1 year from maintenance date
                     equipmentData[index].nextMaintenance = nextServiceValue;
@@ -1908,7 +1866,6 @@
                 optimizedRenderEquipment();
                 calculateStats();
                 closeDetailPanel();
-                showToast('Equipment deleted');
             }
             deleteModal.classList.remove('show');
         }
@@ -1937,7 +1894,6 @@
 
         async function pushDataToGitHub() {
             if (!GITHUB_PAT) {
-                showToast("GitHub PAT not configured");
                 return false;
             }
 
@@ -1973,22 +1929,16 @@
                     lastSyncTimestamp = Date.now();
                     return true;
                 } else {
-                    showToast(`Push failed: ${result.message || 'Unknown error'}`);
                     return false;
                 }
             } catch (error) {
-                showToast('Network error during sync');
                 return false;
             }
         }
 
         async function saveChanges() {
             if (GITHUB_PAT) {
-                const pushSuccess = await pushDataToGitHub();
-                if (pushSuccess) showToast('Changes saved to GitHub');
-                else showToast('Failed to sync with GitHub');
-            } else {
-                showToast('GitHub token not configured - changes not saved');
+                await pushDataToGitHub();
             }
         }
 
@@ -2008,18 +1958,14 @@
                 lastSyncTimestamp = remoteTimestamp;
                 fileSHA = remoteSHA;
 
-                showToast('Data loaded from GitHub');
                 updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
             } catch (error) {
                 console.error('Sync error:', error);
                 if (error.message.includes('404')) {
                     equipmentData = [];
                     const pushSuccess = await pushDataToGitHub();
-                    if (pushSuccess) showToast('Created new data file on GitHub');
-                    else showToast('Failed to create data file on GitHub');
                 } else {
                     updateSyncStatus('error', 'Sync failed - check token');
-                    showToast('Sync failed: ' + error.message);
                 }
             } finally {
                 syncInProgress = false;
@@ -2034,7 +1980,6 @@
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            showToast(`Theme changed to ${newTheme} mode`);
         }
 
         function calculateStats() {
@@ -2170,7 +2115,6 @@
                     document.querySelectorAll('.equipment-item').forEach(i => i.classList.remove('selected'));
                     item.classList.add('selected');
                     openDetailPanel(equip);
-                    showToast(`Selected: ${equip.name}`);
                 });
                 fragment.appendChild(item);
             });
@@ -2255,12 +2199,6 @@
             selectedEquipment = null;
         }
 
-        function showToast(message, duration = 3000) {
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), duration);
-        }
-
         // Initialize the app
         async function init() {
             updateTokenIndicator();
@@ -2299,10 +2237,7 @@
                     localStorage.setItem('github_pat', token);
                     updateTokenIndicator();
                     tokenModal.classList.remove('show');
-                    showToast('GitHub token saved');
                     setTimeout(syncData, 1000);
-                } else {
-                    showToast('Please enter a valid token');
                 }
             });
             clearTokenBtn.addEventListener('click', () => {
@@ -2310,7 +2245,6 @@
                 localStorage.removeItem('github_pat');
                 updateTokenIndicator();
                 tokenModal.classList.remove('show');
-                showToast('GitHub token cleared');
             });
             closeTokenModal.addEventListener('click', () => tokenModal.classList.remove('show'));
             pinBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -2324,10 +2258,8 @@
                     addEquipmentBtn.style.display = 'flex';
                     editEquipmentBtn.style.display = 'flex';
                     deleteEquipmentBtn.style.display = 'flex';
-                    showToast('Admin mode activated');
                     pinModal.classList.remove('show');
                 } else {
-                    showToast('Incorrect PIN');
                     pinInput.value = '';
                 }
             });
