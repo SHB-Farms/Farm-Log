@@ -1695,7 +1695,6 @@
         function toggleAdminMode() {
             if (adminMode) {
                 adminMode = false;
-                localStorage.setItem('adminMode', adminMode);
                 adminToggle.classList.remove('active');
                 addEquipmentBtn.style.display = 'none';
                 editEquipmentBtn.style.display = 'none';
@@ -2272,14 +2271,12 @@
             lastSyncTimestamp = 0;
             fileSHA = null;
             
-            const savedAdminMode = localStorage.getItem('adminMode');
-            adminMode = savedAdminMode === 'true';
-            if (adminMode) {
-                adminToggle.classList.add('active');
-                addEquipmentBtn.style.display = 'flex';
-                editEquipmentBtn.style.display = 'flex';
-                deleteEquipmentBtn.style.display = 'flex';
-            }
+            // Always start with admin mode off
+            adminMode = false;
+            adminToggle.classList.remove('active');
+            addEquipmentBtn.style.display = 'none';
+            editEquipmentBtn.style.display = 'none';
+            deleteEquipmentBtn.style.display = 'none';
             
             if (GITHUB_PAT) {
                 await syncData();
@@ -2323,7 +2320,6 @@
             pinEnter.addEventListener('click', () => {
                 if (pinInput.value === ADMIN_PIN) {
                     adminMode = true;
-                    localStorage.setItem('adminMode', adminMode);
                     adminToggle.classList.add('active');
                     addEquipmentBtn.style.display = 'flex';
                     editEquipmentBtn.style.display = 'flex';
