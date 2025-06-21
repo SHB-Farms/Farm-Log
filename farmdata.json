@@ -1016,8 +1016,8 @@
       "category": "tractor",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-21",
-      "nextMaintenance": "2025-06-21",
+      "lastMaintenance": "2025-04-01",
+      "nextMaintenance": "2026-04-01",
       "maintenanceHistory": [
         {
           "id": "MH-952133",
@@ -1028,7 +1028,7 @@
         },
         {
           "id": "MH-482954",
-          "date": "2025-06-21",
+          "date": "2025-04-01",
           "type": "awesrdr",
           "technician": "sdfaz",
           "details": "AASfzd"
@@ -1132,5 +1132,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750468951388
+  "timestamp": 1750468990355
 }
