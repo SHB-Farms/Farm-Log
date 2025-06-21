@@ -1016,8 +1016,8 @@
       "category": "tractor",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-04-01",
-      "nextMaintenance": "2026-04-01",
+      "lastMaintenance": "2025-06-01",
+      "nextMaintenance": "2026-06-01",
       "maintenanceHistory": [
         {
           "id": "MH-952133",
@@ -1028,17 +1028,16 @@
         },
         {
           "id": "MH-482954",
-          "date": "2025-04-01",
+          "date": "2025-06-21",
           "type": "awesrdr",
           "technician": "sdfaz",
           "details": "AASfzd"
         },
         {
           "id": "MH-855942",
-          "date": "2025-06-20",
+          "date": "2025-06-01",
           "type": "Full Service",
           "technician": "Lcg",
-          "cost": 1234,
           "details": "Testing"
         },
         {
@@ -1132,5 +1131,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750468990355
+  "timestamp": 1750469015189
 }
