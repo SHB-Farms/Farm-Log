@@ -1028,16 +1028,17 @@
         },
         {
           "id": "MH-482954",
-          "date": "2025-06-21",
+          "date": "2025-06-01",
           "type": "awesrdr",
           "technician": "sdfaz",
           "details": "AASfzd"
         },
         {
           "id": "MH-855942",
-          "date": "2025-06-01",
+          "date": "2025-06-20",
           "type": "Full Service",
           "technician": "Lcg",
+          "cost": 1234,
           "details": "Testing"
         },
         {
@@ -1131,5 +1132,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750469015189
+  "timestamp": 1750469036625
 }
