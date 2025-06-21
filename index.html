@@ -1372,6 +1372,11 @@
                     <label for="maintenanceDetails">Details</label>
                     <textarea id="maintenanceDetails" class="form-control" placeholder="Describe the work performed"></textarea>
                 </div>
+                
+                <div class="form-group">
+                    <label for="nextServiceDate">Next Service Date <small>(Automatically set to 1 year)</small></label>
+                    <input type="date" id="nextServiceDate" class="form-control">
+                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" id="cancelMaintenanceBtn">Cancel</button>
@@ -1492,6 +1497,7 @@
         const maintenanceType = document.getElementById('maintenanceType');
         const maintenanceTech = document.getElementById('maintenanceTech');
         const maintenanceDetails = document.getElementById('maintenanceDetails');
+        const nextServiceDate = document.getElementById('nextServiceDate');
         const saveMaintenanceBtn = document.getElementById('saveMaintenanceBtn');
         const cancelMaintenanceBtn = document.getElementById('cancelMaintenanceBtn');
         const closeMaintenanceModal = document.getElementById('closeMaintenanceModal');
@@ -1527,7 +1533,11 @@
         function isMaintenanceOverdue(equip) {
             if (!equip.nextMaintenance) return false;
             const today = new Date();
+            today.setHours(0, 0, 0, 0); // Reset time part for accurate comparison
+            
             const nextDate = new Date(equip.nextMaintenance);
+            nextDate.setHours(0, 0, 0, 0);
+            
             return nextDate < today;
         }
 
@@ -1678,6 +1688,7 @@
                 maintenanceTech.value = record.technician || '';
                 maintenanceDetails.value = record.details || '';
                 maintenanceId = record.id;
+                nextServiceDate.style.display = 'none';
             } else {
                 const today = new Date().toISOString().split('T')[0];
                 maintenanceDate.value = today;
@@ -1685,6 +1696,12 @@
                 maintenanceTech.value = '';
                 maintenanceDetails.value = '';
                 maintenanceId = null;
+                nextServiceDate.style.display = 'block';
+                
+                // Calculate next service date (1 year from today)
+                const nextDate = new Date();
+                nextDate.setFullYear(nextDate.getFullYear() + 1);
+                nextServiceDate.value = nextDate.toISOString().split('T')[0];
             }
             maintenanceModal.classList.add('show');
         }
@@ -1696,6 +1713,7 @@
             const type = maintenanceType.value.trim();
             const tech = maintenanceTech.value.trim();
             const details = maintenanceDetails.value.trim();
+            const nextServiceValue = nextServiceDate.value;
             
             if (!date) {
                 showToast('Date is required');
@@ -1730,15 +1748,13 @@
                 } else {
                     equipmentData[index].maintenanceHistory.unshift(record);
                     showToast('Maintenance record added');
+                    
+                    // Update next service date to 1 year from maintenance date
+                    equipmentData[index].nextMaintenance = nextServiceValue;
                 }
                 
-                // Update last service date and calculate next service date
+                // Update last service date to this maintenance date
                 equipmentData[index].lastMaintenance = date;
-                
-                // Calculate next service date (1 year from maintenance date)
-                const nextServiceDate = new Date(date);
-                nextServiceDate.setFullYear(nextServiceDate.getFullYear() + 1);
-                equipmentData[index].nextMaintenance = nextServiceDate.toISOString().split('T')[0];
                 
                 saveChanges();
                 optimizedRenderEquipment();
@@ -2225,6 +2241,15 @@
                 optimizedRenderEquipment();
             }));
             sortSelect.addEventListener('change', () => optimizedRenderEquipment());
+            
+            // Automatically calculate next service date when maintenance date changes
+            maintenanceDate.addEventListener('change', () => {
+                if (maintenanceDate.value) {
+                    const nextDate = new Date(maintenanceDate.value);
+                    nextDate.setFullYear(nextDate.getFullYear() + 1);
+                    nextServiceDate.value = nextDate.toISOString().split('T')[0];
+                }
+            });
         }
 
         document.addEventListener('DOMContentLoaded', init);
