@@ -1020,6 +1020,13 @@
       "nextMaintenance": "2025-06-21",
       "maintenanceHistory": [
         {
+          "id": "MH-762476",
+          "date": "2025-06-21",
+          "type": "Oil",
+          "technician": "Test",
+          "details": "Oil"
+        },
+        {
           "id": "MH-952133",
           "date": "2025-06-21",
           "type": "Testing",
@@ -1132,5 +1139,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750470915282
+  "timestamp": 1750471762476
 }
