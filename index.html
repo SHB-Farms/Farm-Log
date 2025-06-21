@@ -1732,7 +1732,10 @@
                     showToast('Maintenance record added');
                 }
                 
+                // Update last service date and calculate next service date
                 equipmentData[index].lastMaintenance = date;
+                
+                // Calculate next service date (1 year from maintenance date)
                 const nextServiceDate = new Date(date);
                 nextServiceDate.setFullYear(nextServiceDate.getFullYear() + 1);
                 equipmentData[index].nextMaintenance = nextServiceDate.toISOString().split('T')[0];
