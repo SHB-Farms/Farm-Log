@@ -1017,8 +1017,15 @@
       "year": "2025",
       "notes": "Testing",
       "lastMaintenance": "2025-06-21",
-      "nextMaintenance": "2025-06-21",
+      "nextMaintenance": "2026-06-21",
       "maintenanceHistory": [
+        {
+          "id": "MH-952133",
+          "date": "2025-06-21",
+          "type": "Testing",
+          "technician": "Sjsj",
+          "details": "Sjsjs"
+        },
         {
           "id": "MH-482954",
           "date": "2025-06-21",
@@ -1125,5 +1132,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750464724417
+  "timestamp": 1750464952138
 }
