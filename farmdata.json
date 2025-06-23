@@ -1016,9 +1016,16 @@
       "category": "implement",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-21",
-      "nextMaintenance": "2025-06-25",
+      "lastMaintenance": "2025-06-23",
+      "nextMaintenance": "2026-06-23",
       "maintenanceHistory": [
+        {
+          "id": "MH-417681",
+          "date": "2025-06-23",
+          "type": "Testing saving",
+          "technician": "Save",
+          "details": "Saved"
+        },
         {
           "id": "MH-873088",
           "date": "2025-06-21",
@@ -1146,5 +1153,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750704361492
+  "timestamp": 1750704417681
 }
