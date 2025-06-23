@@ -6,17 +6,9 @@
       "category": "tractor",
       "year": "2025",
       "notes": "License plate\nFilter numbers ",
-      "lastMaintenance": "2025-06-23",
-      "nextMaintenance": "2026-06-23",
-      "maintenanceHistory": [
-        {
-          "id": "MH-549355",
-          "date": "2025-06-23",
-          "type": "Oil_change",
-          "technician": "Lcg",
-          "details": "Working"
-        }
-      ]
+      "lastMaintenance": "2025-06-22",
+      "nextMaintenance": "2025-06-23",
+      "maintenanceHistory": []
     },
     {
       "id": "46YSP162XW1056099",
@@ -1037,61 +1029,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "10123456789",
-      "name": "Testing",
-      "category": "implement",
-      "year": "2025",
-      "notes": "Testing",
-      "lastMaintenance": "2025-06-21",
-      "nextMaintenance": "2025-06-25",
-      "maintenanceHistory": [
-        {
-          "id": "MH-873088",
-          "date": "2025-06-21",
-          "type": "Changed oil",
-          "technician": "Test",
-          "details": "Testing v4.1"
-        },
-        {
-          "id": "MH-762476",
-          "date": "2025-06-21",
-          "type": "Oil",
-          "technician": "Test",
-          "details": "Oil"
-        },
-        {
-          "id": "MH-952133",
-          "date": "2025-06-21",
-          "type": "Testing",
-          "technician": "Sjsj",
-          "details": "Sjsjs"
-        },
-        {
-          "id": "MH-482954",
-          "date": "2025-06-21",
-          "type": "awesrdr",
-          "technician": "sdfaz",
-          "details": "AASfzd"
-        },
-        {
-          "id": "MH-855942",
-          "date": "2025-06-20",
-          "type": "Full Service",
-          "technician": "Lcg",
-          "cost": 1234,
-          "details": "Testing"
-        },
-        {
-          "id": "MH-008542",
-          "date": "2025-06-19",
-          "type": "Other",
-          "technician": "Testing iphone",
-          "cost": 9999,
-          "details": "Testing iphone"
-        }
-      ]
-    },
-    {
       "id": "1TTE5320431071310",
       "name": "TRANSCRAFT STEPDECK TRAILER",
       "category": "trailer",
@@ -1172,5 +1109,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750709549356
+  "timestamp": 1750709612958
 }
