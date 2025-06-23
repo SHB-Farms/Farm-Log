@@ -7,7 +7,7 @@
       "year": "2025",
       "notes": "License plate\nFilter numbers ",
       "lastMaintenance": "2025-06-23",
-      "nextMaintenance": "2026-06-23",
+      "nextMaintenance": "2025-06-23",
       "maintenanceHistory": [
         {
           "id": "MH-707300",
@@ -1135,5 +1135,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750710440030
+  "timestamp": 1750710599471
 }
