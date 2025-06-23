@@ -5,7 +5,7 @@
       "name": "AAA Please add equipment",
       "category": "tractor",
       "year": "2025",
-      "notes": "License plate\nFilter numbers ",
+      "notes": "License plate\nFilter numbers \nMaintenance logs",
       "lastMaintenance": "2025-06-23",
       "nextMaintenance": "2025-06-23",
       "maintenanceHistory": [
@@ -1117,5 +1117,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750710627910
+  "timestamp": 1750714454165
 }
