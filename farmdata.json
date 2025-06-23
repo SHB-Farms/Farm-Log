@@ -23,7 +23,7 @@
       "name": "APACH STOCK TRAILER",
       "category": "trailer",
       "year": "1998",
-      "notes": "",
+      "notes": "Needs service",
       "lastMaintenance": "2025-06-23",
       "nextMaintenance": "2026-06-23",
       "maintenanceHistory": [
@@ -1117,5 +1117,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750714454165
+  "timestamp": 1750714752105
 }
