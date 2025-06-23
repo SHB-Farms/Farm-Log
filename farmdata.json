@@ -12,9 +12,9 @@
         {
           "id": "MH-707300",
           "date": "2025-06-23",
-          "type": "Does this work",
-          "technician": "LCG",
-          "details": "Does this work"
+          "type": "Added equipment",
+          "technician": "SHB",
+          "details": "Other"
         }
       ]
     },
@@ -1115,17 +1115,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "999999",
-      "name": "Does this work",
-      "category": "implement",
-      "year": "2025",
-      "notes": "12345",
-      "lastMaintenance": "2025-06-21",
-      "nextMaintenance": "2025-06-23",
-      "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750709879949
+  "timestamp": 1750710008947
 }
