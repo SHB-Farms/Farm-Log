@@ -1046,11 +1046,11 @@
       "nextMaintenance": "2026-06-23",
       "maintenanceHistory": [
         {
-          "id": "MH-229429",
+          "id": "MH-440030",
           "date": "2025-06-23",
-          "type": "Test3",
-          "technician": "Test",
-          "details": "Testing log"
+          "type": "Test save2",
+          "technician": "2",
+          "details": "2"
         }
       ]
     },
@@ -1135,5 +1135,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750710229430
+  "timestamp": 1750710440030
 }
