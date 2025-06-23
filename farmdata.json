@@ -751,16 +751,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DB9X4WN478339",
-      "name": "PETERBILT 379 TRACTOR",
-      "category": "truck",
-      "year": "1998",
-      "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
-    },
-    {
       "id": "1XP5DB9X3XD492059",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -1146,5 +1136,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750527873089
+  "timestamp": 1750703349161
 }
