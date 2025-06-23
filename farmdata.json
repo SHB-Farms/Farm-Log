@@ -6,9 +6,17 @@
       "category": "trailer",
       "year": "1998",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-06-23",
+      "nextMaintenance": "2026-06-23",
+      "maintenanceHistory": [
+        {
+          "id": "MH-569129",
+          "date": "2025-06-23",
+          "type": "Test save",
+          "technician": "Test save",
+          "details": "Test save"
+        }
+      ]
     },
     {
       "id": "2B9FSFAL5TS304161",
@@ -751,6 +759,16 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1XP5DB9X4WN478339",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "1998",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": null,
+      "maintenanceHistory": []
+    },
+    {
       "id": "1XP5DB9X3XD492059",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -825,6 +843,16 @@
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
       "year": "2007",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": null,
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X4WN478339",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "1998",
       "notes": "",
       "lastMaintenance": null,
       "nextMaintenance": null,
@@ -1126,5 +1154,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750704505512
+  "timestamp": 1750704569129
 }
