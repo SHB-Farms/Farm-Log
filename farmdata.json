@@ -12,9 +12,9 @@
         {
           "id": "MH-707300",
           "date": "2025-06-23",
-          "type": "Does this work",
-          "technician": "LCG",
-          "details": "Does this work"
+          "type": "Service",
+          "technician": "SHB",
+          "details": "Describe the work performed"
         }
       ]
     },
@@ -1117,5 +1117,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750714767139
+  "timestamp": 1750715416877
 }
