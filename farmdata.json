@@ -751,16 +751,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DB9X4WN478339",
-      "name": "PETERBILT 379 TRACTOR",
-      "category": "truck",
-      "year": "1998",
-      "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
-    },
-    {
       "id": "1XP5DB9X3XD492059",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -1016,16 +1006,9 @@
       "category": "implement",
       "year": "2025",
       "notes": "Testing",
-      "lastMaintenance": "2025-06-23",
-      "nextMaintenance": "2026-06-23",
+      "lastMaintenance": "2025-06-21",
+      "nextMaintenance": "2025-06-25",
       "maintenanceHistory": [
-        {
-          "id": "MH-417681",
-          "date": "2025-06-23",
-          "type": "Testing saving",
-          "technician": "Save",
-          "details": "Saved"
-        },
         {
           "id": "MH-873088",
           "date": "2025-06-21",
@@ -1153,5 +1136,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750704417681
+  "timestamp": 1750704491674
 }
