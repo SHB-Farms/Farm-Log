@@ -85,7 +85,7 @@
       "lastMaintenance": "",
       "nextMaintenance": "",
       "maintenanceHistory": [],
-      "status": "inactive"
+      "status": "active"
     },
     {
       "id": "JJam0340TKRF04287",
@@ -1108,5 +1108,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750887511061
+  "timestamp": 1750887544506
 }
