@@ -82,9 +82,10 @@
       "category": "tractor",
       "year": "2011",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "inactive"
     },
     {
       "id": "JJam0340TKRF04287",
@@ -1107,5 +1108,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750724364207
+  "timestamp": 1750887511061
 }
