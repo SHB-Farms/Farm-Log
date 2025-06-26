@@ -1106,7 +1106,18 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "Test delete",
+      "name": "Test delete",
+      "category": "implement",
+      "year": "1990",
+      "status": "active",
+      "notes": "Test delete ",
+      "lastMaintenance": "2025-06-25",
+      "nextMaintenance": "2025-06-28",
+      "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750887544506
+  "timestamp": 1750939924301
 }
