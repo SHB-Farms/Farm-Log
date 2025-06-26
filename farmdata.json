@@ -1112,12 +1112,12 @@
       "name": "Test delete",
       "category": "implement",
       "year": "1990",
-      "status": "active",
+      "status": "inactive",
       "notes": "Test delete ",
       "lastMaintenance": "2025-06-25",
       "nextMaintenance": "2025-06-28",
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750939924301
+  "timestamp": 1750939949906
 }
