@@ -13,10 +13,12 @@
           "id": "MH-707300",
           "date": "2025-06-23",
           "type": "Service",
-          "technician": "SHB",
-          "details": "Describe the work performed"
+          "technician": "SHB Farms",
+          "details": "Describe the work performed",
+          "updatedAt": "2025-06-27T22:37:05.921Z"
         }
-      ]
+      ],
+      "updatedAt": "2025-06-27T22:37:05.921Z"
     },
     {
       "id": "46YSP162XW1056099",
@@ -1137,5 +1139,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751061850075
+  "timestamp": 1751063825922
 }
