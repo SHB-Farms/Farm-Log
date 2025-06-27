@@ -647,13 +647,13 @@
         {
           "id": "MH-220692",
           "date": "2025-06-27",
-          "type": "Sync test 2",
+          "type": "Does it work???",
           "technician": "Test",
           "details": "Test",
-          "updatedAt": "2025-06-27T20:20:55.780Z"
+          "updatedAt": "2025-06-27T20:53:31.683Z"
         }
       ],
-      "updatedAt": "2025-06-27T20:49:36.608Z"
+      "updatedAt": "2025-06-27T20:53:31.684Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1137,5 +1137,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751057376608
+  "timestamp": 1751057611686
 }
