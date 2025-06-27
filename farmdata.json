@@ -646,7 +646,7 @@
         {
           "id": "MH-220692",
           "date": "2025-06-27",
-          "type": "Test2",
+          "type": "Test2345",
           "technician": "Test",
           "details": "Test"
         }
@@ -1134,5 +1134,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751048135057
+  "timestamp": 1751049417580
 }
