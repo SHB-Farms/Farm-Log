@@ -645,7 +645,7 @@
           "updatedAt": "2025-06-27T23:44:59.982Z"
         }
       ],
-      "updatedAt": "2025-06-27T23:53:03.045Z"
+      "updatedAt": "2025-06-27T23:44:59.982Z"
     },
     {
       "id": "HACMX135CPDH02639",
@@ -659,10 +659,10 @@
         {
           "id": "MH-811065",
           "date": "2025-06-27",
-          "type": "Larry",
+          "type": "Test",
           "technician": "2",
-          "details": "2",
-          "updatedAt": "2025-06-27T22:04:10.071Z"
+          "details": "Sync 30 seconds",
+          "updatedAt": "2025-06-27T23:54:52.000Z"
         },
         {
           "id": "MH-220692",
@@ -673,7 +673,7 @@
           "updatedAt": "2025-06-27T21:05:54.447Z"
         }
       ],
-      "updatedAt": "2025-06-27T22:04:10.072Z"
+      "updatedAt": "2025-06-27T23:54:52.001Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1157,5 +1157,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751068383046
+  "timestamp": 1751068492001
 }
