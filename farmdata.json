@@ -633,9 +633,17 @@
       "category": "tractor",
       "year": "2023",
       "notes": "48142231 hydrulic charge pump oil filter    48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter  47715391 hydraulic suction pump oil filter\n4/24/2024  50 hr                                       5802872619 engine oil filter\n                                                                    92129321 fuel filter\n                                                                    5802726987 water/fuel seperator filter\n                                                                   10/29/2024   428 hr",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-06-27",
+      "nextMaintenance": "2026-06-27",
+      "maintenanceHistory": [
+        {
+          "id": "MH-170542",
+          "date": "2025-06-27",
+          "type": "Test",
+          "technician": "Test",
+          "details": "Test"
+        }
+      ]
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1028,6 +1036,17 @@
       "maintenanceHistory": []
     },
     {
+      "id": "Test delete",
+      "name": "Test delete",
+      "category": "implement",
+      "year": "1990",
+      "status": "inactive",
+      "notes": "Test delete ",
+      "lastMaintenance": "2025-06-25",
+      "nextMaintenance": "2025-06-28",
+      "maintenanceHistory": []
+    },
+    {
       "id": "1TTE5320431071310",
       "name": "TRANSCRAFT STEPDECK TRAILER",
       "category": "trailer",
@@ -1106,18 +1125,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "Test delete",
-      "name": "Test delete",
-      "category": "implement",
-      "year": "1990",
-      "status": "inactive",
-      "notes": "Test delete ",
-      "lastMaintenance": "2025-06-25",
-      "nextMaintenance": "2025-06-28",
-      "maintenanceHistory": []
     }
   ],
-  "timestamp": 1750939949906
+  "timestamp": 1751047170544
 }
