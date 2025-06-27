@@ -646,11 +646,13 @@
         {
           "id": "MH-220692",
           "date": "2025-06-27",
-          "type": "Sync test",
+          "type": "Sync test 2",
           "technician": "Test",
-          "details": "Test"
+          "details": "Test",
+          "updatedAt": "2025-06-27T20:18:44.953Z"
         }
-      ]
+      ],
+      "updatedAt": "2025-06-27T20:18:44.956Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1134,5 +1136,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751051295825
+  "timestamp": 1751055524957
 }
