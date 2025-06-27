@@ -637,6 +637,13 @@
       "nextMaintenance": "2026-06-27",
       "maintenanceHistory": [
         {
+          "id": "MH-537822",
+          "date": "2025-06-27",
+          "type": "Test 2",
+          "technician": "Test2",
+          "details": "Test2"
+        },
+        {
           "id": "MH-220692",
           "date": "2025-06-27",
           "type": "Test",
@@ -1127,5 +1134,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751047220692
+  "timestamp": 1751047537823
 }
