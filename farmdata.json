@@ -639,9 +639,9 @@
         {
           "id": "MH-811065",
           "date": "2025-06-27",
-          "type": "2",
-          "technician": "2",
-          "details": "2"
+          "type": "3",
+          "technician": "3",
+          "details": "3"
         },
         {
           "id": "MH-220692",
@@ -1134,5 +1134,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751047811066
+  "timestamp": 1751048026912
 }
