@@ -639,10 +639,10 @@
         {
           "id": "MH-811065",
           "date": "2025-06-27",
-          "type": "12345",
+          "type": "Micheal",
           "technician": "2",
           "details": "2",
-          "updatedAt": "2025-06-27T21:49:59.701Z"
+          "updatedAt": "2025-06-27T21:51:40.398Z"
         },
         {
           "id": "MH-220692",
@@ -653,7 +653,7 @@
           "updatedAt": "2025-06-27T21:05:54.447Z"
         }
       ],
-      "updatedAt": "2025-06-27T21:49:59.702Z"
+      "updatedAt": "2025-06-27T21:51:40.398Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1137,5 +1137,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751060999703
+  "timestamp": 1751061100399
 }
