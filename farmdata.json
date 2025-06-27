@@ -14,11 +14,11 @@
           "date": "2025-06-23",
           "type": "Service",
           "technician": "SHB Farms",
-          "details": "Describe the work performed",
-          "updatedAt": "2025-06-27T22:37:05.921Z"
+          "details": "Describe the work performed\nTesting Sync",
+          "updatedAt": "2025-06-27T22:44:23.993Z"
         }
       ],
-      "updatedAt": "2025-06-27T22:37:05.921Z"
+      "updatedAt": "2025-06-27T22:44:23.994Z"
     },
     {
       "id": "46YSP162XW1056099",
@@ -1139,5 +1139,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751063825922
+  "timestamp": 1751064263994
 }
