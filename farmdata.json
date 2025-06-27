@@ -649,10 +649,10 @@
           "type": "Sync test 2",
           "technician": "Test",
           "details": "Test",
-          "updatedAt": "2025-06-27T20:18:44.953Z"
+          "updatedAt": "2025-06-27T20:20:55.780Z"
         }
       ],
-      "updatedAt": "2025-06-27T20:18:44.956Z"
+      "updatedAt": "2025-06-27T20:20:55.785Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1136,5 +1136,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751055524957
+  "timestamp": 1751055655785
 }
