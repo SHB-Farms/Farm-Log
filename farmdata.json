@@ -2,7 +2,7 @@
   "equipment": [
     {
       "id": "1234567890",
-      "name": "AA Please add equipment",
+      "name": "AAA Please add equipment",
       "category": "tractor",
       "year": "2025",
       "notes": "License plate\nFilter numbers \nMaintenance logs",
@@ -18,8 +18,7 @@
           "updatedAt": "2025-06-28T02:26:00.774Z"
         }
       ],
-      "updatedAt": "2025-06-28T05:33:15.430Z",
-      "status": "active"
+      "updatedAt": "2025-06-28T02:26:00.775Z"
     },
     {
       "id": "46YSP162XW1056099",
@@ -1059,6 +1058,17 @@
       "maintenanceHistory": []
     },
     {
+      "id": "Test delete",
+      "name": "Test delete",
+      "category": "implement",
+      "year": "1990",
+      "status": "inactive",
+      "notes": "Test delete ",
+      "lastMaintenance": "2025-06-25",
+      "nextMaintenance": "2025-06-28",
+      "maintenanceHistory": []
+    },
+    {
       "id": "1TTE5320431071310",
       "name": "TRANSCRAFT STEPDECK TRAILER",
       "category": "trailer",
@@ -1139,5 +1149,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751088822159
+  "timestamp": 1751088970872
 }
