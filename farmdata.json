@@ -1147,7 +1147,20 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "Delete",
+      "name": "AAAA",
+      "category": "tractor",
+      "year": "2025",
+      "status": "active",
+      "notes": "Delete ",
+      "lastMaintenance": "2025-06-27",
+      "nextMaintenance": "2025-06-30",
+      "maintenanceHistory": [],
+      "createdAt": "2025-06-28T05:25:33.304Z",
+      "updatedAt": "2025-06-28T05:25:33.304Z"
     }
   ],
-  "timestamp": 1751077560776
+  "timestamp": 1751088333305
 }
