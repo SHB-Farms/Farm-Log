@@ -31,6 +31,14 @@
       "nextMaintenance": "2026-06-28",
       "maintenanceHistory": [
         {
+          "id": "MH-706177",
+          "date": "2025-06-28",
+          "type": "2",
+          "technician": "2",
+          "details": "2",
+          "updatedAt": "2025-06-28T16:55:06.177Z"
+        },
+        {
           "id": "MH-248216",
           "date": "2025-06-28",
           "type": "Today",
@@ -48,7 +56,7 @@
         }
       ],
       "createdAt": "2025-06-28T06:27:38.583Z",
-      "updatedAt": "2025-06-28T13:27:28.217Z"
+      "updatedAt": "2025-06-28T16:55:06.177Z"
     },
     {
       "id": "46YSP162XW1056099",
@@ -1168,5 +1176,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751117248218
+  "timestamp": 1751129706178
 }
