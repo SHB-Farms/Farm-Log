@@ -1149,18 +1149,18 @@
       "maintenanceHistory": []
     },
     {
-      "id": "Delete",
-      "name": "AAAA",
-      "category": "tractor",
+      "id": "Aaaaaaaaaaaaa",
+      "name": "Aaaaaaaaaaaaa",
+      "category": "implement",
       "year": "2025",
       "status": "active",
-      "notes": "Delete ",
-      "lastMaintenance": "2025-06-27",
-      "nextMaintenance": "2025-06-30",
+      "notes": "Aaaaaaaaaaaaa",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
       "maintenanceHistory": [],
-      "createdAt": "2025-06-28T05:25:33.304Z",
-      "updatedAt": "2025-06-28T05:25:33.304Z"
+      "createdAt": "2025-06-28T05:27:47.954Z",
+      "updatedAt": "2025-06-28T05:27:47.954Z"
     }
   ],
-  "timestamp": 1751088333305
+  "timestamp": 1751088467955
 }
