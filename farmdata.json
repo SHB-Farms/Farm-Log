@@ -624,9 +624,9 @@
           "id": "MH-383043",
           "date": "2025-06-27",
           "type": "Oil, Fuel, Air filter change",
-          "technician": "SHB",
+          "technician": "Michael",
           "details": "51508555 hydraulic filter \n47833564 hydraulic filter \n84191182 air filter \n87356547 air filter\n87684088 cab air filter \n84565867 engine oil filter \n92039410 fuel filter \n90412128 pre-fuel filter",
-          "updatedAt": "2025-06-28T00:33:32.253Z"
+          "updatedAt": "2025-06-28T00:34:01.288Z"
         },
         {
           "id": "MH-899982",
@@ -637,7 +637,7 @@
           "updatedAt": "2025-06-28T00:24:22.263Z"
         }
       ],
-      "updatedAt": "2025-06-28T00:33:32.254Z"
+      "updatedAt": "2025-06-28T00:34:01.289Z"
     },
     {
       "id": "HACMX135CPDH02639",
@@ -1149,5 +1149,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751070812255
+  "timestamp": 1751070841289
 }
