@@ -28,15 +28,7 @@
       "notes": "Needs service",
       "lastMaintenance": "2025-06-23",
       "nextMaintenance": "2026-06-23",
-      "maintenanceHistory": [
-        {
-          "id": "MH-569129",
-          "date": "2025-06-23",
-          "type": "Test save",
-          "technician": "Test save",
-          "details": "Test save 2"
-        }
-      ]
+      "maintenanceHistory": []
     },
     {
       "id": "2B9FSFAL5TS304161",
