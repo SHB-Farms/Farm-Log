@@ -1059,17 +1059,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "Test delete",
-      "name": "Test delete",
-      "category": "implement",
-      "year": "1990",
-      "status": "inactive",
-      "notes": "Test delete ",
-      "lastMaintenance": "2025-06-25",
-      "nextMaintenance": "2025-06-28",
-      "maintenanceHistory": []
-    },
-    {
       "id": "1TTE5320431071310",
       "name": "TRANSCRAFT STEPDECK TRAILER",
       "category": "trailer",
@@ -1150,5 +1139,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751088795433
+  "timestamp": 1751088822159
 }
