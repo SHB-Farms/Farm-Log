@@ -653,8 +653,8 @@
           "date": "2025-06-27",
           "type": "Larry",
           "technician": "2",
-          "details": "V1.3",
-          "updatedAt": "2025-06-28T00:04:09.861Z"
+          "details": "V1.4",
+          "updatedAt": "2025-06-28T01:14:24.331Z"
         },
         {
           "id": "MH-220692",
@@ -665,7 +665,7 @@
           "updatedAt": "2025-06-27T21:05:54.447Z"
         }
       ],
-      "updatedAt": "2025-06-28T00:04:09.861Z"
+      "updatedAt": "2025-06-28T01:14:24.332Z"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1149,5 +1149,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751070841289
+  "timestamp": 1751073264333
 }
