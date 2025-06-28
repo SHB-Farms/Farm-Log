@@ -21,6 +21,28 @@
       "updatedAt": "2025-06-28T02:26:00.775Z"
     },
     {
+      "id": "Aaaaaaaa",
+      "name": "AAAAA",
+      "category": "implement",
+      "year": "2025",
+      "status": "active",
+      "notes": "Aaaaa",
+      "lastMaintenance": "2025-06-28",
+      "nextMaintenance": "2026-06-28",
+      "maintenanceHistory": [
+        {
+          "id": "MH-173453",
+          "date": "2025-06-28",
+          "type": "1",
+          "technician": "2",
+          "details": "345",
+          "updatedAt": "2025-06-28T06:29:33.453Z"
+        }
+      ],
+      "createdAt": "2025-06-28T06:27:38.583Z",
+      "updatedAt": "2025-06-28T06:29:33.454Z"
+    },
+    {
       "id": "46YSP162XW1056099",
       "name": "APACH STOCK TRAILER",
       "category": "trailer",
@@ -1136,20 +1158,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "Aaaaaaaa",
-      "name": "AAAAA",
-      "category": "implement",
-      "year": "2025",
-      "status": "active",
-      "notes": "Aaaaa",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "createdAt": "2025-06-28T06:27:38.583Z",
-      "updatedAt": "2025-06-28T06:27:38.584Z"
     }
   ],
-  "timestamp": 1751092058585
+  "timestamp": 1751092173454
 }
