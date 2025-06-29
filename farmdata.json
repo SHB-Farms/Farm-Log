@@ -1068,6 +1068,14 @@
       "nextMaintenance": "2026-06-29",
       "maintenanceHistory": [
         {
+          "id": "MH-202375",
+          "date": "2025-06-29",
+          "type": "A",
+          "technician": "B",
+          "details": "C",
+          "updatedAt": "2025-06-29T03:20:02.375Z"
+        },
+        {
           "id": "MH-094797",
           "date": "2025-06-29",
           "type": "A",
@@ -1085,7 +1093,7 @@
         }
       ],
       "createdAt": "2025-06-29T01:55:27.817Z",
-      "updatedAt": "2025-06-29T03:18:14.797Z"
+      "updatedAt": "2025-06-29T03:20:02.376Z"
     },
     {
       "id": "1TTE5320431071310",
@@ -1168,5 +1176,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1751167094799
+  "timestamp": 1751167202377
 }
