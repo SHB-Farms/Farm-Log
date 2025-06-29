@@ -1058,6 +1058,28 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1234",
+      "name": "Test",
+      "category": "implement",
+      "year": "2020",
+      "status": "active",
+      "notes": "Needs service ",
+      "lastMaintenance": "2025-06-29",
+      "nextMaintenance": "2026-06-29",
+      "maintenanceHistory": [
+        {
+          "id": "MH-331837",
+          "date": "2025-06-29",
+          "type": "1",
+          "technician": "1",
+          "details": "1",
+          "updatedAt": "2025-06-29T01:58:51.837Z"
+        }
+      ],
+      "createdAt": "2025-06-29T01:55:27.817Z",
+      "updatedAt": "2025-06-29T01:58:51.838Z"
+    },
+    {
       "id": "1TTE5320431071310",
       "name": "TRANSCRAFT STEPDECK TRAILER",
       "category": "trailer",
@@ -1136,20 +1158,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "1234",
-      "name": "Test",
-      "category": "implement",
-      "year": "2020",
-      "status": "active",
-      "notes": "Needs service ",
-      "lastMaintenance": "2025-06-25",
-      "nextMaintenance": "2025-06-30",
-      "maintenanceHistory": [],
-      "createdAt": "2025-06-29T01:55:27.817Z",
-      "updatedAt": "2025-06-29T01:55:27.820Z"
     }
   ],
-  "timestamp": 1751162127821
+  "timestamp": 1751162331839
 }
