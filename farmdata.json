@@ -1174,7 +1174,20 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "181345",
+      "name": "Macdon M200 swather",
+      "category": "tractor",
+      "year": "2008",
+      "status": "active",
+      "notes": "Oil filter NAPA 7325\nWater sep feul filter NAPA 601000\nFuel filter NAPA 3076\nPrimary air filter NAPA 6922\nSecondary air filter ?\nCab air filter NAPA 6562\n\nChange after 200 hours or 2 years\nSmall Hydraulic filter NAPA 1455\nLarge Hydraulic filter NAPA 1849\n",
+      "lastMaintenance": "2025-07-08",
+      "nextMaintenance": "2026-06-20",
+      "maintenanceHistory": [],
+      "createdAt": "2025-07-09T00:26:43.816Z",
+      "updatedAt": "2025-07-09T00:26:43.817Z"
     }
   ],
-  "timestamp": 1751167202377
+  "timestamp": 1752020803818
 }
