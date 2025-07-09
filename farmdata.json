@@ -1182,12 +1182,21 @@
       "year": "2008",
       "status": "active",
       "notes": "Oil filter NAPA 7325\nWater sep feul filter NAPA 601000\nFuel filter NAPA 3076\nPrimary air filter NAPA 6922\nSecondary air filter ?\nCab air filter NAPA 6562\n\nChange after 200 hours or 2 years\nSmall Hydraulic filter NAPA 1455\nLarge Hydraulic filter NAPA 1849\n",
-      "lastMaintenance": "2025-07-08",
-      "nextMaintenance": "2026-06-20",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2025-07-09",
+      "nextMaintenance": "2026-07-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-283898",
+          "date": "2025-07-09",
+          "type": "Annual service",
+          "technician": "Charles",
+          "details": "Motor oil and filter change.\nPrimary air filter change.\nDidn't change secondary air filter.\nCab air filter change\nBoth feul filter change\nHydraulic oil filter change.",
+          "updatedAt": "2025-07-09T00:34:43.898Z"
+        }
+      ],
       "createdAt": "2025-07-09T00:26:43.816Z",
-      "updatedAt": "2025-07-09T00:26:43.817Z"
+      "updatedAt": "2025-07-09T00:34:43.901Z"
     }
   ],
-  "timestamp": 1752020803818
+  "timestamp": 1752021283902
 }
