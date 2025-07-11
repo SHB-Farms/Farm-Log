@@ -2,7 +2,7 @@
   "equipment": [
     {
       "id": "1234567890",
-      "name": "AAA Please add equipment",
+      "name": "AAA Please add and edit equipment",
       "category": "tractor",
       "year": "2025",
       "notes": "License plate\nFilter numbers \nMaintenance logs",
@@ -18,7 +18,8 @@
           "updatedAt": "2025-06-28T02:26:00.774Z"
         }
       ],
-      "updatedAt": "2025-06-28T02:26:00.775Z"
+      "updatedAt": "2025-07-11T18:56:58.419Z",
+      "status": "active"
     },
     {
       "id": "46YSP162XW1056099",
@@ -1208,5 +1209,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752188620003
+  "timestamp": 1752260218421
 }
