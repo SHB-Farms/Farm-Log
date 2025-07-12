@@ -871,27 +871,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DB9X92D582812",
-      "name": "PETERBILT 379 Truck 31",
-      "category": "truck",
-      "year": "2002",
-      "notes": "",
-      "lastMaintenance": "2025-07-11",
-      "nextMaintenance": "2026-07-11",
-      "maintenanceHistory": [
-        {
-          "id": "MH-555433",
-          "date": "2025-07-11",
-          "type": "AC",
-          "technician": "LCG",
-          "details": "450787 miles\nChanged A/C condenser and charged A/C \nNew Starter",
-          "updatedAt": "2025-07-12T15:52:35.433Z"
-        }
-      ],
-      "updatedAt": "2025-07-12T15:54:51.492Z",
-      "status": "active"
-    },
-    {
       "id": "1XP5DB0X14D815226",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -940,6 +919,27 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X92D582812",
+      "name": "PETERBILT 379 Truck 31",
+      "category": "truck",
+      "year": "2002",
+      "notes": "",
+      "lastMaintenance": "2025-07-11",
+      "nextMaintenance": "2026-07-11",
+      "maintenanceHistory": [
+        {
+          "id": "MH-555433",
+          "date": "2025-07-11",
+          "type": "Service",
+          "technician": "Multiple",
+          "details": "450787 miles\nChanged A/C condenser and charged A/C \nNew Starter",
+          "updatedAt": "2025-07-12T16:00:49.898Z"
+        }
+      ],
+      "updatedAt": "2025-07-12T16:00:49.901Z",
+      "status": "active"
     },
     {
       "id": "1NP9LJ9X0ED234734",
@@ -1220,5 +1220,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752335691494
+  "timestamp": 1752336049902
 }
