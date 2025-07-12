@@ -942,6 +942,19 @@
       "status": "active"
     },
     {
+      "id": "1XP5DB9X67D669848",
+      "name": "Peterbilt 379 Truck 34",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "Motor serial #MXS 83243",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-07-12T16:12:12.373Z",
+      "updatedAt": "2025-07-12T16:39:13.292Z"
+    },
+    {
       "id": "1NP9LJ9X0ED234734",
       "name": "PETERBILT 382 FEEDTRUCK",
       "category": "truck",
@@ -1218,20 +1231,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "1XP5DB9X67D669848",
-      "name": "Peterbilt 379 Truck 34",
-      "category": "tractor",
-      "year": "2006",
-      "status": "active",
-      "notes": "Motor serial #MXS83243",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "createdAt": "2025-07-12T16:12:12.373Z",
-      "updatedAt": "2025-07-12T16:12:12.379Z"
     }
   ],
-  "timestamp": 1752336732381
+  "timestamp": 1752338353299
 }
