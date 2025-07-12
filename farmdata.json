@@ -872,7 +872,7 @@
     },
     {
       "id": "1XP5DB9X92D582812",
-      "name": "PETERBILT 379 TRACTOR",
+      "name": "PETERBILT 379 Truck 31",
       "category": "truck",
       "year": "2002",
       "notes": "",
@@ -888,7 +888,8 @@
           "updatedAt": "2025-07-12T15:52:35.433Z"
         }
       ],
-      "updatedAt": "2025-07-12T15:52:35.434Z"
+      "updatedAt": "2025-07-12T15:54:51.492Z",
+      "status": "active"
     },
     {
       "id": "1XP5DB0X14D815226",
@@ -1219,5 +1220,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752335555434
+  "timestamp": 1752335691494
 }
