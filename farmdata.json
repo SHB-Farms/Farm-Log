@@ -876,9 +876,19 @@
       "category": "truck",
       "year": "2002",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-07-11",
+      "nextMaintenance": "2026-07-11",
+      "maintenanceHistory": [
+        {
+          "id": "MH-555433",
+          "date": "2025-07-11",
+          "type": "AC",
+          "technician": "LCG",
+          "details": "450787 miles\nChanged A/C condenser and charged A/C \nNew Starter",
+          "updatedAt": "2025-07-12T15:52:35.433Z"
+        }
+      ],
+      "updatedAt": "2025-07-12T15:52:35.434Z"
     },
     {
       "id": "1XP5DB0X14D815226",
@@ -1209,5 +1219,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752260218421
+  "timestamp": 1752335555434
 }
