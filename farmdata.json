@@ -564,7 +564,7 @@
     },
     {
       "id": "1NKWLA0X5MS563140",
-      "name": "KENWORTH WATER TRUCK",
+      "name": "RED KENWORTH WATER TRUCK",
       "category": "truck",
       "year": "1991",
       "notes": "",
@@ -580,7 +580,8 @@
           "updatedAt": "2025-07-17T18:05:19.846Z"
         }
       ],
-      "updatedAt": "2025-07-17T18:05:19.847Z"
+      "updatedAt": "2025-07-17T18:11:06.249Z",
+      "status": "active"
     },
     {
       "id": "12059",
@@ -1243,5 +1244,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752775519848
+  "timestamp": 1752775866254
 }
