@@ -568,9 +568,19 @@
       "category": "truck",
       "year": "1991",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-07-17",
+      "nextMaintenance": "2026-07-17",
+      "maintenanceHistory": [
+        {
+          "id": "MH-519846",
+          "date": "2025-07-17",
+          "type": "Steering cylinder",
+          "technician": "LCG",
+          "details": "17 inch barrel",
+          "updatedAt": "2025-07-17T18:05:19.846Z"
+        }
+      ],
+      "updatedAt": "2025-07-17T18:05:19.847Z"
     },
     {
       "id": "12059",
@@ -1233,5 +1243,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752338353299
+  "timestamp": 1752775519848
 }
