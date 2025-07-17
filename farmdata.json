@@ -563,27 +563,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1NKWLA0X5MS563140",
-      "name": "RED KENWORTH WATER TRUCK",
-      "category": "truck",
-      "year": "1991",
-      "notes": "",
-      "lastMaintenance": "2025-07-17",
-      "nextMaintenance": "2026-07-17",
-      "maintenanceHistory": [
-        {
-          "id": "MH-519846",
-          "date": "2025-07-17",
-          "type": "Steering cylinder",
-          "technician": "LCG",
-          "details": "17 inch barrel steering \nHood latch \nAnd button mount",
-          "updatedAt": "2025-07-17T18:12:27.400Z"
-        }
-      ],
-      "updatedAt": "2025-07-17T18:12:27.400Z",
-      "status": "active"
-    },
-    {
       "id": "12059",
       "name": "Lenco 4RSPWARH",
       "category": "other",
@@ -1026,6 +1005,27 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1NKWLA0X5MS563140",
+      "name": "RED KENWORTH WATER TRUCK",
+      "category": "truck",
+      "year": "1991",
+      "notes": "",
+      "lastMaintenance": "2025-07-17",
+      "nextMaintenance": "2026-07-17",
+      "maintenanceHistory": [
+        {
+          "id": "MH-519846",
+          "date": "2025-07-17",
+          "type": "Steering cylinder",
+          "technician": "LCG",
+          "details": "17 inch barrel steering C32516-1-1375\nHood latch \nAnd button mount",
+          "updatedAt": "2025-07-17T18:36:12.052Z"
+        }
+      ],
+      "updatedAt": "2025-07-17T18:36:12.058Z",
+      "status": "active"
+    },
+    {
       "id": "4C6FC4821W1060036",
       "name": "REINKE HIGH BOY",
       "category": "trailer",
@@ -1244,5 +1244,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752775947400
+  "timestamp": 1752777372059
 }
