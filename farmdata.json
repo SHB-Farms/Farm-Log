@@ -1009,7 +1009,7 @@
       "name": "RED KENWORTH WATER TRUCK",
       "category": "truck",
       "year": "1991",
-      "notes": "",
+      "notes": "Napa air filter 6883\nNapa fuel primary 3109\nNapa fuel secondary 3352",
       "lastMaintenance": "2025-07-17",
       "nextMaintenance": "2026-07-17",
       "maintenanceHistory": [
@@ -1022,7 +1022,7 @@
           "updatedAt": "2025-07-17T18:36:12.052Z"
         }
       ],
-      "updatedAt": "2025-07-17T18:36:12.058Z",
+      "updatedAt": "2025-07-17T19:53:05.384Z",
       "status": "active"
     },
     {
@@ -1244,5 +1244,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752777372059
+  "timestamp": 1752781985387
 }
