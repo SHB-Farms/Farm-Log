@@ -488,9 +488,19 @@
       "category": "truck",
       "year": "2010",
       "notes": "NAPA AIR 6870\nNAPA FUEL 600149\nNAPA OIL FILTER 7744\n32 Quarts,Do Not Fill Filter",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-07-18",
+      "nextMaintenance": "2026-07-18",
+      "maintenanceHistory": [
+        {
+          "id": "MH-273765",
+          "date": "2025-07-18",
+          "type": "A/C charge",
+          "technician": "LCG",
+          "details": "Charged AC 2lbs 10 onces",
+          "updatedAt": "2025-07-18T18:27:53.765Z"
+        }
+      ],
+      "updatedAt": "2025-07-18T18:27:53.765Z"
     },
     {
       "id": "1HTWXAXT24J018997",
@@ -1244,5 +1254,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1752781985387
+  "timestamp": 1752863273767
 }
