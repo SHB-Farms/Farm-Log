@@ -1252,7 +1252,20 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "YKG651619",
+      "name": "Stack cruiser 103",
+      "category": "other",
+      "year": "2020",
+      "status": "active",
+      "notes": "46021 small belt\n47881638S big belt",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-07-24T17:19:05.428Z",
+      "updatedAt": "2025-07-24T17:19:05.429Z"
     }
   ],
-  "timestamp": 1752863273767
+  "timestamp": 1753377545430
 }
