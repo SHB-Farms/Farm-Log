@@ -1046,6 +1046,19 @@
       "maintenanceHistory": []
     },
     {
+      "id": "YKG651619",
+      "name": "Stack cruiser 103",
+      "category": "other",
+      "year": "2020",
+      "status": "active",
+      "notes": "46021 small belt\n47881638S big belt",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-07-24T17:19:05.428Z",
+      "updatedAt": "2025-07-24T17:19:05.429Z"
+    },
+    {
       "id": "1S9J51309DS026878",
       "name": "STAR POTATO STAINLESS TLR",
       "category": "trailer",
@@ -1254,18 +1267,18 @@
       "maintenanceHistory": []
     },
     {
-      "id": "YKG651619",
-      "name": "Stack cruiser 103",
-      "category": "other",
-      "year": "2020",
+      "id": "1W1K45032R2278412",
+      "name": "Wilson Hopper Bottom",
+      "category": "trailer",
+      "year": "2023",
       "status": "active",
-      "notes": "46021 small belt\n47881638S big belt",
+      "notes": "",
       "lastMaintenance": "",
       "nextMaintenance": "",
       "maintenanceHistory": [],
-      "createdAt": "2025-07-24T17:19:05.428Z",
-      "updatedAt": "2025-07-24T17:19:05.429Z"
+      "createdAt": "2025-07-26T20:57:42.157Z",
+      "updatedAt": "2025-07-26T20:57:42.161Z"
     }
   ],
-  "timestamp": 1753377545430
+  "timestamp": 1753563462162
 }
