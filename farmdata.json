@@ -895,7 +895,7 @@
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
       "year": "2005",
-      "notes": "",
+      "notes": "#29",
       "lastMaintenance": "2025-07-26",
       "nextMaintenance": "2026-07-26",
       "maintenanceHistory": [
@@ -908,7 +908,8 @@
           "updatedAt": "2025-07-26T21:02:08.601Z"
         }
       ],
-      "updatedAt": "2025-07-26T21:02:08.602Z"
+      "updatedAt": "2025-07-26T21:04:15.775Z",
+      "status": "active"
     },
     {
       "id": "1XP5DBEX07D670709",
@@ -1247,6 +1248,28 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1W1K45032R2278412",
+      "name": "Wilson Hopper Bottom",
+      "category": "trailer",
+      "year": "2023",
+      "status": "active",
+      "notes": "",
+      "lastMaintenance": "2025-07-26",
+      "nextMaintenance": "2026-07-26",
+      "maintenanceHistory": [
+        {
+          "id": "MH-615192",
+          "date": "2025-07-26",
+          "type": "Grease / inspection",
+          "technician": "Jordan",
+          "details": "Grease\nInstall illas III valve",
+          "updatedAt": "2025-07-26T21:00:15.192Z"
+        }
+      ],
+      "createdAt": "2025-07-26T20:57:42.157Z",
+      "updatedAt": "2025-07-26T21:00:15.193Z"
+    },
+    {
       "id": "1W14483A4D2260622",
       "name": "WILSON HOPPER BOTTOM GRAIN",
       "category": "trailer",
@@ -1275,29 +1298,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "1W1K45032R2278412",
-      "name": "Wilson Hopper Bottom",
-      "category": "trailer",
-      "year": "2023",
-      "status": "active",
-      "notes": "",
-      "lastMaintenance": "2025-07-26",
-      "nextMaintenance": "2026-07-26",
-      "maintenanceHistory": [
-        {
-          "id": "MH-615192",
-          "date": "2025-07-26",
-          "type": "Grease / inspection",
-          "technician": "Jordan",
-          "details": "Grease\nInstall illas III valve",
-          "updatedAt": "2025-07-26T21:00:15.192Z"
-        }
-      ],
-      "createdAt": "2025-07-26T20:57:42.157Z",
-      "updatedAt": "2025-07-26T21:00:15.193Z"
     }
   ],
-  "timestamp": 1753563728602
+  "timestamp": 1753563855777
 }
