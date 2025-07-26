@@ -1273,12 +1273,21 @@
       "year": "2023",
       "status": "active",
       "notes": "",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2025-07-26",
+      "nextMaintenance": "2026-07-26",
+      "maintenanceHistory": [
+        {
+          "id": "MH-615192",
+          "date": "2025-07-26",
+          "type": "Grease / inspection",
+          "technician": "Jordan",
+          "details": "Grease\nInstall illas III valve",
+          "updatedAt": "2025-07-26T21:00:15.192Z"
+        }
+      ],
       "createdAt": "2025-07-26T20:57:42.157Z",
-      "updatedAt": "2025-07-26T20:57:42.161Z"
+      "updatedAt": "2025-07-26T21:00:15.193Z"
     }
   ],
-  "timestamp": 1753563462162
+  "timestamp": 1753563615193
 }
