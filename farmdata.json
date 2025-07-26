@@ -896,9 +896,19 @@
       "category": "truck",
       "year": "2005",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "2025-07-26",
+      "nextMaintenance": "2026-07-26",
+      "maintenanceHistory": [
+        {
+          "id": "MH-728601",
+          "date": "2025-07-26",
+          "type": "Service",
+          "technician": "Jordan",
+          "details": "Grease/\nReplace sleeper bags",
+          "updatedAt": "2025-07-26T21:02:08.601Z"
+        }
+      ],
+      "updatedAt": "2025-07-26T21:02:08.602Z"
     },
     {
       "id": "1XP5DBEX07D670709",
@@ -1289,5 +1299,5 @@
       "updatedAt": "2025-07-26T21:00:15.193Z"
     }
   ],
-  "timestamp": 1753563615193
+  "timestamp": 1753563728602
 }
