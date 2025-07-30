@@ -891,27 +891,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DB0X75N860554",
-      "name": "PETERBILT 379 TRUCK #29",
-      "category": "truck",
-      "year": "2005",
-      "notes": "#29",
-      "lastMaintenance": "2025-07-26",
-      "nextMaintenance": "2026-07-26",
-      "maintenanceHistory": [
-        {
-          "id": "MH-728601",
-          "date": "2025-07-26",
-          "type": "Service",
-          "technician": "Jordan",
-          "details": "Grease/\nReplace sleeper bags",
-          "updatedAt": "2025-07-26T21:02:08.601Z"
-        }
-      ],
-      "updatedAt": "2025-07-26T21:09:01.154Z",
-      "status": "active"
-    },
-    {
       "id": "1XP5DBEX07D670709",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -930,6 +909,35 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB0X75N860554",
+      "name": "PETERBILT 379 TRUCK #29",
+      "category": "truck",
+      "year": "2005",
+      "notes": "#29",
+      "lastMaintenance": "2025-07-30",
+      "nextMaintenance": "2026-07-30",
+      "maintenanceHistory": [
+        {
+          "id": "MH-519940",
+          "date": "2025-07-30",
+          "type": "Oil change",
+          "technician": "Jordan",
+          "details": "Fuel filter and oil change \n72847 miles\n35676 hrs",
+          "updatedAt": "2025-07-30T17:11:59.940Z"
+        },
+        {
+          "id": "MH-728601",
+          "date": "2025-07-26",
+          "type": "Service",
+          "technician": "Jordan",
+          "details": "Grease/\nReplace sleeper bags",
+          "updatedAt": "2025-07-26T21:02:08.601Z"
+        }
+      ],
+      "updatedAt": "2025-07-30T17:11:59.940Z",
+      "status": "active"
     },
     {
       "id": "1XP5DB9X92D582812",
@@ -1300,5 +1308,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1753564141157
+  "timestamp": 1753895519941
 }
