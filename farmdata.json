@@ -832,13 +832,15 @@
     },
     {
       "id": "1XP5DB8X8SD373725",
-      "name": "PETERBILT 379 TRACTOR",
+      "name": "PETERBILT 379 Truck 23",
       "category": "truck",
       "year": "1995",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-08-07T16:33:15.416Z"
     },
     {
       "id": "1XP5DB9X3XD492059",
@@ -1308,5 +1310,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1753895519941
+  "timestamp": 1754584395419
 }
