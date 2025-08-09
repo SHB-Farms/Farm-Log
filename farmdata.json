@@ -992,6 +992,30 @@
       "status": "active"
     },
     {
+      "id": "1XP-5DB9X-X-7D669853",
+      "name": "Peterbilt 379 Truck 33",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
+      "lastMaintenance": "2025-03-28",
+      "nextMaintenance": "2026-03-28",
+      "maintenanceHistory": [
+        {
+          "id": "MH-469565",
+          "date": "2025-03-28",
+          "type": "Overhaul",
+          "mileage": 447668,
+          "hours": null,
+          "technician": "LCG",
+          "details": "Full IPD Inframe 16:1 Pistons \nSingle Turbo",
+          "updatedAt": "2025-08-09T17:44:29.565Z"
+        }
+      ],
+      "createdAt": "2025-08-09T17:41:56.683Z",
+      "updatedAt": "2025-08-09T18:04:13.075Z"
+    },
+    {
       "id": "1XP5DB9X67D669848",
       "name": "Peterbilt 379 Truck 34",
       "category": "tractor",
@@ -1026,13 +1050,15 @@
     },
     {
       "id": "1XPXD40X1ED224934",
-      "name": "PETERBILT 389 TRACTOR",
+      "name": "PETERBILT 389 truck 32",
       "category": "truck",
       "year": "2014",
       "notes": "FLEETGUARD OIL FILTER LF1400NN\nNAPA AIR FILTER NAPA 500149 or Donaldson P625128\nAIR DRYER TRP AC1001\nFLEETGUARD FUEL FILTER LF 5776\nPRIMARY PACCAR FRAME FILTER K37-1004\nHendrickson ft 330-29 Lift Axle Push Down Bag",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-08-09T20:53:50.246Z"
     },
     {
       "id": "1NPSH58X7CD156817",
@@ -1045,30 +1071,6 @@
       "maintenanceHistory": [],
       "status": "active",
       "updatedAt": "2025-08-09T17:27:25.101Z"
-    },
-    {
-      "id": "1XP-5DB9X-X-7D669853",
-      "name": "Peterbilt 379 Truck 33",
-      "category": "tractor",
-      "year": "2006",
-      "status": "active",
-      "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
-      "lastMaintenance": "2025-03-28",
-      "nextMaintenance": "2026-03-28",
-      "maintenanceHistory": [
-        {
-          "id": "MH-469565",
-          "date": "2025-03-28",
-          "type": "Overhaul",
-          "mileage": 447668,
-          "hours": null,
-          "technician": "LCG",
-          "details": "Full IPD Inframe 16:1 Pistons \nSingle Turbo",
-          "updatedAt": "2025-08-09T17:44:29.565Z"
-        }
-      ],
-      "createdAt": "2025-08-09T17:41:56.683Z",
-      "updatedAt": "2025-08-09T18:04:13.075Z"
     },
     {
       "id": "HACPU150JPD207559",
@@ -1367,5 +1369,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754762653076
+  "timestamp": 1754772830247
 }
