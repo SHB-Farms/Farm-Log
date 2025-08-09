@@ -1016,13 +1016,15 @@
     },
     {
       "id": "1NPSH58X7CD156817",
-      "name": "PETERBILT FEED TRUCK",
+      "name": "PETERBILT FEED LOT TRUCK",
       "category": "truck",
       "year": "2011",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-08-09T17:27:25.101Z"
     },
     {
       "id": "HACPU150JPD207559",
@@ -1321,5 +1323,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754698451681
+  "timestamp": 1754760445102
 }
