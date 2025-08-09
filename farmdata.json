@@ -906,9 +906,19 @@
       "category": "truck",
       "year": "2005",
       "notes": "#29",
-      "lastMaintenance": "2025-07-30",
-      "nextMaintenance": "2026-07-30",
+      "lastMaintenance": "2025-08-09",
+      "nextMaintenance": "2026-08-09",
       "maintenanceHistory": [
+        {
+          "id": "MH-810573",
+          "date": "2025-08-09",
+          "type": "Overhaul",
+          "mileage": 4134,
+          "hours": 33765,
+          "technician": "LCG",
+          "details": "Full Engine Overhaul+ New Head\nDid not do crank/cam or injectors  LCG \nDid a full Set of Cat Injectors and new ECM",
+          "updatedAt": "2025-08-09T17:33:30.573Z"
+        },
         {
           "id": "MH-519940",
           "date": "2025-07-30",
@@ -926,7 +936,7 @@
           "updatedAt": "2025-07-26T21:02:08.601Z"
         }
       ],
-      "updatedAt": "2025-07-30T17:11:59.940Z",
+      "updatedAt": "2025-08-09T17:33:30.573Z",
       "status": "active"
     },
     {
@@ -1333,5 +1343,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754760659222
+  "timestamp": 1754760810573
 }
