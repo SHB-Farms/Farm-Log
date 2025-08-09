@@ -966,18 +966,18 @@
       "category": "truck",
       "year": "2002",
       "notes": "",
-      "lastMaintenance": "2025-08-09",
+      "lastMaintenance": "2024-11-01",
       "nextMaintenance": "2026-08-09",
       "maintenanceHistory": [
         {
           "id": "MH-659222",
-          "date": "2025-08-09",
+          "date": "2024-11-01",
           "type": "OverHaul",
           "mileage": 430000,
           "hours": null,
           "technician": "LCG",
           "details": "Full IPD out of Frame Overhaul\nNew Head\nLCG",
-          "updatedAt": "2025-08-09T17:30:59.222Z"
+          "updatedAt": "2025-08-09T17:36:34.301Z"
         },
         {
           "id": "MH-555433",
@@ -988,7 +988,7 @@
           "updatedAt": "2025-07-12T16:00:49.898Z"
         }
       ],
-      "updatedAt": "2025-08-09T17:30:59.222Z",
+      "updatedAt": "2025-08-09T17:36:34.301Z",
       "status": "active"
     },
     {
@@ -1343,5 +1343,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754760929598
+  "timestamp": 1754760994302
 }
