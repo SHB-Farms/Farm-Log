@@ -831,27 +831,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DB8X8SD373725",
-      "name": "PETERBILT 379 Truck 23",
-      "category": "truck",
-      "year": "1995",
-      "notes": "",
-      "lastMaintenance": "2025-08-07",
-      "nextMaintenance": "2026-08-07",
-      "maintenanceHistory": [
-        {
-          "id": "MH-449043",
-          "date": "2025-08-07",
-          "type": "Charge A/C",
-          "technician": "LCG",
-          "details": "3 lbs freon\nChecked for leaks",
-          "updatedAt": "2025-08-07T16:34:09.043Z"
-        }
-      ],
-      "status": "active",
-      "updatedAt": "2025-08-07T16:34:09.043Z"
-    },
-    {
       "id": "1XP5DB9X3XD492059",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -949,6 +928,27 @@
       ],
       "updatedAt": "2025-07-30T17:11:59.940Z",
       "status": "active"
+    },
+    {
+      "id": "1XP5DB8X8SD373725",
+      "name": "PETERBILT 379 Truck 23",
+      "category": "truck",
+      "year": "1995",
+      "notes": "",
+      "lastMaintenance": "2025-08-07",
+      "nextMaintenance": "2026-08-07",
+      "maintenanceHistory": [
+        {
+          "id": "MH-449043",
+          "date": "2025-08-07",
+          "type": "Charge A/C",
+          "technician": "LCG",
+          "details": "3 lbs freon\nChecked for leaks",
+          "updatedAt": "2025-08-07T16:34:09.043Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-08-07T16:34:09.043Z"
     },
     {
       "id": "1XP5DB9X92D582812",
@@ -1057,12 +1057,14 @@
           "id": "MH-519846",
           "date": "2025-07-17",
           "type": "Steering cylinder",
+          "mileage": null,
+          "hours": null,
           "technician": "LCG",
           "details": "17 inch barrel steering C32516-1-1375\nHood latch \nAnd button mount",
-          "updatedAt": "2025-07-17T18:36:12.052Z"
+          "updatedAt": "2025-08-09T00:14:11.681Z"
         }
       ],
-      "updatedAt": "2025-07-17T19:53:05.384Z",
+      "updatedAt": "2025-08-09T00:14:11.681Z",
       "status": "active"
     },
     {
@@ -1319,5 +1321,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754584449043
+  "timestamp": 1754698451681
 }
