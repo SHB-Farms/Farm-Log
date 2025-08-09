@@ -72,17 +72,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "NBF2011052",
-      "name": "Case 621E",
-      "category": "tractor",
-      "year": "2011",
-      "notes": "",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "status": "active"
-    },
-    {
       "id": "JJam0340TKRF04287",
       "name": "CaseIH Magnum 380",
       "category": "tractor",
@@ -1378,5 +1367,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1754761725998
+  "timestamp": 1754761763998
 }
