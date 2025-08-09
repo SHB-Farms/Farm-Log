@@ -766,6 +766,12 @@
             font-size: 0.85rem;
         }
 
+        .history-usage {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
         /* Edit maintenance button styles */
         .edit-maintenance {
             position: absolute;
@@ -1808,6 +1814,19 @@
                            placeholder="Oil change, brake service, etc.">
                 </div>
                 
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maintenanceMileage"><i class="mdi mdi-speedometer"></i> Mileage</label>
+                        <input type="number" id="maintenanceMileage" class="form-control" 
+                               placeholder="Enter mileage (optional)" min="0" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="maintenanceHours"><i class="mdi mdi-clock-outline"></i> Hours</label>
+                        <input type="number" id="maintenanceHours" class="form-control" 
+                               placeholder="Enter hours (optional)" min="0" step="0.1">
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="maintenanceTech"><i class="mdi mdi-account-hard-hat"></i> Technician</label>
                     <input type="text" id="maintenanceTech" class="form-control" placeholder="Technician name">
@@ -1978,6 +1997,8 @@
         const maintenanceModalTitle = document.getElementById('maintenanceModalTitle');
         const maintenanceDate = document.getElementById('maintenanceDate');
         const maintenanceType = document.getElementById('maintenanceType');
+        const maintenanceMileage = document.getElementById('maintenanceMileage');
+        const maintenanceHours = document.getElementById('maintenanceHours');
         const maintenanceTech = document.getElementById('maintenanceTech');
         const maintenanceDetails = document.getElementById('maintenanceDetails');
         const nextServiceDate = document.getElementById('nextServiceDate');
@@ -2424,6 +2445,8 @@
             if (isEditMode) {
                 maintenanceDate.value = record.date;
                 maintenanceType.value = record.type;
+                maintenanceMileage.value = record.mileage || '';
+                maintenanceHours.value = record.hours || '';
                 maintenanceTech.value = record.technician || '';
                 maintenanceDetails.value = record.details || '';
                 maintenanceId = record.id;
@@ -2432,6 +2455,8 @@
                 const today = new Date().toISOString().split('T')[0];
                 maintenanceDate.value = today;
                 maintenanceType.value = '';
+                maintenanceMileage.value = '';
+                maintenanceHours.value = '';
                 maintenanceTech.value = '';
                 maintenanceDetails.value = '';
                 maintenanceId = null;
@@ -2450,6 +2475,8 @@
             
             const date = maintenanceDate.value;
             const type = maintenanceType.value.trim();
+            const mileage = maintenanceMileage.value ? parseInt(maintenanceMileage.value) : null;
+            const hours = maintenanceHours.value ? parseFloat(maintenanceHours.value) : null;
             const tech = maintenanceTech.value.trim();
             const details = maintenanceDetails.value.trim();
             const nextServiceValue = nextServiceDate.value;
@@ -2468,6 +2495,8 @@
                 id: maintenanceId || 'MH-' + Date.now().toString().slice(-6),
                 date,
                 type,
+                mileage,
+                hours,
                 technician: tech,
                 details,
                 updatedAt: new Date().toISOString()
@@ -2866,6 +2895,17 @@
                     `<button class="edit-maintenance" data-id="${record.id}">
                         <i class="mdi mdi-pencil"></i>
                     </button>` : '';
+                    
+                // Add usage info if available
+                let usageInfo = '';
+                if (record.mileage || record.hours) {
+                    usageInfo = `<div class="history-usage">`;
+                    if (record.mileage) usageInfo += `<span>Mileage: ${record.mileage.toLocaleString()} miles</span>`;
+                    if (record.mileage && record.hours) usageInfo += ` | `;
+                    if (record.hours) usageInfo += `<span>Hours: ${record.hours.toLocaleString()} hrs</span>`;
+                    usageInfo += `</div>`;
+                }
+                
                 item.innerHTML = `
                     <div class="history-header">
                         <span class="history-date">${formatDate(record.date)}</span>
@@ -2875,6 +2915,7 @@
                     <div class="history-content">
                         ${record.details}
                     </div>
+                    ${usageInfo}
                     <div class="history-tech">
                         <span>Technician: ${record.technician || 'N/A'}</span>
                     </div>
@@ -3016,4 +3057,4 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-    </html>
+</html>
