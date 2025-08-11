@@ -1378,7 +1378,20 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X277D669846",
+      "name": "Peterbilt 379 Truck 35",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "A/C COMPRESSOR LF4377",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-08-11T16:55:53.758Z",
+      "updatedAt": "2025-08-11T16:55:53.758Z"
     }
   ],
-  "timestamp": 1754772927999
+  "timestamp": 1754931353759
 }
