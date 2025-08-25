@@ -1088,9 +1088,19 @@
       "category": "truck",
       "year": "2014",
       "notes": "FLEETGUARD OIL FILTER LF1400NN\nNAPA AIR FILTER NAPA 500149 or Donaldson P625128\nAIR DRYER TRP AC1001\nFLEETGUARD FUEL FILTER LF 5776\nPRIMARY PACCAR FRAME FILTER K37-1004\nHendrickson ft 330-29 Lift Axle Push Down Bag",
-      "lastMaintenance": "2025-08-09",
-      "nextMaintenance": "2026-08-09",
+      "lastMaintenance": "2025-08-25",
+      "nextMaintenance": "2026-08-25",
       "maintenanceHistory": [
+        {
+          "id": "MH-501262",
+          "date": "2025-08-25",
+          "type": "Motor service",
+          "mileage": 419062,
+          "hours": 12590,
+          "technician": "LCG",
+          "details": "Changed exhaust back pressure sensor 4928594",
+          "updatedAt": "2025-08-25T17:38:21.262Z"
+        },
         {
           "id": "MH-927999",
           "date": "2025-08-09",
@@ -1103,7 +1113,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2025-08-09T20:55:27.999Z"
+      "updatedAt": "2025-08-25T17:38:21.262Z"
     },
     {
       "id": "1NPSH58X7CD156817",
@@ -1414,5 +1424,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1755047657449
+  "timestamp": 1756143501263
 }
