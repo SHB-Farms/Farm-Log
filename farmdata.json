@@ -13,12 +13,14 @@
           "id": "MH-707300",
           "date": "2025-06-23",
           "type": "Service",
+          "mileage": null,
+          "hours": null,
           "technician": "SHB Farms",
-          "details": "Describe the work performed\nV2.0",
-          "updatedAt": "2025-06-28T02:26:00.774Z"
+          "details": "Describe the work performed\nV2.1",
+          "updatedAt": "2025-08-26T01:20:05.312Z"
         }
       ],
-      "updatedAt": "2025-07-11T18:56:58.419Z",
+      "updatedAt": "2025-08-26T01:20:05.312Z",
       "status": "active"
     },
     {
@@ -1424,5 +1426,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1756143501263
+  "timestamp": 1756171205312
 }
