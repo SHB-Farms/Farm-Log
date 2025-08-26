@@ -16,11 +16,11 @@
           "mileage": null,
           "hours": null,
           "technician": "SHB Farms",
-          "details": "Describe the work performed\nV2.1",
-          "updatedAt": "2025-08-26T01:20:05.312Z"
+          "details": "Describe the work performed\nV2.0",
+          "updatedAt": "2025-08-26T01:22:24.263Z"
         }
       ],
-      "updatedAt": "2025-08-26T01:20:05.312Z",
+      "updatedAt": "2025-08-26T01:22:24.263Z",
       "status": "active"
     },
     {
@@ -1426,5 +1426,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1756171205312
+  "timestamp": 1756171344263
 }
