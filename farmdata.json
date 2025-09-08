@@ -1047,9 +1047,19 @@
       "year": "2006",
       "status": "active",
       "notes": "A/C COMPRESSOR LF4377",
-      "lastMaintenance": "2025-08-11",
-      "nextMaintenance": "2026-08-11",
+      "lastMaintenance": "2025-09-08",
+      "nextMaintenance": "2026-09-08",
       "maintenanceHistory": [
+        {
+          "id": "MH-284743",
+          "date": "2025-09-08",
+          "type": "Oil change",
+          "mileage": 349307,
+          "hours": 27867,
+          "technician": "LRG",
+          "details": "Changed oil and fuel filters",
+          "updatedAt": "2025-09-08T16:51:24.743Z"
+        },
         {
           "id": "MH-470972",
           "date": "2025-08-11",
@@ -1062,7 +1072,7 @@
         }
       ],
       "createdAt": "2025-08-11T16:55:53.758Z",
-      "updatedAt": "2025-08-11T17:04:52.954Z"
+      "updatedAt": "2025-09-08T16:51:24.743Z"
     },
     {
       "id": "1NP9LJ9X0ED234734",
@@ -1426,5 +1436,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1756339457243
+  "timestamp": 1757350284744
 }
