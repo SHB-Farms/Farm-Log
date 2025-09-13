@@ -1010,9 +1010,19 @@
       "year": "2006",
       "status": "active",
       "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
-      "lastMaintenance": "2025-03-28",
-      "nextMaintenance": "2026-03-28",
+      "lastMaintenance": "2025-09-13",
+      "nextMaintenance": "2026-09-13",
       "maintenanceHistory": [
+        {
+          "id": "MH-293823",
+          "date": "2025-09-13",
+          "type": "Oil change, fuel filters changed, greased",
+          "mileage": 461809,
+          "hours": 15959,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-09-13T00:11:33.823Z"
+        },
         {
           "id": "MH-469565",
           "date": "2025-03-28",
@@ -1025,7 +1035,7 @@
         }
       ],
       "createdAt": "2025-08-09T17:41:56.683Z",
-      "updatedAt": "2025-08-09T18:04:13.075Z"
+      "updatedAt": "2025-09-13T00:11:33.824Z"
     },
     {
       "id": "1XP5DB9X67D669848",
@@ -1436,5 +1446,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1757350284744
+  "timestamp": 1757722293825
 }
