@@ -828,11 +828,22 @@
       "category": "truck",
       "year": "2006",
       "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
-      "lastMaintenance": "",
+      "lastMaintenance": "2025-10-06",
       "nextMaintenance": "",
-      "maintenanceHistory": [],
+      "maintenanceHistory": [
+        {
+          "id": "MH-138626",
+          "date": "2025-10-06",
+          "type": "Oil change fuel filters change",
+          "mileage": 479917,
+          "hours": 3685,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-06T14:32:18.626Z"
+        }
+      ],
       "status": "active",
-      "updatedAt": "2025-10-06T14:30:55.370Z"
+      "updatedAt": "2025-10-06T14:32:18.626Z"
     },
     {
       "id": "1XP5DB9X3XD492059",
@@ -1458,5 +1469,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1759761055374
+  "timestamp": 1759761138626
 }
