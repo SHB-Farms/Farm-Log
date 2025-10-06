@@ -829,8 +829,18 @@
       "year": "2006",
       "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
       "lastMaintenance": "2025-10-06",
-      "nextMaintenance": "",
+      "nextMaintenance": "2026-10-06",
       "maintenanceHistory": [
+        {
+          "id": "MH-795741",
+          "date": "2025-10-06",
+          "type": "Overhaul",
+          "mileage": 478137,
+          "hours": 3610,
+          "technician": "LCG",
+          "details": "Full IPD overhaul, new liners and pistons, counterbored all 6, new head and full tilt manifold",
+          "updatedAt": "2025-10-06T15:16:35.741Z"
+        },
         {
           "id": "MH-138626",
           "date": "2025-10-06",
@@ -843,7 +853,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2025-10-06T15:13:13.317Z"
+      "updatedAt": "2025-10-06T15:16:35.741Z"
     },
     {
       "id": "1XP5DB9X3XD492059",
@@ -1469,5 +1479,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1759763593320
+  "timestamp": 1759763795742
 }
