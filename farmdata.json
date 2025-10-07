@@ -579,12 +579,12 @@
       "name": "Lenco 4RSPWARH",
       "category": "other",
       "year": "2012",
-      "notes": "QSX 15 Engine # 79552360\nOIL FILTER CUMMINS 4367100 LF 14000NN\nFLEETGUARD FUEL FILTER 1041\nFLEETGUARD WATER FILTER 2127\nDONALDSON PRIMARY AIR FILTER P781098\nDONALDSON SECONDARY AIR FILTER P781102\nCUMMINS ENGINE FAN HUB 2868738 ASM\nFan belt tensioner Cummins 3691282(napa 38587)",
+      "notes": "QSX 15 Engine # 79552360\nOIL FILTER CUMMINS 4367100 LF 14000NN\nFLEETGUARD FUEL FILTER 1041\nFLEETGUARD WATER FILTER 2127\nDONALDSON PRIMARY AIR FILTER P781098\nDONALDSON SECONDARY AIR FILTER P781102\nCUMMINS ENGINE FAN HUB 2868738 ASM,\nFan belt tensioner Cummins 3691282(napa 38587)",
       "lastMaintenance": "2025-08-01",
       "nextMaintenance": "2026-08-01",
       "maintenanceHistory": [],
       "status": "active",
-      "updatedAt": "2025-10-07T18:24:05.423Z"
+      "updatedAt": "2025-10-07T18:31:37.432Z"
     },
     {
       "id": "1M9BF1825FM798089",
@@ -1492,5 +1492,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1759861445427
+  "timestamp": 1759861897434
 }
