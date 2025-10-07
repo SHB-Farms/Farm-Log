@@ -1157,7 +1157,7 @@
       "name": "PETERBILT 389 truck 32",
       "category": "truck",
       "year": "2014",
-      "notes": "FLEETGUARD OIL FILTER LF1400NN\nNAPA AIR FILTER NAPA 500149 or Donaldson P625128\nAIR DRYER TRP AC1001\nFLEETGUARD FUEL FILTER LF 5776\nPRIMARY PACCAR FRAME FILTER K37-1004\nHendrickson ft 330-29 Lift Axle Push Down Bag",
+      "notes": "FLEETGUARD OIL FILTER LF1400NN\nNAPA AIR FILTER NAPA 500149 or Donaldson P625128\nAIR DRYER TRP AC1001\nFLEETGUARD FUEL FILTER LF 5776\nPRIMARY PACCAR FRAME FILTER K37-1004\nHendrickson ft 330-29 Lift Axle Push Down Bag- Fan belt tensioner Cummins 3691282",
       "lastMaintenance": "2025-08-25",
       "nextMaintenance": "2026-08-25",
       "maintenanceHistory": [
@@ -1183,7 +1183,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2025-08-25T17:38:21.262Z"
+      "updatedAt": "2025-10-07T19:02:22.093Z"
     },
     {
       "id": "1NPSH58X7CD156817",
@@ -1494,5 +1494,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1759863689098
+  "timestamp": 1759863742096
 }
