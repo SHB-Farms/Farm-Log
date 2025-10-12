@@ -16,11 +16,11 @@
           "mileage": null,
           "hours": null,
           "technician": "SHB Farms",
-          "details": "Describe the work performed\nV2.4",
-          "updatedAt": "2025-08-28T00:04:17.242Z"
+          "details": "Describe the work performed\nV2.5",
+          "updatedAt": "2025-10-12T21:53:08.994Z"
         }
       ],
-      "updatedAt": "2025-08-28T00:04:17.242Z",
+      "updatedAt": "2025-10-12T21:53:09.000Z",
       "status": "active"
     },
     {
@@ -483,6 +483,14 @@
       "nextMaintenance": "2026-08-09",
       "maintenanceHistory": [
         {
+          "id": "MH-273765",
+          "date": "2025-07-18",
+          "type": "A/C charge",
+          "technician": "LCG",
+          "details": "Charged AC 2lbs 10 onces",
+          "updatedAt": "2025-07-18T18:27:53.765Z"
+        },
+        {
           "id": "MH-672941",
           "date": "2022-01-10",
           "type": "Overhaul",
@@ -491,14 +499,6 @@
           "technician": "LMG",
           "details": "Full Motor Overhaul with New Head LMG",
           "updatedAt": "2025-08-09T17:47:52.941Z"
-        },
-        {
-          "id": "MH-273765",
-          "date": "2025-07-18",
-          "type": "A/C charge",
-          "technician": "LCG",
-          "details": "Charged AC 2lbs 10 onces",
-          "updatedAt": "2025-07-18T18:27:53.765Z"
         }
       ],
       "updatedAt": "2025-08-09T17:48:45.997Z",
@@ -1494,5 +1494,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1759863742096
+  "timestamp": 1760305989001
 }
