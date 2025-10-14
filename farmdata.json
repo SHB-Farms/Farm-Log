@@ -980,9 +980,19 @@
       "category": "truck",
       "year": "2006",
       "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
-      "lastMaintenance": "2025-10-06",
-      "nextMaintenance": "2026-10-06",
+      "lastMaintenance": "2025-10-14",
+      "nextMaintenance": "2026-10-14",
       "maintenanceHistory": [
+        {
+          "id": "MH-183329",
+          "date": "2025-10-14",
+          "type": "New Eaton easy pedal clutch",
+          "mileage": 479000,
+          "hours": null,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-14T00:19:43.329Z"
+        },
         {
           "id": "MH-795741",
           "date": "2025-10-06",
@@ -1005,7 +1015,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2025-10-06T15:16:35.741Z"
+      "updatedAt": "2025-10-14T00:19:43.329Z"
     },
     {
       "id": "1XP5DB9X92D582812",
@@ -1494,5 +1504,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1760305989001
+  "timestamp": 1760401183330
 }
