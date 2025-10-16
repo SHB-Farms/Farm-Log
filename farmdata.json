@@ -820,11 +820,22 @@
       "category": "truck",
       "year": "2007",
       "notes": "",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2025-10-16",
+      "nextMaintenance": "2026-10-16",
+      "maintenanceHistory": [
+        {
+          "id": "MH-623405",
+          "date": "2025-10-16",
+          "type": "New speedometer and rpm guage cluster.       New Holland fifth wheel plate part# XA351A-L-P",
+          "mileage": 351576,
+          "hours": 27968,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-16T16:20:23.405Z"
+        }
+      ],
       "status": "active",
-      "updatedAt": "2025-10-16T16:15:52.040Z"
+      "updatedAt": "2025-10-16T16:20:23.407Z"
     },
     {
       "id": "1XP5DB9X3XD492059",
@@ -1506,5 +1517,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1760631352044
+  "timestamp": 1760631623408
 }
