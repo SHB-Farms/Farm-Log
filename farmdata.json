@@ -816,13 +816,15 @@
     },
     {
       "id": "1XP-5DB9X-2-7D669846",
-      "name": "Peterbilt 379",
+      "name": "Peterbilt 379 Truck # 35",
       "category": "truck",
       "year": "2007",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-10-16T16:15:52.040Z"
     },
     {
       "id": "1XP5DB9X3XD492059",
@@ -1504,5 +1506,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1760401183330
+  "timestamp": 1760631352044
 }
