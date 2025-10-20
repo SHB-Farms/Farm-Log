@@ -815,29 +815,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP-5DB9X-2-7D669846",
-      "name": "Peterbilt 379 Truck # 35",
-      "category": "truck",
-      "year": "2007",
-      "notes": "",
-      "lastMaintenance": "2025-10-16",
-      "nextMaintenance": "2026-10-16",
-      "maintenanceHistory": [
-        {
-          "id": "MH-623405",
-          "date": "2025-10-16",
-          "type": "New speedometer and rpm guage cluster.       New Holland fifth wheel plate part# XA351A-L-P",
-          "mileage": 351576,
-          "hours": 27968,
-          "technician": "Adam",
-          "details": "",
-          "updatedAt": "2025-10-16T16:20:23.405Z"
-        }
-      ],
-      "status": "active",
-      "updatedAt": "2025-10-16T16:20:23.407Z"
-    },
-    {
       "id": "1XP5DB9X3XD492059",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -908,14 +885,47 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1XP-5DB9X-2-7D669846",
+      "name": "Peterbilt 379 Truck # 35",
+      "category": "truck",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": "2025-10-16",
+      "nextMaintenance": "2026-10-16",
+      "maintenanceHistory": [
+        {
+          "id": "MH-623405",
+          "date": "2025-10-16",
+          "type": "New speedometer and rpm guage cluster.       New Holland fifth wheel plate part# XA351A-L-P",
+          "mileage": 351576,
+          "hours": 27968,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-16T16:20:23.405Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-10-16T16:20:23.407Z"
+    },
+    {
       "id": "1XP5DB0X75N860554",
       "name": "PETERBILT 379 TRUCK #29",
       "category": "truck",
       "year": "2005",
       "notes": "#29",
-      "lastMaintenance": "2025-09-13",
-      "nextMaintenance": "2026-09-13",
+      "lastMaintenance": "2025-10-20",
+      "nextMaintenance": "2026-10-20",
       "maintenanceHistory": [
+        {
+          "id": "MH-537699",
+          "date": "2025-10-20",
+          "type": "Oilchange",
+          "mileage": 87420,
+          "hours": 36283,
+          "technician": "Jordan",
+          "details": "Oil change",
+          "updatedAt": "2025-10-20T21:58:57.699Z"
+        },
         {
           "id": "MH-892032",
           "date": "2025-09-13",
@@ -963,7 +973,7 @@
           "updatedAt": "2025-08-09T17:35:29.598Z"
         }
       ],
-      "updatedAt": "2025-09-13T20:38:12.033Z",
+      "updatedAt": "2025-10-20T21:58:57.700Z",
       "status": "active"
     },
     {
@@ -1517,5 +1527,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1760631623408
+  "timestamp": 1760997537701
 }
