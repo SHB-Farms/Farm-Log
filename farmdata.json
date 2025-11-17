@@ -1233,12 +1233,12 @@
       "name": "PETERBILT FEED LOT TRUCK",
       "category": "truck",
       "year": "2011",
-      "notes": "",
-      "lastMaintenance": "",
+      "notes": "OIL FILTER FLEET GUARD 9009\nFUEL FILTER FLEET GUARD FF 5636\nNAPA AIR FILTER 2610",
+      "lastMaintenance": "2025-11-17",
       "nextMaintenance": "",
       "maintenanceHistory": [],
       "status": "active",
-      "updatedAt": "2025-08-09T17:27:25.101Z"
+      "updatedAt": "2025-11-17T22:26:07.440Z"
     },
     {
       "id": "HACPU150JPD207559",
@@ -1537,5 +1537,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1761693520796
+  "timestamp": 1763418367449
 }
