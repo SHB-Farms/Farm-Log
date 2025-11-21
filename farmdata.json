@@ -913,9 +913,19 @@
       "category": "truck",
       "year": "2005",
       "notes": "#29",
-      "lastMaintenance": "2025-10-20",
-      "nextMaintenance": "2026-10-20",
+      "lastMaintenance": "2025-11-21",
+      "nextMaintenance": "2026-11-21",
       "maintenanceHistory": [
+        {
+          "id": "MH-192422",
+          "date": "2025-11-21",
+          "type": "Air filters changed",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Air filters",
+          "updatedAt": "2025-11-21T21:06:32.422Z"
+        },
         {
           "id": "MH-537699",
           "date": "2025-10-20",
@@ -973,7 +983,7 @@
           "updatedAt": "2025-08-09T17:35:29.598Z"
         }
       ],
-      "updatedAt": "2025-10-20T21:58:57.700Z",
+      "updatedAt": "2025-11-21T21:06:32.423Z",
       "status": "active"
     },
     {
@@ -1548,5 +1558,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1763425615608
+  "timestamp": 1763759192424
 }
