@@ -1262,16 +1262,6 @@
       "updatedAt": "2025-11-18T00:26:55.607Z"
     },
     {
-      "id": "HACPU150JPD207559",
-      "name": "PUMA 150",
-      "category": "tractor",
-      "year": "2023",
-      "notes": "5802872619 engine oil filter\n87683000 secondary engine air filter\n87682990 primary engine air filter\n87726675 outside cab air filter #2\n87726699 inside cab air filter\n87708150 hydraulic suction pump oil filter\n48142232 hydraulic charge pump oil filter\n92129321 fuel filter\n5802726987 fuel filter",
-      "lastMaintenance": null,
-      "nextMaintenance": null,
-      "maintenanceHistory": []
-    },
-    {
       "id": "1R9BSF304TL008134",
       "name": "RANCO BELLY DUMP",
       "category": "trailer",
@@ -1558,5 +1548,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1763759192424
+  "timestamp": 1764607924628
 }
