@@ -913,9 +913,19 @@
       "category": "truck",
       "year": "2005",
       "notes": "#29",
-      "lastMaintenance": "2025-12-03",
-      "nextMaintenance": "2026-12-03",
+      "lastMaintenance": "2025-12-08",
+      "nextMaintenance": "2026-12-08",
       "maintenanceHistory": [
+        {
+          "id": "MH-743617",
+          "date": "2025-12-08",
+          "type": "Battery cables",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Measured 7 volts at starter\nBatteries test good\nReplace batter to starter cables and all battery jumpers\nTruck starts better",
+          "updatedAt": "2025-12-08T19:05:43.617Z"
+        },
         {
           "id": "MH-537676",
           "date": "2025-12-03",
@@ -993,7 +1003,7 @@
           "updatedAt": "2025-08-09T17:35:29.598Z"
         }
       ],
-      "updatedAt": "2025-12-03T16:32:17.678Z",
+      "updatedAt": "2025-12-08T19:05:43.620Z",
       "status": "active"
     },
     {
@@ -1558,5 +1568,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1764779537679
+  "timestamp": 1765220743621
 }
