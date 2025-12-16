@@ -878,7 +878,7 @@
     },
     {
       "id": "1XP5DB0X45N862469",
-      "name": "PETERBILT 379 TRACTOR #24",
+      "name": "PETERBILT 379 TRUCK #24",
       "category": "truck",
       "year": "2005",
       "notes": "",
@@ -886,7 +886,7 @@
       "nextMaintenance": "",
       "maintenanceHistory": [],
       "status": "active",
-      "updatedAt": "2025-12-16T17:02:40.377Z"
+      "updatedAt": "2025-12-16T17:08:15.871Z"
     },
     {
       "id": "1XP-5DB9X-2-7D669846",
@@ -1594,5 +1594,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1765904860921
+  "timestamp": 1765904895872
 }
