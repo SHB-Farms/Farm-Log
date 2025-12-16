@@ -1471,9 +1471,19 @@
       "category": "trailer",
       "year": "2003",
       "notes": "",
-      "lastMaintenance": "2025-12-15",
-      "nextMaintenance": "2026-12-15",
+      "lastMaintenance": "2025-12-16",
+      "nextMaintenance": "2026-12-16",
       "maintenanceHistory": [
+        {
+          "id": "MH-182374",
+          "date": "2025-12-16",
+          "type": "Alignment",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jh",
+          "details": "Genes alignment",
+          "updatedAt": "2025-12-16T16:56:22.374Z"
+        },
         {
           "id": "MH-886830",
           "date": "2025-12-15",
@@ -1485,7 +1495,7 @@
           "updatedAt": "2025-12-15T17:31:26.830Z"
         }
       ],
-      "updatedAt": "2025-12-15T17:31:26.834Z"
+      "updatedAt": "2025-12-16T16:56:22.377Z"
     },
     {
       "id": "TS8500106",
@@ -1580,5 +1590,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1765819886835
+  "timestamp": 1765904182379
 }
