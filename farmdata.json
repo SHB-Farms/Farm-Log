@@ -855,18 +855,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP5DBEX07D670709",
-      "name": "PETERBILT 379 TRUCK #20",
-      "category": "truck",
-      "year": "2007",
-      "notes": "",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "status": "active",
-      "updatedAt": "2025-12-16T17:07:40.919Z"
-    },
-    {
       "id": "1XP5DB9X4WN478339",
       "name": "PETERBILT 379 TRACTOR",
       "category": "truck",
@@ -875,18 +863,6 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "1XP5DB0X45N862469",
-      "name": "PETERBILT 379 TRUCK #24",
-      "category": "truck",
-      "year": "2005",
-      "notes": "",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "status": "active",
-      "updatedAt": "2025-12-16T17:08:15.871Z"
     },
     {
       "id": "1XP-5DB9X-2-7D669846",
@@ -910,6 +886,30 @@
       ],
       "status": "active",
       "updatedAt": "2025-10-16T16:20:23.407Z"
+    },
+    {
+      "id": "1XP5DBEX07D670709",
+      "name": "PETERBILT 379 TRUCK #20",
+      "category": "truck",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-12-16T17:07:40.919Z"
+    },
+    {
+      "id": "1XP5DB0X45N862469",
+      "name": "PETERBILT 379 TRUCK #24",
+      "category": "truck",
+      "year": "2005",
+      "notes": "",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-12-16T17:08:15.871Z"
     },
     {
       "id": "1XP5DB0X75N860554",
@@ -1592,7 +1592,20 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
+    },
+    {
+      "id": "M542 2D3 X01",
+      "name": "Flow waterjet Mach 500",
+      "category": "other",
+      "year": "2022",
+      "status": "active",
+      "notes": "Server motor batteries JZSP-BA01(needs 6)",
+      "lastMaintenance": "2025-12-19",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-12-19T18:37:18.335Z",
+      "updatedAt": "2025-12-19T18:37:18.335Z"
     }
   ],
-  "timestamp": 1765904895872
+  "timestamp": 1766169438336
 }
