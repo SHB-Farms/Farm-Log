@@ -174,6 +174,30 @@
       "maintenanceHistory": []
     },
     {
+      "id": "M542 2D3 X01",
+      "name": "Flow waterjet Mach 500",
+      "category": "other",
+      "year": "2022",
+      "status": "active",
+      "notes": "Server motor batteries JZSP-BA01(needs 6)",
+      "lastMaintenance": "2025-12-19",
+      "nextMaintenance": "2026-12-19",
+      "maintenanceHistory": [
+        {
+          "id": "MH-497810",
+          "date": "2025-12-19",
+          "type": "Changed server motor batteries",
+          "mileage": null,
+          "hours": 680,
+          "technician": "LCG",
+          "details": "Changed all six server motor batteries",
+          "updatedAt": "2025-12-19T18:38:17.810Z"
+        }
+      ],
+      "createdAt": "2025-12-19T18:37:18.335Z",
+      "updatedAt": "2025-12-19T18:38:17.810Z"
+    },
+    {
       "id": "1FDXR80U6EVA36903",
       "name": "FORD 8000",
       "category": "truck",
@@ -1592,20 +1616,7 @@
       "lastMaintenance": null,
       "nextMaintenance": null,
       "maintenanceHistory": []
-    },
-    {
-      "id": "M542 2D3 X01",
-      "name": "Flow waterjet Mach 500",
-      "category": "other",
-      "year": "2022",
-      "status": "active",
-      "notes": "Server motor batteries JZSP-BA01(needs 6)",
-      "lastMaintenance": "2025-12-19",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "createdAt": "2025-12-19T18:37:18.335Z",
-      "updatedAt": "2025-12-19T18:37:18.335Z"
     }
   ],
-  "timestamp": 1766169438336
+  "timestamp": 1766169497811
 }
