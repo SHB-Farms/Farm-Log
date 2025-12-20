@@ -879,29 +879,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1XP-5DB9X-2-7D669846",
-      "name": "Peterbilt 379 Truck # 35",
-      "category": "truck",
-      "year": "2007",
-      "notes": "",
-      "lastMaintenance": "2025-10-16",
-      "nextMaintenance": "2026-10-16",
-      "maintenanceHistory": [
-        {
-          "id": "MH-623405",
-          "date": "2025-10-16",
-          "type": "New speedometer and rpm guage cluster.       New Holland fifth wheel plate part# XA351A-L-P",
-          "mileage": 351576,
-          "hours": 27968,
-          "technician": "Adam",
-          "details": "",
-          "updatedAt": "2025-10-16T16:20:23.405Z"
-        }
-      ],
-      "status": "active",
-      "updatedAt": "2025-10-16T16:20:23.407Z"
-    },
-    {
       "id": "1XP5DBEX07D670709",
       "name": "PETERBILT 379 TRUCK #20",
       "category": "truck",
@@ -1608,5 +1585,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1766253413110
+  "timestamp": 1766253500158
 }
