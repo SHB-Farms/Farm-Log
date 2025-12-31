@@ -34,6 +34,30 @@
       "maintenanceHistory": []
     },
     {
+      "id": "A93K17508",
+      "name": "Bobcat mini Excavator",
+      "category": "tractor",
+      "year": "2013",
+      "status": "active",
+      "notes": "Fuel filter Napa 3472\nAir filter inner Napa 2985\nAir filter outer Napa 6438\nOil filter Napa 1307\nHydraulic filter Napa 1494",
+      "lastMaintenance": "2025-12-31",
+      "nextMaintenance": "2026-12-31",
+      "maintenanceHistory": [
+        {
+          "id": "MH-915583",
+          "date": "2025-12-31",
+          "type": "Full winter service",
+          "mileage": null,
+          "hours": 3352,
+          "technician": "Mark",
+          "details": "Greased, changed oil, air and fuel filters",
+          "updatedAt": "2025-12-31T21:51:55.583Z"
+        }
+      ],
+      "createdAt": "2025-12-31T21:50:17.378Z",
+      "updatedAt": "2025-12-31T21:51:55.587Z"
+    },
+    {
       "id": "2B9FSFAL5TS304161",
       "name": "BRENT FLAT DECK TRAILER",
       "category": "trailer",
@@ -1583,20 +1607,7 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
-    },
-    {
-      "id": "A93K17508",
-      "name": "Bobcat mini Excavator",
-      "category": "tractor",
-      "year": "2013",
-      "status": "active",
-      "notes": "Fuel filter Napa 3472\nAir filter inner Napa 2985\nAir filter outer Napa 6438\nOil filter Napa 1307\nHydraulic filter Napa 1494",
-      "lastMaintenance": "2025-12-31",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "createdAt": "2025-12-31T21:50:17.378Z",
-      "updatedAt": "2025-12-31T21:50:17.379Z"
     }
   ],
-  "timestamp": 1767217817381
+  "timestamp": 1767217915587
 }
