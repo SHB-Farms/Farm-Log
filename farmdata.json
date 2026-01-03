@@ -1392,12 +1392,12 @@
           "mileage": null,
           "hours": null,
           "technician": "Adam",
-          "details": "",
-          "updatedAt": "2026-01-03T21:52:05.638Z"
+          "details": "Rebuilt rear wing passenger side Replaced plastic Sand blasting and paint under plastic New shurco tarp",
+          "updatedAt": "2026-01-03T21:52:43.392Z"
         }
       ],
       "status": "active",
-      "updatedAt": "2026-01-03T21:52:05.638Z"
+      "updatedAt": "2026-01-03T21:52:43.393Z"
     },
     {
       "id": "1S9J483044S026511",
@@ -1624,5 +1624,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477125639
+  "timestamp": 1767477163393
 }
