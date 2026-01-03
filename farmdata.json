@@ -1455,12 +1455,12 @@
           "mileage": null,
           "hours": null,
           "technician": "Adam",
-          "details": "",
-          "updatedAt": "2026-01-03T21:56:22.345Z"
+          "details": "Notes\nNew red and white shurco tarp Back end sand blasted and repainted Greased Brakes adjusted Wheels polished",
+          "updatedAt": "2026-01-03T21:56:47.579Z"
         }
       ],
       "status": "active",
-      "updatedAt": "2026-01-03T21:56:22.345Z"
+      "updatedAt": "2026-01-03T21:56:47.580Z"
     },
     {
       "id": "392",
@@ -1635,5 +1635,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477382347
+  "timestamp": 1767477407580
 }
