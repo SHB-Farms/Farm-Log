@@ -1377,29 +1377,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1S9J483044S026508",
-      "name": "STAR POTATO TRAILER 24",
-      "category": "trailer",
-      "year": "2003",
-      "notes": "",
-      "lastMaintenance": "2026-01-03",
-      "nextMaintenance": "2027-01-03",
-      "maintenanceHistory": [
-        {
-          "id": "MH-125638",
-          "date": "2026-01-03",
-          "type": "Full service",
-          "mileage": null,
-          "hours": null,
-          "technician": "Adam",
-          "details": "Rebuilt rear wing passenger side Replaced plastic Sand blasting and paint under plastic New shurco tarp",
-          "updatedAt": "2026-01-03T21:52:43.392Z"
-        }
-      ],
-      "status": "active",
-      "updatedAt": "2026-01-03T21:53:08.208Z"
-    },
-    {
       "id": "1S9J483044S026511",
       "name": "STAR POTATO TRAILER",
       "category": "trailer",
@@ -1440,16 +1417,50 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1S9J483044S026508",
+      "name": "STAR POTATO TRAILER 24",
+      "category": "trailer",
+      "year": "2003",
+      "notes": "",
+      "lastMaintenance": "2026-01-03",
+      "nextMaintenance": "2027-01-03",
+      "maintenanceHistory": [
+        {
+          "id": "MH-125638",
+          "date": "2026-01-03",
+          "type": "Full service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Adam",
+          "details": "Rebuilt rear wing passenger side Replaced plastic Sand blasting and paint under plastic New shurco tarp",
+          "updatedAt": "2026-01-03T21:52:43.392Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2026-01-03T21:53:08.208Z"
+    },
+    {
       "id": "1S9J503069S026760",
       "name": "STAR POTATO TRAILER 25",
       "category": "trailer",
       "year": "2009",
       "notes": "New red and white shurco tarp\nBack end sand blasted and repainted \nGreased \nBrakes adjusted \nWheels polished",
-      "lastMaintenance": "2026-01-03",
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2025-12-09",
+      "nextMaintenance": "2026-12-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-382345",
+          "date": "2025-12-09",
+          "type": "Full service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2026-01-03T21:56:22.345Z"
+        }
+      ],
       "status": "active",
-      "updatedAt": "2026-01-03T20:13:33.483Z"
+      "updatedAt": "2026-01-03T21:56:22.345Z"
     },
     {
       "id": "392",
@@ -1624,5 +1635,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477188211
+  "timestamp": 1767477382347
 }
