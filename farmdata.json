@@ -1382,11 +1382,11 @@
       "category": "trailer",
       "year": "2003",
       "notes": "Rebuilt rear wing passenger side\nReplaced plastic \nSand blasting and paint under plastic\nNew shurco tarp",
-      "lastMaintenance": "",
+      "lastMaintenance": "2026-01-03",
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": [],
       "status": "active",
-      "updatedAt": "2026-01-03T21:51:04.838Z"
+      "updatedAt": "2026-01-03T21:51:33.909Z"
     },
     {
       "id": "1S9J483044S026511",
@@ -1613,5 +1613,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477064844
+  "timestamp": 1767477093911
 }
