@@ -1377,14 +1377,16 @@
       "maintenanceHistory": []
     },
     {
-      "id": "1S9J48344S026508",
-      "name": "STAR POTATO TRAILER",
+      "id": "1S9J483044S026508",
+      "name": "STAR POTATO TRAILER 24",
       "category": "trailer",
       "year": "2003",
-      "notes": "",
-      "lastMaintenance": null,
+      "notes": "Rebuilt rear wing passenger side\nReplaced plastic \nSand blasting and paint under plastic\nNew shurco tarp",
+      "lastMaintenance": "",
       "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2026-01-03T21:51:04.838Z"
     },
     {
       "id": "1S9J483044S026511",
@@ -1417,6 +1419,16 @@
       "maintenanceHistory": []
     },
     {
+      "id": "1S9J50308AS026776",
+      "name": "STAR POTATO TRAILER",
+      "category": "trailer",
+      "year": "2009",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
       "id": "1S9J503069S026760",
       "name": "STAR POTATO TRAILER 25",
       "category": "trailer",
@@ -1427,16 +1439,6 @@
       "maintenanceHistory": [],
       "status": "active",
       "updatedAt": "2026-01-03T20:13:33.483Z"
-    },
-    {
-      "id": "1S9J50308AS026776",
-      "name": "STAR POTATO TRAILER",
-      "category": "trailer",
-      "year": "2009",
-      "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
     },
     {
       "id": "392",
@@ -1611,5 +1613,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767471213487
+  "timestamp": 1767477064844
 }
