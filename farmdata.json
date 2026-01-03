@@ -1381,7 +1381,7 @@
       "name": "STAR POTATO TRAILER 24",
       "category": "trailer",
       "year": "2003",
-      "notes": "Rebuilt rear wing passenger side\nReplaced plastic \nSand blasting and paint under plastic\nNew shurco tarp",
+      "notes": "",
       "lastMaintenance": "2026-01-03",
       "nextMaintenance": "2027-01-03",
       "maintenanceHistory": [
@@ -1397,7 +1397,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2026-01-03T21:52:43.393Z"
+      "updatedAt": "2026-01-03T21:53:08.208Z"
     },
     {
       "id": "1S9J483044S026511",
@@ -1624,5 +1624,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477163393
+  "timestamp": 1767477188211
 }
