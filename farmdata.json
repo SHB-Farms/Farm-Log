@@ -1417,14 +1417,16 @@
       "maintenanceHistory": []
     },
     {
-      "id": "189J5030698026760",
-      "name": "STAR POTATO TRAILER",
+      "id": "1S9J503069S026760",
+      "name": "STAR POTATO TRAILER 25",
       "category": "trailer",
       "year": "2009",
-      "notes": "",
-      "lastMaintenance": null,
+      "notes": "New red and white shurco tarp\nBack end sand blasted and repainted \nGreased \nBrakes adjusted \nWheels polished",
+      "lastMaintenance": "2026-01-03",
       "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2026-01-03T20:13:33.483Z"
     },
     {
       "id": "1S9J50308AS026776",
@@ -1609,5 +1611,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767217915587
+  "timestamp": 1767471213487
 }
