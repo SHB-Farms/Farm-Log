@@ -1383,10 +1383,21 @@
       "year": "2003",
       "notes": "Rebuilt rear wing passenger side\nReplaced plastic \nSand blasting and paint under plastic\nNew shurco tarp",
       "lastMaintenance": "2026-01-03",
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": [],
+      "nextMaintenance": "2027-01-03",
+      "maintenanceHistory": [
+        {
+          "id": "MH-125638",
+          "date": "2026-01-03",
+          "type": "Full service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2026-01-03T21:52:05.638Z"
+        }
+      ],
       "status": "active",
-      "updatedAt": "2026-01-03T21:51:33.909Z"
+      "updatedAt": "2026-01-03T21:52:05.638Z"
     },
     {
       "id": "1S9J483044S026511",
@@ -1613,5 +1624,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1767477093911
+  "timestamp": 1767477125639
 }
