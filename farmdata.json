@@ -1642,11 +1642,11 @@
       "status": "active",
       "notes": "5802726987 pre-fuel filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic spin-on oil filter",
       "lastMaintenance": "2026-01-05",
-      "nextMaintenance": "",
+      "nextMaintenance": "2027-01-05",
       "maintenanceHistory": [],
       "createdAt": "2026-01-08T17:11:57.605Z",
-      "updatedAt": "2026-01-08T17:11:57.607Z"
+      "updatedAt": "2026-01-08T17:13:02.907Z"
     }
   ],
-  "timestamp": 1767892317608
+  "timestamp": 1767892382910
 }
