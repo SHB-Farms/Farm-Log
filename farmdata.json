@@ -1633,7 +1633,20 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
+    },
+    {
+      "id": "HACPU150HSD200708",
+      "name": "PUMA 150",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "5802726987 pre-fuel filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic spin-on oil filter",
+      "lastMaintenance": "2026-01-05",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2026-01-08T17:11:57.605Z",
+      "updatedAt": "2026-01-08T17:11:57.607Z"
     }
   ],
-  "timestamp": 1767477448772
+  "timestamp": 1767892317608
 }
