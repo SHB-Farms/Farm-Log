@@ -763,16 +763,6 @@
       "maintenanceHistory": []
     },
     {
-      "id": "HACMX135KPDH02371",
-      "name": "MAXXUM Loader 135",
-      "category": "tractor",
-      "year": "2023",
-      "notes": "48142232 charge pump oil filter\n87708150 transmission pump oil filter\n6/19/2024   50hr",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
-    },
-    {
       "id": "HACMX135ERDH20091",
       "name": "MAXXUM Loader 135",
       "category": "tractor",
@@ -1301,6 +1291,19 @@
       "updatedAt": "2025-11-18T00:26:55.607Z"
     },
     {
+      "id": "HACPU150HSD200708",
+      "name": "PUMA 150",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "5802726987 pre-fuel filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic spin-on oil filter",
+      "lastMaintenance": "2026-01-05",
+      "nextMaintenance": "2027-01-05",
+      "maintenanceHistory": [],
+      "createdAt": "2026-01-08T17:11:57.605Z",
+      "updatedAt": "2026-01-08T17:13:02.907Z"
+    },
+    {
       "id": "1R9BSF304TL008134",
       "name": "RANCO BELLY DUMP",
       "category": "trailer",
@@ -1633,20 +1636,7 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
-    },
-    {
-      "id": "HACPU150HSD200708",
-      "name": "PUMA 150",
-      "category": "tractor",
-      "year": "2024",
-      "status": "active",
-      "notes": "5802726987 pre-fuel filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic spin-on oil filter",
-      "lastMaintenance": "2026-01-05",
-      "nextMaintenance": "2027-01-05",
-      "maintenanceHistory": [],
-      "createdAt": "2026-01-08T17:11:57.605Z",
-      "updatedAt": "2026-01-08T17:13:02.907Z"
     }
   ],
-  "timestamp": 1767892382910
+  "timestamp": 1769203936909
 }
