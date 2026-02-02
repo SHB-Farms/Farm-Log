@@ -497,9 +497,21 @@
       "category": "truck",
       "year": "1999",
       "notes": "OIL FILTER NAPA 1799\nFUEL FILTER NAPA 3403\nAIR FILTER NAPA 2253\nCOOLANT FILTER NAPA 4071",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "lastMaintenance": "2026-02-02",
+      "nextMaintenance": "2027-02-02",
+      "maintenanceHistory": [
+        {
+          "id": "MH-811833",
+          "date": "2026-02-02",
+          "type": "Oil, filter and fuel filter change.",
+          "mileage": 191165,
+          "hours": 8682,
+          "technician": "Alex",
+          "details": "",
+          "updatedAt": "2026-02-02T18:43:31.833Z"
+        }
+      ],
+      "updatedAt": "2026-02-02T18:43:31.834Z"
     },
     {
       "id": "1HTSCAAM01H379367",
@@ -1638,5 +1650,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1769203936909
+  "timestamp": 1770057811835
 }
