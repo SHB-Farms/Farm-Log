@@ -1648,7 +1648,20 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
+    },
+    {
+      "id": "Gx690",
+      "name": "Fertilizer Conveyor",
+      "category": "other",
+      "year": "",
+      "status": "active",
+      "notes": "Honda gx690\nOil filter Napa 7356\nAir filter from Napa prime line 7-083177",
+      "lastMaintenance": "2026-02-19",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2026-02-19T22:30:08.463Z",
+      "updatedAt": "2026-02-19T22:30:08.468Z"
     }
   ],
-  "timestamp": 1771432006220
+  "timestamp": 1771540208470
 }
