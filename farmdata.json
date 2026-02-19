@@ -198,6 +198,30 @@
       "maintenanceHistory": []
     },
     {
+      "id": "Gx690",
+      "name": "Fertilizer Conveyor",
+      "category": "other",
+      "year": "",
+      "status": "active",
+      "notes": "Honda gx690\nOil filter Napa 7356\nAir filter from Napa prime line 7-083177",
+      "lastMaintenance": "2026-02-19",
+      "nextMaintenance": "2027-02-19",
+      "maintenanceHistory": [
+        {
+          "id": "MH-405986",
+          "date": "2026-02-19",
+          "type": "Yearly service",
+          "mileage": null,
+          "hours": 59.5,
+          "technician": "Leonard",
+          "details": "New used belt\nA few bearings\nNew oil(10w-40) and air filter\nNew poly wheels on belt at 9.5 inches in diameter",
+          "updatedAt": "2026-02-19T22:46:47.506Z"
+        }
+      ],
+      "createdAt": "2026-02-19T22:30:08.463Z",
+      "updatedAt": "2026-02-19T22:46:47.512Z"
+    },
+    {
       "id": "M542 2D3 X01",
       "name": "Flow waterjet Mach 500",
       "category": "other",
@@ -1648,31 +1672,7 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
-    },
-    {
-      "id": "Gx690",
-      "name": "Fertilizer Conveyor",
-      "category": "other",
-      "year": "",
-      "status": "active",
-      "notes": "Honda gx690\nOil filter Napa 7356\nAir filter from Napa prime line 7-083177",
-      "lastMaintenance": "2026-02-19",
-      "nextMaintenance": "2027-02-19",
-      "maintenanceHistory": [
-        {
-          "id": "MH-405986",
-          "date": "2026-02-19",
-          "type": "Yearly service",
-          "mileage": null,
-          "hours": 59.5,
-          "technician": "Leonard",
-          "details": "New used belt\nA few bearings\nNew oil(10w-40) and air filter\nNew poly wheels on belt",
-          "updatedAt": "2026-02-19T22:33:25.986Z"
-        }
-      ],
-      "createdAt": "2026-02-19T22:30:08.463Z",
-      "updatedAt": "2026-02-19T22:33:25.989Z"
     }
   ],
-  "timestamp": 1771540405989
+  "timestamp": 1771541207513
 }
