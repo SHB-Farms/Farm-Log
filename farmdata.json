@@ -1672,7 +1672,20 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
+    },
+    {
+      "id": "JEEZC525VRF516036",
+      "name": "CASE IH QUAD TRACK 525",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "fuel filters.2/oil filter.1/hydraulic oil filter.2; as well as engine oil were changed March 2nd 2026 ",
+      "lastMaintenance": "2026-03-02",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2026-03-03T00:25:20.366Z",
+      "updatedAt": "2026-03-03T00:25:20.367Z"
     }
   ],
-  "timestamp": 1771541207513
+  "timestamp": 1772497520372
 }
