@@ -818,9 +818,21 @@
       "category": "tractor",
       "year": "2023",
       "notes": "5802726987 water/fuel seperator filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter\n12/3/2024    364 hr",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "lastMaintenance": "2026-03-13",
+      "nextMaintenance": "2027-03-14",
+      "maintenanceHistory": [
+        {
+          "id": "MH-295551",
+          "date": "2026-03-13",
+          "type": "Oil change/fuel filter change/hydraulic oil filter change/air filter change",
+          "mileage": null,
+          "hours": 1000,
+          "technician": "Michael Gross",
+          "details": "",
+          "updatedAt": "2026-03-13T23:58:15.551Z"
+        }
+      ],
+      "updatedAt": "2026-03-13T23:58:15.551Z"
     },
     {
       "id": "HACMX135ERDH20091",
@@ -1698,5 +1710,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1772578221985
+  "timestamp": 1773446295552
 }
