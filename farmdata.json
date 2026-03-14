@@ -791,11 +791,22 @@
       "year": "2024",
       "status": "active",
       "notes": "47715391 hydraulic suction pump oil filter\n48142231 hydraulic charge pump oil filter \n5802726987 water/fuel separator filter\n92129321 fuel filter\n5802872619 engine oil filter \n87682990 primary air filter \n87683000 secondary air filter \n87726699 inside cab air filter \n[2]87726695 outside cab air filters\n",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2026-03-07",
+      "nextMaintenance": "2027-03-07",
+      "maintenanceHistory": [
+        {
+          "id": "MH-052330",
+          "date": "2026-03-07",
+          "type": "Engine oil change, Engine filter change, fuel filters changed, hydraulic filters changed",
+          "mileage": null,
+          "hours": 500,
+          "technician": "Michael Gross",
+          "details": "",
+          "updatedAt": "2026-03-14T21:00:52.330Z"
+        }
+      ],
       "createdAt": "2026-03-14T20:45:41.269Z",
-      "updatedAt": "2026-03-14T20:57:36.030Z"
+      "updatedAt": "2026-03-14T21:00:52.330Z"
     },
     {
       "id": "HACMX135CPDH02639",
@@ -1724,5 +1735,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1773521856032
+  "timestamp": 1773522052330
 }
