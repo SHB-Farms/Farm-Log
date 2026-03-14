@@ -813,7 +813,7 @@
       "name": "MAXXUM 135",
       "category": "tractor",
       "year": "2023",
-      "notes": "48142231 hydrulic charge pump oil filter    48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter  47715391 hydraulic suction pump oil filter\n4/24/2024  50 hr                                       5802872619 engine oil filter\n                                                                    92129321 fuel filter\n                                                                    5802726987 water/fuel seperator filter\n                                                                   10/29/2024   428 hr",
+      "notes": "48142231 hydraulic charge pump 47715391 hydraulic suction pump                                     5802872619 engine oil filter\n5802726987 water/fuel separator ",
       "lastMaintenance": "2025-06-27",
       "nextMaintenance": "2026-06-27",
       "maintenanceHistory": [
@@ -834,7 +834,8 @@
           "updatedAt": "2025-06-27T21:05:54.447Z"
         }
       ],
-      "updatedAt": "2025-06-29T00:15:03.339Z"
+      "updatedAt": "2026-03-14T21:04:17.829Z",
+      "status": "active"
     },
     {
       "id": "HACMX135PRDH00802",
@@ -1735,5 +1736,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1773522128159
+  "timestamp": 1773522257832
 }
