@@ -817,7 +817,7 @@
       "name": "MAXXUM 135",
       "category": "tractor",
       "year": "2023",
-      "notes": "5802726987 water/fuel seperator filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter\n12/3/2024    364 hr",
+      "notes": "5802726987 water/fuel seperator filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter\n87682990 primary air filter \n87683000 secondary air filter \n87726699 inside cab air filter \n[2] 87726695 outside cab air filters",
       "lastMaintenance": "2026-03-13",
       "nextMaintenance": "2027-03-14",
       "maintenanceHistory": [
@@ -832,7 +832,8 @@
           "updatedAt": "2026-03-13T23:58:15.551Z"
         }
       ],
-      "updatedAt": "2026-03-13T23:58:15.551Z"
+      "updatedAt": "2026-03-14T00:02:26.643Z",
+      "status": "active"
     },
     {
       "id": "HACMX135ERDH20091",
@@ -1710,5 +1711,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1773446295552
+  "timestamp": 1773446546645
 }
