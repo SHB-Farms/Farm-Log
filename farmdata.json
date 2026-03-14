@@ -797,16 +797,16 @@
         {
           "id": "MH-052330",
           "date": "2026-03-07",
-          "type": "Engine oil change, Engine filter change, fuel filters changed, hydraulic filters changed",
+          "type": "Engine oil change, Engine filter change, fuel filters changed, hydraulic filters changed, engine air filters changed, cab air filters changed",
           "mileage": null,
           "hours": 500,
           "technician": "Michael Gross",
           "details": "",
-          "updatedAt": "2026-03-14T21:00:52.330Z"
+          "updatedAt": "2026-03-14T21:02:08.159Z"
         }
       ],
       "createdAt": "2026-03-14T20:45:41.269Z",
-      "updatedAt": "2026-03-14T21:00:52.330Z"
+      "updatedAt": "2026-03-14T21:02:08.159Z"
     },
     {
       "id": "HACMX135CPDH02639",
@@ -1735,5 +1735,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1773522052330
+  "timestamp": 1773522128159
 }
