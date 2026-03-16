@@ -2088,7 +2088,7 @@
         // Initialize GitHub token
         let GITHUB_PAT = localStorage.getItem('github_pat') || '';
 
-        // Helper functions
+        // ----- Helper functions -----
         function formatDate(dateString) {
             if (!dateString) return 'N/A';
             const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -2180,7 +2180,6 @@
         }
 
         function showSavingIndicator() {
-            // Clear any existing timers
             if (savingTimer) {
                 clearTimeout(savingTimer);
                 savingTimer = null;
@@ -2190,16 +2189,13 @@
                 savingProgressInterval = null;
             }
             
-            // Show the indicator
             savingIndicator.classList.add('active');
             savingProgressBar.style.width = '0%';
             savingIndicatorStartTime = Date.now();
             
-            // Animate progress bar (10 seconds)
             const totalTime = 10000; // 10 seconds
-            const interval = 50; // Update every 50ms
-            const steps = totalTime / interval;
-            const increment = 100 / steps;
+            const interval = 50;
+            const increment = 100 / (totalTime / interval);
             
             savingProgressInterval = setInterval(() => {
                 const elapsed = Date.now() - savingIndicatorStartTime;
@@ -2214,27 +2210,43 @@
         }
         
         function hideSavingIndicator() {
-            // Calculate how long the indicator has been visible
             const elapsed = Date.now() - savingIndicatorStartTime;
-            const minDisplayTime = 10000; // Minimum 10 seconds
+            const minDisplayTime = 10000;
             
             if (elapsed < minDisplayTime) {
-                // Wait for the remaining time
                 const remaining = minDisplayTime - elapsed;
                 savingTimer = setTimeout(() => {
                     savingIndicator.classList.remove('active');
                     savingTimer = null;
                 }, remaining);
             } else {
-                // Hide immediately if we've already shown for min time
                 savingIndicator.classList.remove('active');
             }
             
-            // Clear progress interval if it exists
             if (savingProgressInterval) {
                 clearInterval(savingProgressInterval);
                 savingProgressInterval = null;
             }
+        }
+
+        // ----- Encoding/Decoding for GitHub -----
+        function utf8ToBase64(str) {
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(str);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+
+        function base64ToUtf8(base64) {
+            const binary = atob(base64);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return new TextDecoder().decode(bytes);
         }
 
         async function fetchRemoteData() {
@@ -2254,10 +2266,8 @@
                 }
                 
                 const fileInfo = await metaResponse.json();
-                const content = atob(fileInfo.content);
-                // Decode percent-encoded characters (reverse of unescape(encodeURIComponent(...)))
-                const decodedContent = decodeURIComponent(escape(content));
-                const remoteData = JSON.parse(decodedContent);
+                const content = base64ToUtf8(fileInfo.content);
+                const remoteData = JSON.parse(content);
                 
                 return {
                     equipment: remoteData.equipment || [],
@@ -2284,7 +2294,7 @@
             try {
                 const bodyData = {
                     message: "Update equipment data",
-                    content: btoa(unescape(encodeURIComponent(content))),
+                    content: utf8ToBase64(content),
                     branch: "main"
                 };
 
@@ -2329,17 +2339,13 @@
                 return false;
             }
 
-            // Show saving indicator
             showSavingIndicator();
-            
-            // Show sync status bar
             syncStatusBar.classList.add('active');
             syncMessage.textContent = "Saving changes to SHB Server...";
             progressBar.style.width = '0%';
             updateSyncStatus('syncing', 'Saving changes...');
             
             try {
-                // Simulate progress
                 let progress = 0;
                 const progressInterval = setInterval(() => {
                     progress += 10;
@@ -2360,7 +2366,6 @@
                         progressBar.style.width = '0%';
                     }, 2000);
                     
-                    // Schedule a sync shortly after save to get latest changes
                     setTimeout(syncData, 5000);
                     return true;
                 } else {
@@ -2374,7 +2379,6 @@
                 syncMessage.textContent = "Error: " + error.message;
                 return false;
             } finally {
-                // Ensure saving indicator is hidden after operation
                 hideSavingIndicator();
             }
         }
@@ -2399,7 +2403,6 @@
                 lastService.value = equipment.lastMaintenance || '';
                 nextService.value = equipment.nextMaintenance || '';
 
-                // NEW: image handling
                 if (equipment.imageData) {
                     previewImg.src = equipment.imageData;
                     imagePreview.style.display = 'block';
@@ -2423,7 +2426,6 @@
             equipmentModal.classList.add('show');
         }
 
-        // NEW: Image preview & remove
         equipImageInput.addEventListener('change', () => {
             const file = equipImageInput.files[0];
             if (!file) return;
@@ -2469,7 +2471,7 @@
                     reader.readAsDataURL(file);
                 });
             } else if (selectedEquipment && selectedEquipment.imageData && imagePreview.style.display !== 'none') {
-                imageData = selectedEquipment.imageData; // keep existing image on edit
+                imageData = selectedEquipment.imageData;
             }
 
             const isEdit = equipmentModalTitle.textContent.includes('Edit');
@@ -2495,9 +2497,7 @@
                         imageData,
                         updatedAt: new Date().toISOString()
                     };
-                    // Update the selected equipment reference
                     selectedEquipment = equipmentData[index];
-                    // Refresh detail panel if open
                     if (detailPanel.classList.contains('open')) {
                         openDetailPanel(selectedEquipment);
                     }
@@ -2526,7 +2526,6 @@
                 showToast('Equipment added', 'mdi-check');
             }
             
-            // Clear cache to force refresh
             cachedFilteredEquipment = [];
             
             const success = await saveChanges();
@@ -2534,7 +2533,7 @@
                 optimizedRenderEquipment();
                 calculateStats();
                 equipmentModal.classList.remove('show');
-                equipImageInput.value = ''; // reset input
+                equipImageInput.value = '';
             }
         }
 
@@ -2563,7 +2562,6 @@
                 maintenanceId = null;
                 nextServiceDate.style.display = 'block';
                 
-                // Calculate next service date (1 year from today)
                 const nextDate = new Date();
                 nextDate.setFullYear(nextDate.getFullYear() + 1);
                 nextServiceDate.value = nextDate.toISOString().split('T')[0];
@@ -2619,15 +2617,12 @@
                     equipmentData[index].maintenanceHistory.unshift(record);
                     showToast('Maintenance record added', 'mdi-check');
                     
-                    // Update next service date to 1 year from maintenance date
                     equipmentData[index].nextMaintenance = nextServiceValue;
                 }
                 
-                // Update last service date to this maintenance date
                 equipmentData[index].lastMaintenance = date;
                 equipmentData[index].updatedAt = new Date().toISOString();
                 
-                // Clear cache to force refresh
                 cachedFilteredEquipment = [];
                 
                 const success = await saveChanges();
@@ -2651,7 +2646,6 @@
             const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
             if (index !== -1) {
                 equipmentData.splice(index, 1);
-                // Clear cache to force refresh
                 cachedFilteredEquipment = [];
                 const success = await saveChanges();
                 if (success) {
@@ -2676,12 +2670,9 @@
             try {
                 const remote = await fetchRemoteData();
                 
-                // Clear cache to force refresh
                 cachedFilteredEquipment = [];
                 
-                // Conflict resolution
                 if (force || remote.timestamp > lastSyncTimestamp) {
-                    // Merge remote changes with local changes
                     const mergedEquipment = mergeEquipmentData(equipmentData, remote.equipment);
                     
                     equipmentData = mergedEquipment;
@@ -2697,9 +2688,7 @@
             } catch (error) {
                 console.error('Sync error:', error);
                 if (error.message.includes('404')) {
-                    // File doesn't exist yet - initialize it
                     equipmentData = [];
-                    // Clear cache to force refresh
                     cachedFilteredEquipment = [];
                     const pushSuccess = await pushDataToGitHub();
                     if (pushSuccess) {
@@ -2720,20 +2709,16 @@
         }
 
         function mergeEquipmentData(localData, remoteData) {
-            // Create a map of remote equipment by ID for quick lookup
             const remoteMap = new Map(remoteData.map(item => [item.id, item]));
             const mergedData = [];
             
-            // First process all local items
             for (const localItem of localData) {
                 const remoteItem = remoteMap.get(localItem.id);
                 
                 if (remoteItem) {
-                    // Item exists in both local and remote - merge them
                     const mergedItem = {
-                        ...remoteItem, // Start with remote data
-                        ...localItem,  // Override with local changes
-                        // Special handling for maintenance history
+                        ...remoteItem,
+                        ...localItem,
                         maintenanceHistory: mergeMaintenanceHistory(
                             remoteItem.maintenanceHistory || [],
                             localItem.maintenanceHistory || []
@@ -2741,14 +2726,12 @@
                     };
                     
                     mergedData.push(mergedItem);
-                    remoteMap.delete(localItem.id); // Remove from map to mark as processed
+                    remoteMap.delete(localItem.id);
                 } else {
-                    // Item only exists locally - keep it
                     mergedData.push(localItem);
                 }
             }
             
-            // Add any remaining remote items that weren't in local data
             for (const remoteItem of remoteData) {
                 if (remoteMap.has(remoteItem.id)) {
                     mergedData.push(remoteItem);
@@ -2761,17 +2744,13 @@
         function mergeMaintenanceHistory(remoteHistory, localHistory) {
             const historyMap = new Map();
             
-            // Add all remote history first
             for (const record of remoteHistory) {
                 historyMap.set(record.id, record);
             }
-            
-            // Add or overwrite with local history
             for (const record of localHistory) {
                 historyMap.set(record.id, record);
             }
             
-            // Convert back to array and sort by date (newest first)
             return Array.from(historyMap.values()).sort((a, b) => {
                 return new Date(b.date) - new Date(a.date);
             });
@@ -2800,7 +2779,6 @@
             stats.total.textContent = equipmentData.length;
             stats.overdue.textContent = equipmentData.filter(isMaintenanceOverdue).length;
             
-            // Hide welcome message if we have equipment
             if (equipmentData.length > 0) {
                 welcomeMessage.style.display = 'none';
             } else {
@@ -2835,7 +2813,6 @@
             const loadingIndicator = document.querySelector('.search-loading');
             loadingIndicator.classList.add('active');
             
-            const startTime = performance.now();
             let filtered = equipmentData;
             
             if (activeCategory !== 'all') {
@@ -2860,19 +2837,11 @@
             lastActiveCategory = activeCategory;
             lastSortValue = sortValue;
             
-            const duration = performance.now() - startTime;
-            console.log(`Filtered ${filtered.length} items in ${duration.toFixed(2)}ms`);
             loadingIndicator.classList.remove('active');
             return filtered;
         }
 
         function optimizedSortEquipment(equipment, sortValue) {
-            if (sortValue === lastSortValue && 
-                equipment === cachedFilteredEquipment && 
-                cachedFilteredEquipment.length > 0) {
-                return equipment;
-            }
-            
             switch(sortValue) {
                 case 'name-asc': return equipment.sort((a, b) => a.name.localeCompare(b.name));
                 case 'name-desc': return equipment.sort((a, b) => b.name.localeCompare(a.name));
@@ -2916,7 +2885,6 @@
                     `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span> ${getStatusText(equip.status)}` : 
                     '';
 
-                // Category icon mapping for placeholder
                 const categoryIcon = {
                     tractor: 'mdi-tractor',
                     truck: 'mdi-truck',
@@ -2984,7 +2952,6 @@
             document.getElementById('detailNextService').textContent = formatDate(equip.nextMaintenance);
             document.getElementById('detailNotes').textContent = equip.notes || 'No notes available';
             
-            // NEW: show photo
             const photoSection = document.getElementById('photoSection');
             const detailImage = document.getElementById('detailImage');
             if (equip.imageData) {
@@ -2999,7 +2966,6 @@
             renderMaintenanceHistory(equip.maintenanceHistory || []);
             detailPanel.classList.add('open');
             
-            // Show admin buttons if in admin mode
             if (adminMode) {
                 editEquipmentBtn.style.display = 'flex';
                 deleteEquipmentBtn.style.display = 'flex';
@@ -3026,7 +2992,6 @@
                         <i class="mdi mdi-pencil"></i>
                     </button>` : '';
                     
-                // Add usage info if available
                 let usageInfo = '';
                 if (record.mileage || record.hours) {
                     usageInfo = `<div class="history-usage">`;
@@ -3074,20 +3039,18 @@
             syncIntervalId = setInterval(() => syncData(false), syncInterval);
         }
 
-        // Initialize the app
         async function init() {
             updateTokenIndicator();
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
             
             if (GITHUB_PAT) {
-                await syncData(true); // Force sync on init
+                await syncData(true);
                 startSyncInterval();
             } else {
                 updateSyncStatus('error', 'No GitHub token configured');
             }
             
-            // Event listeners
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
             document.getElementById('adminToggle').addEventListener('click', toggleAdminMode);
             tokenIndicator.addEventListener('click', () => {
@@ -3102,7 +3065,7 @@
                     updateTokenIndicator();
                     tokenModal.classList.remove('show');
                     setTimeout(() => {
-                        syncData(true); // Force sync after token save
+                        syncData(true);
                         startSyncInterval();
                     }, 1000);
                     showToast('Token saved', 'mdi-check');
@@ -3171,10 +3134,9 @@
             }));
             sortSelect.addEventListener('change', () => optimizedRenderEquipment());
             quickAddBtn.addEventListener('click', () => showEquipmentModal());
-            quickSyncBtn.addEventListener('click', () => syncData(true)); // Force sync
-            syncNowBtn.addEventListener('click', () => syncData(true)); // Force sync
+            quickSyncBtn.addEventListener('click', () => syncData(true));
+            syncNowBtn.addEventListener('click', () => syncData(true));
             
-            // Automatically calculate next service date when maintenance date changes
             maintenanceDate.addEventListener('change', () => {
                 if (maintenanceDate.value) {
                     const nextDate = new Date(maintenanceDate.value);
