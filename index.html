@@ -479,10 +479,10 @@
             cursor: pointer;
             transition: var(--transition);
             box-shadow: var(--shadow-light);
-            display: flex;
-            flex-direction: column;
             animation: fadeIn var(--animation-duration) ease-out;
-            min-width: 0;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
         @keyframes fadeIn {
@@ -500,6 +500,31 @@
             border-color: var(--primary);
             background: rgba(46, 125, 50, 0.03);
             box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .equipment-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .equipment-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .thumbnail-placeholder {
+            font-size: 30px;
+            color: var(--text-light);
+        }
+        .equipment-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .equipment-item-header {
@@ -1265,6 +1290,14 @@
           .stats-grid {
             grid-template-columns: repeat(2, 1fr);
           }
+
+          .equipment-thumbnail {
+            width: 40px;
+            height: 40px;
+          }
+          .thumbnail-placeholder {
+            font-size: 24px;
+          }
         }
 
         /* Responsive */
@@ -1613,6 +1646,14 @@
                     </div>
                 </div>
                 
+                <!-- NEW: Photo Section -->
+                <div class="detail-section" id="photoSection" style="display:none;">
+                    <h3><i class="mdi mdi-camera"></i> Photo</h3>
+                    <div id="detailImage" style="text-align:center; margin:15px 0;">
+                        <!-- image inserted by JS -->
+                    </div>
+                </div>
+                
                 <div class="detail-section">
                     <h3><i class="mdi mdi-wrench"></i> Maintenance</h3>
                     <div class="detail-row">
@@ -1773,6 +1814,17 @@
                 <div class="form-group">
                     <label for="equipNotes"><i class="mdi mdi-note-text"></i> Notes</label>
                     <textarea id="equipNotes" class="form-control" placeholder="Enter notes about this equipment"></textarea>
+                </div>
+                
+                <!-- NEW: Photo upload field -->
+                <div class="form-group">
+                    <label for="equipImage"><i class="mdi mdi-camera"></i> Equipment Photo (optional)</label>
+                    <input type="file" id="equipImage" class="form-control" accept="image/*">
+                    <small class="text-light">JPG/PNG • max ~5 MB recommended</small>
+                    <div id="imagePreview" style="margin-top:10px; max-width:280px; display:none;">
+                        <img id="previewImg" style="width:100%; border-radius:var(--radius-sm); box-shadow:var(--shadow-light);">
+                        <button id="removeImageBtn" class="btn btn-outline" style="margin-top:8px; font-size:0.85rem;">Remove Photo</button>
+                    </div>
                 </div>
                 
                 <div class="form-row">
@@ -1992,6 +2044,12 @@
         const cancelEquipmentBtn = document.getElementById('cancelEquipmentBtn');
         const closeEquipmentModal = document.getElementById('closeEquipmentModal');
 
+        // NEW: Photo elements
+        const equipImageInput = document.getElementById('equipImage');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+        const removeImageBtn = document.getElementById('removeImageBtn');
+
         // Maintenance modal elements
         const maintenanceModal = document.getElementById('maintenanceModal');
         const maintenanceModalTitle = document.getElementById('maintenanceModalTitle');
@@ -2197,7 +2255,9 @@
                 
                 const fileInfo = await metaResponse.json();
                 const content = atob(fileInfo.content);
-                const remoteData = JSON.parse(content);
+                // Decode percent-encoded characters (reverse of unescape(encodeURIComponent(...)))
+                const decodedContent = decodeURIComponent(escape(content));
+                const remoteData = JSON.parse(decodedContent);
                 
                 return {
                     equipment: remoteData.equipment || [],
@@ -2338,6 +2398,14 @@
                 equipNotes.value = equipment.notes || '';
                 lastService.value = equipment.lastMaintenance || '';
                 nextService.value = equipment.nextMaintenance || '';
+
+                // NEW: image handling
+                if (equipment.imageData) {
+                    previewImg.src = equipment.imageData;
+                    imagePreview.style.display = 'block';
+                } else {
+                    imagePreview.style.display = 'none';
+                }
             } else {
                 equipmentModalTitle.textContent = 'Add New Equipment';
                 equipName.value = '';
@@ -2350,9 +2418,32 @@
                 equipNotes.value = '';
                 lastService.value = '';
                 nextService.value = '';
+                imagePreview.style.display = 'none';
             }
             equipmentModal.classList.add('show');
         }
+
+        // NEW: Image preview & remove
+        equipImageInput.addEventListener('change', () => {
+            const file = equipImageInput.files[0];
+            if (!file) return;
+            if (file.size > 5 * 1024 * 1024) {
+                showToast('Image too large (max 5 MB)', 'mdi-alert');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        removeImageBtn.addEventListener('click', () => {
+            previewImg.src = '';
+            imagePreview.style.display = 'none';
+            equipImageInput.value = '';
+        });
 
         async function saveEquipment() {
             const name = equipName.value.trim();
@@ -2363,19 +2454,26 @@
             const notes = equipNotes.value;
             const lastServiceDate = lastService.value;
             const nextServiceDate = nextService.value;
-            
-            if (!name) {
-                showToast('Please enter a name', 'mdi-alert');
+
+            if (!name || !id) {
+                showToast('Name and ID are required', 'mdi-alert');
                 return;
             }
-            
-            if (!id) {
-                showToast('Please enter an ID', 'mdi-alert');
-                return;
+
+            let imageData = null;
+            if (equipImageInput.files[0]) {
+                const file = equipImageInput.files[0];
+                imageData = await new Promise(resolve => {
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.readAsDataURL(file);
+                });
+            } else if (selectedEquipment && selectedEquipment.imageData && imagePreview.style.display !== 'none') {
+                imageData = selectedEquipment.imageData; // keep existing image on edit
             }
-            
+
             const isEdit = equipmentModalTitle.textContent.includes('Edit');
-            
+
             if (isEdit) {
                 const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
                 if (index !== -1) {
@@ -2394,6 +2492,7 @@
                         notes,
                         lastMaintenance: lastServiceDate,
                         nextMaintenance: nextServiceDate,
+                        imageData,
                         updatedAt: new Date().toISOString()
                     };
                     // Update the selected equipment reference
@@ -2420,6 +2519,7 @@
                     lastMaintenance: lastServiceDate,
                     nextMaintenance: nextServiceDate,
                     maintenanceHistory: [],
+                    imageData,
                     createdAt: new Date().toISOString(),
                     updatedAt: new Date().toISOString()
                 });
@@ -2434,6 +2534,7 @@
                 optimizedRenderEquipment();
                 calculateStats();
                 equipmentModal.classList.remove('show');
+                equipImageInput.value = ''; // reset input
             }
         }
 
@@ -2812,21 +2913,40 @@
                 item.className = 'equipment-item';
                 
                 const statusIndicator = equip.status ? 
-                    `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span>${getStatusText(equip.status)}` : 
+                    `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span> ${getStatusText(equip.status)}` : 
                     '';
+
+                // Category icon mapping for placeholder
+                const categoryIcon = {
+                    tractor: 'mdi-tractor',
+                    truck: 'mdi-truck',
+                    trailer: 'mdi-trailer',
+                    implement: 'mdi-tools',
+                    car: 'mdi-car',
+                    van: 'mdi-van-utility',
+                    pickup: 'mdi-pickup',
+                    other: 'mdi-cog'
+                }[equip.category] || 'mdi-tools';
                 
                 item.innerHTML = `
-                    <div class="equipment-item-header">
-                        <div class="equipment-name">${equip.name}</div>
-                        ${isMaintenanceOverdue(equip) ? '<div class="overdue-badge"><i class="mdi mdi-alert"></i> MAINTENANCE DUE</div>' : ''}
+                    <div class="equipment-thumbnail">
+                        ${equip.imageData 
+                            ? `<img src="${equip.imageData}" alt="${equip.name}">` 
+                            : `<div class="thumbnail-placeholder"><i class="mdi ${categoryIcon}"></i></div>`}
                     </div>
-                    <div class="equipment-id">${equip.id}</div>
-                    <div class="equipment-meta">
-                        <span>Year: ${equip.year || 'N/A'}</span>
-                        <span>Next Service: ${formatDate(equip.nextMaintenance)}</span>
-                        <span>${statusIndicator}</span>
+                    <div class="equipment-info">
+                        <div class="equipment-item-header">
+                            <div class="equipment-name">${equip.name}</div>
+                            ${isMaintenanceOverdue(equip) ? '<div class="overdue-badge"><i class="mdi mdi-alert"></i> MAINTENANCE DUE</div>' : ''}
+                        </div>
+                        <div class="equipment-id">${equip.id}</div>
+                        <div class="equipment-meta">
+                            <span>Year: ${equip.year || 'N/A'}</span>
+                            <span>Next Service: ${formatDate(equip.nextMaintenance)}</span>
+                            <span>${statusIndicator}</span>
+                        </div>
+                        <div class="equipment-notes">${equip.notes || 'No notes available'}</div>
                     </div>
-                    <div class="equipment-notes">${equip.notes || 'No notes available'}</div>
                 `;
                 item.addEventListener('click', () => {
                     document.querySelectorAll('.equipment-item').forEach(i => i.classList.remove('selected'));
@@ -2858,11 +2978,21 @@
             document.getElementById('detailCategory').textContent = equip.category.charAt(0).toUpperCase() + equip.category.slice(1);
             document.getElementById('detailYear').textContent = equip.year || 'N/A';
             document.getElementById('detailStatus').innerHTML = equip.status ? 
-                `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span>${getStatusText(equip.status)}` : 
+                `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span> ${getStatusText(equip.status)}` : 
                 '';
             document.getElementById('detailLastService').textContent = formatDate(equip.lastMaintenance);
             document.getElementById('detailNextService').textContent = formatDate(equip.nextMaintenance);
             document.getElementById('detailNotes').textContent = equip.notes || 'No notes available';
+            
+            // NEW: show photo
+            const photoSection = document.getElementById('photoSection');
+            const detailImage = document.getElementById('detailImage');
+            if (equip.imageData) {
+                detailImage.innerHTML = `<img src="${equip.imageData}" style="max-width:100%; border-radius:var(--radius); box-shadow:var(--shadow);">`;
+                photoSection.style.display = 'block';
+            } else {
+                photoSection.style.display = 'none';
+            }
             
             const warningElement = document.getElementById('maintenanceWarning');
             warningElement.style.display = isMaintenanceOverdue(equip) ? 'flex' : 'none';
@@ -3058,4 +3188,3 @@
     </script>
 </body>
 </html>
-
