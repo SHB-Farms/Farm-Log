@@ -1,0 +1,1738 @@
+{
+  "equipment": [
+    {
+      "id": "1234567890",
+      "name": "AAA Please add and edit equipment",
+      "category": "tractor",
+      "year": "2025",
+      "notes": "License plate\nFilter numbers \nMaintenance logs",
+      "lastMaintenance": "2025-06-23",
+      "nextMaintenance": "2025-06-23",
+      "maintenanceHistory": [
+        {
+          "id": "MH-707300",
+          "date": "2025-06-23",
+          "type": "Service",
+          "mileage": null,
+          "hours": null,
+          "technician": "SHB Farms",
+          "details": "Describe the work performed\nV2.5",
+          "updatedAt": "2025-10-12T21:53:08.994Z"
+        }
+      ]
+    },
+    {
+      "id": "46YSP162XW1056099",
+      "name": "APACH STOCK TRAILER",
+      "category": "trailer",
+      "year": "1998",
+      "notes": "Needs service",
+      "lastMaintenance": "2025-06-23",
+      "nextMaintenance": "2026-06-23",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "A93K17508",
+      "name": "Bobcat mini Excavator",
+      "category": "tractor",
+      "year": "2013",
+      "status": "active",
+      "notes": "Fuel filter Napa 3472\nAir filter inner Napa 2985\nAir filter outer Napa 6438\nOil filter Napa 1307\nHydraulic filter Napa 1494",
+      "lastMaintenance": "2025-12-31",
+      "nextMaintenance": "2026-12-31",
+      "maintenanceHistory": [
+        {
+          "id": "MH-915583",
+          "date": "2025-12-31",
+          "type": "Full winter service",
+          "mileage": null,
+          "hours": 3352,
+          "technician": "Mark",
+          "details": "Greased, changed oil, air and fuel filters",
+          "updatedAt": "2025-12-31T21:51:55.583Z"
+        }
+      ],
+      "createdAt": "2025-12-31T21:50:17.378Z",
+      "updatedAt": "2025-12-31T21:51:55.587Z"
+    },
+    {
+      "id": "2B9FSFAL5TS304161",
+      "name": "BRENT FLAT DECK TRAILER",
+      "category": "trailer",
+      "year": "1996",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2025-12-21",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1BUD08107K2006635",
+      "name": "BUTLER UTILITY TRAILER",
+      "category": "trailer",
+      "year": "1989",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "4JUGF3128FN042659",
+      "name": "C&B GOOSE NECK TRAILER",
+      "category": "trailer",
+      "year": "2014",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JJG0282344",
+      "name": "Case 580 Super M",
+      "category": "tractor",
+      "year": "2001",
+      "notes": "Filters Napa:\n1482 Hyd\n3472 Fuel(FLEETGUARD FS1251)\n1602 Oil  10.6 Quarts 15-40\n6569 Inner Air\n6562 Outer Air\n7220 Trans",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JEEZC525VRF516036",
+      "name": "CASE IH QUAD TRACK 525",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "",
+      "lastMaintenance": "2026-03-03",
+      "nextMaintenance": "2027-03-03",
+      "maintenanceHistory": [
+        {
+          "id": "MH-221984",
+          "date": "2026-03-03",
+          "type": "oil change",
+          "mileage": null,
+          "hours": 850,
+          "technician": "Cliff",
+          "details": "oil change, fuel filters, hydraulic oil filters, air filters",
+          "updatedAt": "2026-03-03T22:50:21.984Z"
+        }
+      ],
+      "createdAt": "2026-03-03T00:25:20.366Z",
+      "updatedAt": "2026-03-03T22:50:21.985Z"
+    },
+    {
+      "id": "JJam0340TKRF04287",
+      "name": "CaseIH Magnum 380",
+      "category": "tractor",
+      "year": "2020",
+      "notes": "Filter Numbers:\n  Eng oil element: 84565867\n  Fuel filter: primary: 84191182 Secondary:87356547 Cab Air:87684088\n  Hyd filter Hyd:84240234 Trans:47833564\nFull service at 2636 hours by Alex G changed 4 front tires titan 380/80R38 from airway heights Les Schwab\nFull service at 3252 hours by Ted G",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JEEZC525CRF515936",
+      "name": "CaseIH Quadtrek",
+      "category": "other",
+      "year": "2024",
+      "notes": "Changed trans filter: 47833556 Called for it on warning screen 363 hours",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "YTD036866",
+      "name": "CaseIH Titan G4 4530",
+      "category": "other",
+      "year": "2013",
+      "notes": "84565867 Oil Filter    5801439820 Fuel    84348882 Fuel/Water    84254852 Def     84263625 Def/Inline     84218989 Air/Outer\n84218990 Air/Inner\n87267363 Cab/Air\n87272033 Hydrulic (Screen)",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "4RYG14209CT112295",
+      "name": "CHARMAC CARGO TLR",
+      "category": "trailer",
+      "year": "2012",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1GBM7C1C5XJ100630",
+      "name": "CHEV T7500/CRANE",
+      "category": "truck",
+      "year": "1998",
+      "notes": "AIR FILTER NAPA 6664\nOIL FILTER NAPA 1791\nPRIMARY FUEL FILTER NAPA 533442\n2ND FUEL FILTER NAPA 3626\nHYDRAULIC FILTER 1553\n2nd HYDRAULIC FILTER 1551",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1A4GJ45B578101327",
+      "name": "CHRYSLER TOWN AND COUNTRY",
+      "category": "car",
+      "year": "2006",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "7838",
+      "name": "CTK TANK TRAILER",
+      "category": "trailer",
+      "year": "1979",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "2C4RDGCG7HR605390",
+      "name": "DODGE GRAND CARAVAN",
+      "category": "van",
+      "year": "2017",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "EEI79154",
+      "name": "DTCHW UTILITY TRAILER",
+      "category": "trailer",
+      "year": "1979",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1E929148X6E111056",
+      "name": "ETNYRE LOWBOY TRAILER",
+      "category": "trailer",
+      "year": "2005",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "Gx690",
+      "name": "Fertilizer Conveyor",
+      "category": "other",
+      "year": "",
+      "status": "active",
+      "notes": "Honda gx690\nOil filter Napa 7356\nAir filter from Napa prime line 7-083177",
+      "lastMaintenance": "2026-02-19",
+      "nextMaintenance": "2027-02-19",
+      "maintenanceHistory": [
+        {
+          "id": "MH-405986",
+          "date": "2026-02-19",
+          "type": "Yearly service",
+          "mileage": null,
+          "hours": 59.5,
+          "technician": "Leonard",
+          "details": "New used belt\nA few bearings\nNew oil(10w-40) and air filter\nNew poly wheels on belt at 9.5 inches in diameter",
+          "updatedAt": "2026-02-19T22:46:47.506Z"
+        }
+      ],
+      "createdAt": "2026-02-19T22:30:08.463Z",
+      "updatedAt": "2026-02-19T22:46:47.512Z"
+    },
+    {
+      "id": "M542 2D3 X01",
+      "name": "Flow waterjet Mach 500",
+      "category": "other",
+      "year": "2022",
+      "status": "active",
+      "notes": "Server motor batteries JZSP-BA01(needs 6)",
+      "lastMaintenance": "2025-12-19",
+      "nextMaintenance": "2026-12-19",
+      "maintenanceHistory": [
+        {
+          "id": "MH-497810",
+          "date": "2025-12-19",
+          "type": "Changed server motor batteries",
+          "mileage": null,
+          "hours": 680,
+          "technician": "LCG",
+          "details": "Changed all six server motor batteries",
+          "updatedAt": "2025-12-19T18:38:17.810Z"
+        }
+      ],
+      "createdAt": "2025-12-19T18:37:18.335Z",
+      "updatedAt": "2025-12-19T18:38:17.810Z"
+    },
+    {
+      "id": "1FDXR80U6EVA36903",
+      "name": "FORD 8000",
+      "category": "truck",
+      "year": "1984",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FDYH85A2PVA03549",
+      "name": "FORD 8000 TRUCK GRAIN",
+      "category": "truck",
+      "year": "1993",
+      "notes": "Napa Oil 2 Filters Napa 1754\nFleetguard Fuel 533805\nNapa Air Filter 6694",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FDYY90L1KVA36937",
+      "name": "FORD Crane L9000",
+      "category": "truck",
+      "year": "1989",
+      "notes": "Motor oil filters Napa 1970 and 1660\nFuel Filters Napa 3341\nAir Filter Napa 2943\nTransmission Filter Napa 1551\nCrane Hyd Filter Napa 1759",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FBSS3BL1BDB08932",
+      "name": "FORD E350",
+      "category": "van",
+      "year": "2011",
+      "notes": "NAPA AIR FILTER 6418\nNAPA OIL FILTER 1372",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FMFK18548LA41232",
+      "name": "FORD EXPEDITION",
+      "category": "car",
+      "year": "2008",
+      "notes": "",
+      "lastMaintenance": "2025-07-10",
+      "nextMaintenance": "2026-07-10",
+      "maintenanceHistory": [
+        {
+          "id": "MH-346480",
+          "date": "2025-07-10",
+          "type": "Brakes, A/C compressor",
+          "technician": "Rudy",
+          "details": "304725 milage \nNew front brakes both sides, new rotor on left side, new A/C compressor (napa part number 255291) put in 1 lbs 13 ounces",
+          "updatedAt": "2025-07-10T23:03:40.002Z"
+        }
+      ],
+      "updatedAt": "2025-07-10T23:03:40.002Z"
+    },
+    {
+      "id": "2FDLF47MXMCA17376",
+      "name": "FORD F350",
+      "category": "pickup",
+      "year": "1990",
+      "notes": "OIL CHANGED AT 5252 miles",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FDWF80C8TBA25801",
+      "name": "FORD GARBAGE TRUCK",
+      "category": "truck",
+      "year": "1996",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "U81DVA64083",
+      "name": "FORD L8000 DUMP TRUCK",
+      "category": "truck",
+      "year": "1976",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "F26YRC54046",
+      "name": "FORD SPRAY PICKUP",
+      "category": "pickup",
+      "year": "1974",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FV6HJBA5YHA70158",
+      "name": "FREIGHTLINER FL70 DUMP TRUCK",
+      "category": "truck",
+      "year": "1999",
+      "notes": "Napa Oil Filter 1791\nNapa Air Filter 6744\nNapa Fuel Filter 3626 and 3630",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1FVACXDTXFHGG7437",
+      "name": "FREIGHTLINER MD90 TRUCK",
+      "category": "truck",
+      "year": "2014",
+      "notes": "Oil Filter LF 3970\nAir Filter AF26154\nFuel Filter FF63054NN and N122-R50550\nCab Air Filter 549082",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "UMG950511",
+      "name": "FRUEHAUF WATER TANKER",
+      "category": "trailer",
+      "year": "1967",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "UMG960420",
+      "name": "FRUEHAUF WATER TANKER",
+      "category": "trailer",
+      "year": "1967",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1GRDM9620LM028001",
+      "name": "GREAT DANE SPRAY TRAILER",
+      "category": "trailer",
+      "year": "1989",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "16HCB08162U027453",
+      "name": "HAUI SMALL CARGO TR.",
+      "category": "trailer",
+      "year": "2002",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "WA7892783",
+      "name": "HOME/MADE SIDEBYSIDE/TRAILER",
+      "category": "trailer",
+      "year": "1983",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "4DRBUAAN4BB337903",
+      "name": "IC School Bus School Bus",
+      "category": "other",
+      "year": "2010",
+      "notes": "Napa Oil 7088\nNapa Air Filter SA10804\nNapa Fuel Filter 600149",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "4RACS0819AN070909",
+      "name": "INTER CARGO",
+      "category": "trailer",
+      "year": "2010",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTSCNPNXNH428765",
+      "name": "INTERNATION 4700 4X2",
+      "category": "truck",
+      "year": "1991",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HVLPTVN0GHA49349",
+      "name": "INTERNATION SCHOOL BUS",
+      "category": "van",
+      "year": "1986",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTLDUXMXFHA60613",
+      "name": "INTERNATIONAL 1954 SERVICE TRUCK",
+      "category": "truck",
+      "year": "1985",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTGGGRT3MH289403",
+      "name": "INTERNATIONAL 2500 DUMP TRUCK",
+      "category": "truck",
+      "year": "1991",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTZPDVR0FHA54612",
+      "name": "INTERNATIONAL 2575 DUMP TRUCK",
+      "category": "truck",
+      "year": "1985",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTMMAAL85H149708",
+      "name": "INTERNATIONAL 4300",
+      "category": "truck",
+      "year": "2004",
+      "notes": "NAPA OIL FILTER 7744XD\nNAPA AIR FILTER 6870\nFS 19684",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "D0715FCA10578",
+      "name": "INTERNATIONAL 4300 POTATO TRUCK",
+      "category": "truck",
+      "year": "1976",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTSDPCN6PH470982",
+      "name": "INTERNATIONAL 4700 SCRAP TRUCK",
+      "category": "truck",
+      "year": "1992",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTSLAAM6YH278926",
+      "name": "INTERNATIONAL 4700 SERVICE TRUCK",
+      "category": "truck",
+      "year": "1999",
+      "notes": "OIL FILTER NAPA 1799\nFUEL FILTER NAPA 3403\nAIR FILTER NAPA 2253\nCOOLANT FILTER NAPA 4071",
+      "lastMaintenance": "2026-02-02",
+      "nextMaintenance": "2027-02-02",
+      "maintenanceHistory": [
+        {
+          "id": "MH-811833",
+          "date": "2026-02-02",
+          "type": "Oil, filter and fuel filter change.",
+          "mileage": 191165,
+          "hours": 8682,
+          "technician": "Alex",
+          "details": "",
+          "updatedAt": "2026-02-02T18:43:31.833Z"
+        }
+      ],
+      "updatedAt": "2026-02-02T18:43:31.834Z"
+    },
+    {
+      "id": "1HTSCAAM01H379367",
+      "name": "INTERNATIONAL 4700 TRUCK",
+      "category": "truck",
+      "year": "2000",
+      "notes": "NAPA AIR FILTER 2253\nNAPA OIL FILTER 1799",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HT8DAAN5VH487382",
+      "name": "INTERNATIONAL 4900 SERVICE TRUCK",
+      "category": "truck",
+      "year": "1997",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTWGAARXAJ249252",
+      "name": "INTERNATIONAL 7400 SBA 6X4",
+      "category": "truck",
+      "year": "2010",
+      "notes": "NAPA AIR 6870\nNAPA FUEL 600149\nNAPA OIL FILTER 7744\n32 Quarts,Do Not Fill Filter",
+      "lastMaintenance": "2022-01-10",
+      "nextMaintenance": "2026-08-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-273765",
+          "date": "2025-07-18",
+          "type": "A/C charge",
+          "technician": "LCG",
+          "details": "Charged AC 2lbs 10 onces",
+          "updatedAt": "2025-07-18T18:27:53.765Z"
+        },
+        {
+          "id": "MH-672941",
+          "date": "2022-01-10",
+          "type": "Overhaul",
+          "mileage": 260000,
+          "hours": null,
+          "technician": "LMG",
+          "details": "Full Motor Overhaul with New Head LMG",
+          "updatedAt": "2025-08-09T17:47:52.941Z"
+        }
+      ],
+      "updatedAt": "2025-08-09T17:48:45.997Z",
+      "status": "active"
+    },
+    {
+      "id": "1HTWXAXT24J018997",
+      "name": "INTERNATIONAL 7600 DUMP TRUCK",
+      "category": "truck",
+      "year": "2004",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "2HSFMAHR7SC048783",
+      "name": "INTERNATIONAL 9200 GRAIN DUMP",
+      "category": "truck",
+      "year": "1995",
+      "notes": "OIL FILTER NAPA 1748\nFLEETGUARD FUEL FILTER FS1001\nAIR FILTER NAPA 6745\nCOOLANT FILTER NAPA GOLD 4071\nFAN BELT 1648750C1 8PK1536 22848-20-1732",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1HTLLTVP9GHA12646",
+      "name": "INTERNATIONAL S1900/FERT TRUCK",
+      "category": "truck",
+      "year": "1985",
+      "notes": "NAPA MOTOR OIL FILTER 1748\nNAPA AIR FILTER 2253\nNAPA FUEL PRIMARY 3341\nNAPA FUEL SECONDARY 3336\nNAPA POWER STEERING FILTER 1551\nFRONT DIFF REAR DRIVELINE SEAL TIMKEN #415013",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "5SHFH36267B000617",
+      "name": "KAUFMAN GOOSE NECK",
+      "category": "trailer",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "155779S",
+      "name": "KENWORTH POTATO TRUCK",
+      "category": "truck",
+      "year": "1977",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "153570S",
+      "name": "KENWORTH POTATO TRUCK",
+      "category": "truck",
+      "year": "1977",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "176913S",
+      "name": "KENWORTH POTATO TRUCK",
+      "category": "truck",
+      "year": "1979",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "12059",
+      "name": "Lenco 4RSPWARH",
+      "category": "other",
+      "year": "2012",
+      "notes": "QSX 15 Engine # 79552360\nOIL FILTER CUMMINS 4367100 LF 14000NN\nFLEETGUARD FUEL FILTER 1041\nFLEETGUARD WATER FILTER 2127\nDONALDSON PRIMARY AIR FILTER P781098\nDONALDSON SECONDARY AIR FILTER P781102\nCUMMINS ENGINE FAN HUB 2868738 ASM,\nFan belt tensioner Cummins 3691282(napa 38587)",
+      "lastMaintenance": "2025-08-01",
+      "nextMaintenance": "2026-08-01",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-10-07T18:31:37.432Z"
+    },
+    {
+      "id": "1M9BF1825FM798089",
+      "name": "M.S. METAL FLAT UTILITY TRAILER",
+      "category": "trailer",
+      "year": "2016",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "181345",
+      "name": "Macdon M200 swather",
+      "category": "tractor",
+      "year": "2008",
+      "status": "active",
+      "notes": "Oil filter NAPA 7325\nWater sep feul filter NAPA 601000\nFuel filter NAPA 3076\nPrimary air filter NAPA 6922\nSecondary air filter ?\nCab air filter NAPA 6562\n\nChange after 200 hours or 2 years\nSmall Hydraulic filter NAPA 1455\nLarge Hydraulic filter NAPA 1849\n",
+      "lastMaintenance": "2025-07-09",
+      "nextMaintenance": "2026-07-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-283898",
+          "date": "2025-07-09",
+          "type": "Annual service",
+          "technician": "Charles",
+          "details": "Motor oil and filter change.\nPrimary air filter change.\nDidn't change secondary air filter.\nCab air filter change\nBoth feul filter change\nHydraulic oil filter change.",
+          "updatedAt": "2025-07-09T00:34:43.898Z"
+        }
+      ],
+      "createdAt": "2025-07-09T00:26:43.816Z",
+      "updatedAt": "2025-07-09T00:34:43.901Z"
+    },
+    {
+      "id": "1M1AA09Y3TW008623",
+      "name": "MACK CH612 WATER TRK",
+      "category": "truck",
+      "year": "1996",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JJAMG280LMRK04002",
+      "name": "MAGNUM 280",
+      "category": "tractor",
+      "year": "2022",
+      "notes": "auxiliary fuel filter 90412128\nengine fuel filter 5801439820\nengine oil filter 84565867\nhydraulic oil filter 47833564\nhydraulic oil filter 84240234",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JJAMJ280EPRK06437",
+      "name": "MAGNUM 280",
+      "category": "tractor",
+      "year": "2024",
+      "notes": "84565867 engine oil filter\n92039410 fuel filter\n90412128 water/fuel saperator filter\n47833564 small hydraulic filter\n84240234 big hydraulic filter",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "JJAMJ280HPRK03861",
+      "name": "MAGNUM 280",
+      "category": "tractor",
+      "year": "2023",
+      "notes": "92039410 fuel filter\n90412128 water/fuel seperator filter\n47833564 small hydraulic filter\n84240234 big hydraulic filter\n84565867 engine oil filter",
+      "lastMaintenance": "2025-06-27",
+      "nextMaintenance": "2026-06-27",
+      "maintenanceHistory": [
+        {
+          "id": "MH-383043",
+          "date": "2025-06-27",
+          "type": "Oil, Fuel, Air filter change",
+          "technician": "Michael",
+          "details": "51508555 hydraulic filter \n47833564 hydraulic filter \n84191182 air filter \n87356547 air filter\n87684088 cab air filter \n84565867 engine oil filter \n92039410 fuel filter \n90412128 pre-fuel filter",
+          "updatedAt": "2025-06-28T00:34:01.288Z"
+        },
+        {
+          "id": "MH-899982",
+          "date": "2025-06-27",
+          "type": "Oil change",
+          "technician": "SHB Farms",
+          "details": "84565867 engine oil filter\n92039410 fuel filter\n90412128 pre-fuel filter\n51508555 hydraulic filter       \n47833564 hydraulic filter\n87684088 cab air filter\n87356547 air filter\n84191182 air filter",
+          "updatedAt": "2025-06-28T00:24:22.263Z"
+        }
+      ],
+      "updatedAt": "2025-06-28T00:34:01.289Z"
+    },
+    {
+      "id": "HACMX135CPDH02650",
+      "name": "Maxxum 135",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "47715391 hydraulic suction pump oil filter\n48142231 hydraulic charge pump oil filter \n5802726987 water/fuel separator filter\n92129321 fuel filter\n5802872619 engine oil filter \n87682990 primary air filter \n87683000 secondary air filter \n87726699 inside cab air filter \n[2]87726695 outside cab air filters\n",
+      "lastMaintenance": "2026-03-07",
+      "nextMaintenance": "2027-03-07",
+      "maintenanceHistory": [
+        {
+          "id": "MH-052330",
+          "date": "2026-03-07",
+          "type": "Engine oil change, Engine filter change, fuel filters changed, hydraulic filters changed, engine air filters changed, cab air filters changed",
+          "mileage": null,
+          "hours": 500,
+          "technician": "Michael Gross",
+          "details": "",
+          "updatedAt": "2026-03-14T21:02:08.159Z"
+        }
+      ],
+      "createdAt": "2026-03-14T20:45:41.269Z",
+      "updatedAt": "2026-03-14T21:02:08.159Z"
+    },
+    {
+      "id": "HACMX135CPDH02639",
+      "name": "MAXXUM 135",
+      "category": "tractor",
+      "year": "2023",
+      "notes": "48142231 hydraulic charge pump 47715391 hydraulic suction pump                                     5802872619 engine oil filter\n5802726987 water/fuel separator ",
+      "lastMaintenance": "2025-06-27",
+      "nextMaintenance": "2026-06-27",
+      "maintenanceHistory": [
+        {
+          "id": "MH-811065",
+          "date": "2025-06-27",
+          "type": "Larry",
+          "technician": "5",
+          "details": "V2",
+          "updatedAt": "2025-06-29T00:15:03.335Z"
+        },
+        {
+          "id": "MH-220692",
+          "date": "2025-06-27",
+          "type": "Sync test 3",
+          "technician": "Does this worky? 3",
+          "details": "Test 3",
+          "updatedAt": "2025-06-27T21:05:54.447Z"
+        }
+      ],
+      "updatedAt": "2026-03-14T21:04:17.829Z",
+      "status": "active"
+    },
+    {
+      "id": "HACMX135PRDH00802",
+      "name": "MAXXUM 135",
+      "category": "tractor",
+      "year": "2023",
+      "notes": "5802726987 water/fuel seperator filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic charge pump oil filter\n47715391 hydraulic suction pump oil filter\n87682990 primary air filter \n87683000 secondary air filter \n87726699 inside cab air filter \n[2] 87726695 outside cab air filters",
+      "lastMaintenance": "2026-03-13",
+      "nextMaintenance": "2027-03-14",
+      "maintenanceHistory": [
+        {
+          "id": "MH-295551",
+          "date": "2026-03-13",
+          "type": "Oil change/fuel filter change/hydraulic oil filter change/air filter change",
+          "mileage": null,
+          "hours": 1000,
+          "technician": "Michael Gross",
+          "details": "",
+          "updatedAt": "2026-03-13T23:58:15.551Z"
+        }
+      ],
+      "updatedAt": "2026-03-14T00:02:26.643Z",
+      "status": "active"
+    },
+    {
+      "id": "HACMX135ERDH20091",
+      "name": "MAXXUM Loader 135",
+      "category": "tractor",
+      "year": "2024",
+      "notes": "48142232 charge pump oi filter\n87708150 transmission pump oil filter\n5/21/2025   50hr",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "A0G63667",
+      "name": "MCI PASSENGER BUS",
+      "category": "van",
+      "year": "1999",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "N5330215736",
+      "name": "MERRITT CATTLE TRAILER",
+      "category": "trailer",
+      "year": "2001",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "45NFS1415M1001593",
+      "name": "NWTLR UTILITY TRAILER",
+      "category": "trailer",
+      "year": "1991",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "612973",
+      "name": "PEERL BELLY DUMP",
+      "category": "trailer",
+      "year": "1990",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP-HDU9X-8-8D765944",
+      "name": "Peterbilt",
+      "category": "truck",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP4D59X9GP198094",
+      "name": "PETERBILT 357 DUMP TRUCK",
+      "category": "truck",
+      "year": "1986",
+      "notes": "Napa Oil Filter 1791 and 1970EX  (truck has 2)\nNapa Air Filter 2961\nNapa Fuel Filter 3422\nNapa Water Filter 2071",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XPAPBEX1ND312280",
+      "name": "PETERBILT 357 DUMP TRUCK",
+      "category": "truck",
+      "year": "1992",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X3XD492059",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "1999",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X3YN518817",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "2000",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X6YD515299",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "2000",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB0X14D815226",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "2004",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DB9X4WN478339",
+      "name": "PETERBILT 379 TRACTOR",
+      "category": "truck",
+      "year": "1998",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XP5DBEX07D670709",
+      "name": "PETERBILT 379 TRUCK #20",
+      "category": "truck",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-12-16T17:07:40.919Z"
+    },
+    {
+      "id": "1XP5DB0X45N862469",
+      "name": "PETERBILT 379 TRUCK #24",
+      "category": "truck",
+      "year": "2005",
+      "notes": "",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-12-16T17:08:15.871Z"
+    },
+    {
+      "id": "1XP5DB0X75N860554",
+      "name": "PETERBILT 379 TRUCK #29",
+      "category": "truck",
+      "year": "2005",
+      "notes": "#29",
+      "lastMaintenance": "2025-12-08",
+      "nextMaintenance": "2026-12-08",
+      "maintenanceHistory": [
+        {
+          "id": "MH-743617",
+          "date": "2025-12-08",
+          "type": "Battery cables",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Measured 7 volts at starter\nBatteries test good\nReplace batter to starter cables and all battery jumpers\nTruck starts better",
+          "updatedAt": "2025-12-08T19:05:43.617Z"
+        },
+        {
+          "id": "MH-537676",
+          "date": "2025-12-03",
+          "type": "Oil change",
+          "mileage": 95142,
+          "hours": 36511,
+          "technician": "Jordan",
+          "details": "Oil change",
+          "updatedAt": "2025-12-03T16:32:17.676Z"
+        },
+        {
+          "id": "MH-192422",
+          "date": "2025-11-21",
+          "type": "Air filters changed",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Air filters",
+          "updatedAt": "2025-11-21T21:06:32.422Z"
+        },
+        {
+          "id": "MH-537699",
+          "date": "2025-10-20",
+          "type": "Oilchange",
+          "mileage": 87420,
+          "hours": 36283,
+          "technician": "Jordan",
+          "details": "Oil change",
+          "updatedAt": "2025-10-20T21:58:57.699Z"
+        },
+        {
+          "id": "MH-892032",
+          "date": "2025-09-13",
+          "type": "Oil change",
+          "mileage": 81900,
+          "hours": 35979,
+          "technician": "Jordan",
+          "details": "Change oil, filter, fuel filters, and grease",
+          "updatedAt": "2025-09-13T20:38:12.032Z"
+        },
+        {
+          "id": "MH-657448",
+          "date": "2025-08-13",
+          "type": "Service",
+          "mileage": 76000,
+          "hours": 35790,
+          "technician": "Jordan",
+          "details": "Replace starter. Swap 39mt for 42mt",
+          "updatedAt": "2025-08-13T01:14:17.448Z"
+        },
+        {
+          "id": "MH-519940",
+          "date": "2025-07-30",
+          "type": "Oil change",
+          "technician": "Jordan",
+          "details": "Fuel filter and oil change \n72847 miles\n35676 hrs",
+          "updatedAt": "2025-07-30T17:11:59.940Z"
+        },
+        {
+          "id": "MH-728601",
+          "date": "2025-07-26",
+          "type": "Service",
+          "technician": "Jordan",
+          "details": "Grease/\nReplace sleeper bags",
+          "updatedAt": "2025-07-26T21:02:08.601Z"
+        },
+        {
+          "id": "MH-810573",
+          "date": "2024-04-06",
+          "type": "Overhaul",
+          "mileage": 4134,
+          "hours": 33765,
+          "technician": "LCG",
+          "details": "Full Engine Overhaul+ New Head\nDid not do crank/cam or injectors  LCG \nDid a full Set of Cat Injectors and new ECM",
+          "updatedAt": "2025-08-09T17:35:29.598Z"
+        }
+      ],
+      "updatedAt": "2025-12-08T19:05:43.620Z",
+      "status": "active"
+    },
+    {
+      "id": "1XP5DB8X8SD373725",
+      "name": "PETERBILT 379 Truck 23",
+      "category": "truck",
+      "year": "1995",
+      "notes": "",
+      "lastMaintenance": "2025-08-07",
+      "nextMaintenance": "2026-08-07",
+      "maintenanceHistory": [
+        {
+          "id": "MH-449043",
+          "date": "2025-08-07",
+          "type": "Charge A/C",
+          "technician": "LCG",
+          "details": "3 lbs freon\nChecked for leaks",
+          "updatedAt": "2025-08-07T16:34:09.043Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-08-07T16:34:09.043Z"
+    },
+    {
+      "id": "1XP5DB9X07D669845",
+      "name": "PETERBILT 379 Truck 25",
+      "category": "truck",
+      "year": "2006",
+      "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
+      "lastMaintenance": "2025-10-14",
+      "nextMaintenance": "2026-10-14",
+      "maintenanceHistory": [
+        {
+          "id": "MH-183329",
+          "date": "2025-10-14",
+          "type": "New Eaton easy pedal clutch",
+          "mileage": 479000,
+          "hours": null,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-14T00:19:43.329Z"
+        },
+        {
+          "id": "MH-795741",
+          "date": "2025-10-06",
+          "type": "Overhaul",
+          "mileage": 478137,
+          "hours": 3610,
+          "technician": "LCG",
+          "details": "Full IPD overhaul, new liners and pistons, counterbored all 6, new head and full tilt manifold",
+          "updatedAt": "2025-10-06T15:16:35.741Z"
+        },
+        {
+          "id": "MH-138626",
+          "date": "2025-10-06",
+          "type": "Oil change fuel filters change",
+          "mileage": 479917,
+          "hours": 3685,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-10-06T14:32:18.626Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-10-14T00:19:43.329Z"
+    },
+    {
+      "id": "1XP5DB9X92D582812",
+      "name": "PETERBILT 379 Truck 31",
+      "category": "truck",
+      "year": "2002",
+      "notes": "",
+      "lastMaintenance": "2024-11-01",
+      "nextMaintenance": "2026-08-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-555433",
+          "date": "2025-07-11",
+          "type": "Service",
+          "technician": "Multiple",
+          "details": "450787 miles\nChanged A/C condenser and charged A/C \nNew Starter",
+          "updatedAt": "2025-07-12T16:00:49.898Z"
+        },
+        {
+          "id": "MH-659222",
+          "date": "2024-11-01",
+          "type": "OverHaul",
+          "mileage": 430000,
+          "hours": null,
+          "technician": "LCG",
+          "details": "Full IPD out of Frame Overhaul\nNew Head\nLCG",
+          "updatedAt": "2025-08-09T17:36:34.301Z"
+        }
+      ],
+      "updatedAt": "2025-08-09T17:36:34.301Z",
+      "status": "active"
+    },
+    {
+      "id": "1XP-5DB9X-X-7D669853",
+      "name": "Peterbilt 379 Truck 33",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
+      "lastMaintenance": "2025-10-22",
+      "nextMaintenance": "2026-10-22",
+      "maintenanceHistory": [
+        {
+          "id": "MH-520789",
+          "date": "2025-10-22",
+          "type": "Oil Change",
+          "mileage": 468050,
+          "hours": null,
+          "technician": "Alex",
+          "details": "Oil Change\nOil Filter Change\nFuel Filters Changed",
+          "updatedAt": "2025-10-28T23:18:40.790Z"
+        },
+        {
+          "id": "MH-293823",
+          "date": "2025-09-13",
+          "type": "Oil change, fuel filters changed, greased",
+          "mileage": 461809,
+          "hours": 15959,
+          "technician": "Adam",
+          "details": "",
+          "updatedAt": "2025-09-13T00:11:33.823Z"
+        },
+        {
+          "id": "MH-469565",
+          "date": "2025-03-28",
+          "type": "Overhaul",
+          "mileage": 447668,
+          "hours": null,
+          "technician": "LCG",
+          "details": "Full IPD Inframe 16:1 Pistons \nSingle Turbo",
+          "updatedAt": "2025-08-09T17:44:29.565Z"
+        }
+      ],
+      "createdAt": "2025-08-09T17:41:56.683Z",
+      "updatedAt": "2025-10-28T23:18:40.793Z"
+    },
+    {
+      "id": "1XP5DB9X67D669848",
+      "name": "Peterbilt 379 Truck 34",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "Motor serial #MXS 83243",
+      "lastMaintenance": "2025-10-06",
+      "nextMaintenance": "2026-10-06",
+      "maintenanceHistory": [
+        {
+          "id": "MH-214173",
+          "date": "2025-10-06",
+          "type": "Overhaul",
+          "mileage": 65810,
+          "hours": 12826,
+          "technician": "LCG",
+          "details": "Full IPD overhaul, countered all 6, new head, liners and pistons, new manifold and single turbo",
+          "updatedAt": "2025-10-06T15:23:34.173Z"
+        }
+      ],
+      "createdAt": "2025-07-12T16:12:12.373Z",
+      "updatedAt": "2025-10-06T15:23:34.174Z"
+    },
+    {
+      "id": "1XP5DB9X277D669846",
+      "name": "Peterbilt 379 Truck 35",
+      "category": "tractor",
+      "year": "2006",
+      "status": "active",
+      "notes": "A/C COMPRESSOR LF4377",
+      "lastMaintenance": "2025-09-08",
+      "nextMaintenance": "2026-09-08",
+      "maintenanceHistory": [
+        {
+          "id": "MH-284743",
+          "date": "2025-09-08",
+          "type": "Oil change",
+          "mileage": 349307,
+          "hours": 27867,
+          "technician": "LRG",
+          "details": "Changed oil and fuel filters",
+          "updatedAt": "2025-09-08T16:51:24.743Z"
+        },
+        {
+          "id": "MH-470972",
+          "date": "2025-08-11",
+          "type": "A/C compressor",
+          "mileage": 345964,
+          "hours": 27723,
+          "technician": "LCG",
+          "details": "Changed A/C compressor LF4377 part number",
+          "updatedAt": "2025-08-11T17:04:52.950Z"
+        }
+      ],
+      "createdAt": "2025-08-11T16:55:53.758Z",
+      "updatedAt": "2025-09-08T16:51:24.743Z"
+    },
+    {
+      "id": "1NP9LJ9X0ED234734",
+      "name": "PETERBILT 382 FEEDTRUCK",
+      "category": "truck",
+      "year": "2014",
+      "notes": "FF 6305\nFS 1003\nAIR FILTER 4878\nLF 3000",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1XPXD40XXED224933",
+      "name": "PETERBILT 389 Truck 27",
+      "category": "truck",
+      "year": "2014",
+      "notes": "NAPA AIR FILTER 500149 or Donaldson P625128\nPACCAR FUEL FILTER K37-1004\nFLEETGUARD FUEL FILTER LF 5774\nFLEETGUARD OIL FILTER LF 14000NN\nAIR DRYER TRP-AC1001\nHendrickson ft 330-29 Lift Axle Push Down Bag- Fan belt tensioner Cummins 3691282",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "status": "active",
+      "updatedAt": "2025-10-07T19:01:29.096Z"
+    },
+    {
+      "id": "1XPXD40X1ED224934",
+      "name": "PETERBILT 389 truck 32",
+      "category": "truck",
+      "year": "2014",
+      "notes": "FLEETGUARD OIL FILTER LF1400NN\nNAPA AIR FILTER NAPA 500149 or Donaldson P625128\nAIR DRYER TRP AC1001\nFLEETGUARD FUEL FILTER LF 5776\nPRIMARY PACCAR FRAME FILTER K37-1004\nHendrickson ft 330-29 Lift Axle Push Down Bag- Fan belt tensioner Cummins 3691282",
+      "lastMaintenance": "2025-08-25",
+      "nextMaintenance": "2026-08-25",
+      "maintenanceHistory": [
+        {
+          "id": "MH-501262",
+          "date": "2025-08-25",
+          "type": "Motor service",
+          "mileage": 419062,
+          "hours": 12590,
+          "technician": "LCG",
+          "details": "Changed exhaust back pressure sensor 4928594",
+          "updatedAt": "2025-08-25T17:38:21.262Z"
+        },
+        {
+          "id": "MH-927999",
+          "date": "2025-08-09",
+          "type": "A/C service",
+          "mileage": 418247,
+          "hours": 12573,
+          "technician": "LCG",
+          "details": "Fixed A/C leak at condenser and recharged with 4 lbs freon",
+          "updatedAt": "2025-08-09T20:55:27.999Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-10-07T19:02:22.093Z"
+    },
+    {
+      "id": "1NPSH58X7CD156817",
+      "name": "PETERBILT FEED LOT TRUCK",
+      "category": "truck",
+      "year": "2011",
+      "notes": "OIL FILTER FLEET GUARD 9009\nFUEL FILTER FLEET GUARD FF 5636\nNAPA AIR FILTER 2610",
+      "lastMaintenance": "2025-11-18",
+      "nextMaintenance": "2026-11-18",
+      "maintenanceHistory": [
+        {
+          "id": "MH-615607",
+          "date": "2025-11-18",
+          "type": "Oil change",
+          "mileage": 25624,
+          "hours": 8754,
+          "technician": "Anthony",
+          "details": "Need a wash",
+          "updatedAt": "2025-11-18T00:26:55.607Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2025-11-18T00:26:55.607Z"
+    },
+    {
+      "id": "HACPU150HSD200708",
+      "name": "PUMA 150",
+      "category": "tractor",
+      "year": "2024",
+      "status": "active",
+      "notes": "5802726987 pre-fuel filter\n92129321 fuel filter\n5802872619 engine oil filter\n48142231 hydraulic spin-on oil filter",
+      "lastMaintenance": "2026-01-05",
+      "nextMaintenance": "2027-01-05",
+      "maintenanceHistory": [],
+      "createdAt": "2026-01-08T17:11:57.605Z",
+      "updatedAt": "2026-01-08T17:13:02.907Z"
+    },
+    {
+      "id": "1R9BSF304TL008134",
+      "name": "RANCO BELLY DUMP",
+      "category": "trailer",
+      "year": "1996",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1NKWLA0X5MS563140",
+      "name": "RED KENWORTH WATER TRUCK",
+      "category": "truck",
+      "year": "1991",
+      "notes": "Napa air filter 6883\nNapa fuel primary 3109\nNapa fuel secondary 3352",
+      "lastMaintenance": "2025-07-17",
+      "nextMaintenance": "2026-07-17",
+      "maintenanceHistory": [
+        {
+          "id": "MH-519846",
+          "date": "2025-07-17",
+          "type": "Steering cylinder",
+          "mileage": null,
+          "hours": null,
+          "technician": "LCG",
+          "details": "17 inch barrel steering C32516-1-1375\nHood latch \nAnd button mount",
+          "updatedAt": "2025-08-09T00:14:11.681Z"
+        }
+      ],
+      "updatedAt": "2025-08-09T00:14:11.681Z",
+      "status": "active"
+    },
+    {
+      "id": "4C6FC4821W1060036",
+      "name": "REINKE HIGH BOY",
+      "category": "trailer",
+      "year": "1998",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "YKG651619",
+      "name": "Stack cruiser 103",
+      "category": "other",
+      "year": "2020",
+      "status": "active",
+      "notes": "46021 small belt\n47881638S big belt",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "createdAt": "2025-07-24T17:19:05.428Z",
+      "updatedAt": "2025-07-24T17:19:05.429Z"
+    },
+    {
+      "id": "1S9J51309DS026878",
+      "name": "STAR POTATO STAINLESS TLR",
+      "category": "trailer",
+      "year": "2012",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1S9J51301HS026976",
+      "name": "STAR POTATO STAINLESS TLR",
+      "category": "trailer",
+      "year": "2017",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1S9J483044S026511",
+      "name": "STAR POTATO TRAILER",
+      "category": "trailer",
+      "year": "2004",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1S9J503048S026688",
+      "name": "STAR POTATO TRAILER",
+      "category": "trailer",
+      "year": "2007",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "189J503029S026741",
+      "name": "STAR POTATO TRAILER",
+      "category": "trailer",
+      "year": "2008",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1S9J50308AS026776",
+      "name": "STAR POTATO TRAILER",
+      "category": "trailer",
+      "year": "2009",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1S9J483044S026508",
+      "name": "STAR POTATO TRAILER 24",
+      "category": "trailer",
+      "year": "2003",
+      "notes": "Rebuilt rear wing passenger side Replaced plastic Sand blasting and paint under plastic New shurco tarp\nNew chain with new rubber\nNew lights\nSandblasted and painted rear end",
+      "lastMaintenance": "2026-01-03",
+      "nextMaintenance": "2027-01-03",
+      "maintenanceHistory": [
+        {
+          "id": "MH-125638",
+          "date": "2026-01-03",
+          "type": "Full service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Adam",
+          "details": "Rebuilt rear wing passenger side Replaced plastic Sand blasting and paint under plastic New shurco tarp",
+          "updatedAt": "2026-01-03T21:52:43.392Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2026-02-18T16:26:46.213Z"
+    },
+    {
+      "id": "1S9J503069S026760",
+      "name": "STAR POTATO TRAILER 25",
+      "category": "trailer",
+      "year": "2009",
+      "notes": "",
+      "lastMaintenance": "2025-12-09",
+      "nextMaintenance": "2026-12-09",
+      "maintenanceHistory": [
+        {
+          "id": "MH-382345",
+          "date": "2025-12-09",
+          "type": "Full service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Adam",
+          "details": "Notes\nNew red and white shurco tarp Back end sand blasted and repainted Greased Brakes adjusted Wheels polished",
+          "updatedAt": "2026-01-03T21:56:47.579Z"
+        }
+      ],
+      "status": "active",
+      "updatedAt": "2026-01-03T21:57:28.771Z"
+    },
+    {
+      "id": "392",
+      "name": "Stinger 6500",
+      "category": "other",
+      "year": "2006",
+      "notes": "Napa Filters\nOil Filter 1748XD  26 Quarts 15-40\nWater Filter 4072\nHydrulic 1846\nCab Air 6578\nInner Air 546771\nOuter 6770\nGas Cylinders for Doors Napa 819-6319  $64.56 ea\nAllison output shaft seal 29556870",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1234",
+      "name": "Test",
+      "category": "implement",
+      "year": "2020",
+      "status": "active",
+      "notes": "Needs service ",
+      "lastMaintenance": "2025-06-29",
+      "nextMaintenance": "2026-06-29",
+      "maintenanceHistory": [
+        {
+          "id": "MH-202375",
+          "date": "2025-06-29",
+          "type": "A",
+          "technician": "B",
+          "details": "C",
+          "updatedAt": "2025-06-29T03:20:02.375Z"
+        },
+        {
+          "id": "MH-094797",
+          "date": "2025-06-29",
+          "type": "A",
+          "technician": "B",
+          "details": "C",
+          "updatedAt": "2025-06-29T03:18:14.797Z"
+        },
+        {
+          "id": "MH-331837",
+          "date": "2025-06-29",
+          "type": "1",
+          "technician": "1",
+          "details": "1",
+          "updatedAt": "2025-06-29T01:58:51.837Z"
+        }
+      ],
+      "createdAt": "2025-06-29T01:55:27.817Z",
+      "updatedAt": "2025-06-29T03:20:02.376Z"
+    },
+    {
+      "id": "1TTE5320431071310",
+      "name": "TRANSCRAFT STEPDECK TRAILER",
+      "category": "trailer",
+      "year": "2003",
+      "notes": "",
+      "lastMaintenance": "2025-12-16",
+      "nextMaintenance": "2026-12-16",
+      "maintenanceHistory": [
+        {
+          "id": "MH-182374",
+          "date": "2025-12-16",
+          "type": "Alignment",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jh",
+          "details": "Genes alignment",
+          "updatedAt": "2025-12-16T16:56:22.374Z"
+        },
+        {
+          "id": "MH-886830",
+          "date": "2025-12-15",
+          "type": "Service",
+          "mileage": null,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Rear axle replace bushings and pins\nRepair/reinforce rear bumper\nReplace main service air valve\nReplace leveling valve ppv\nNew tires rear axle",
+          "updatedAt": "2025-12-15T17:31:26.830Z"
+        }
+      ],
+      "updatedAt": "2025-12-16T16:56:22.377Z"
+    },
+    {
+      "id": "TS8500106",
+      "name": "TRLST ALUMINUM TRAILER",
+      "category": "trailer",
+      "year": "1985",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "100",
+      "name": "UTILITY TRAILER",
+      "category": "trailer",
+      "year": "0",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1W1DEATL26H531750",
+      "name": "WILSON ALUMINUM STOCK/TR",
+      "category": "trailer",
+      "year": "2005",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1W17242S7G5549048",
+      "name": "WILSON ALUMINUM STOCK/TR",
+      "category": "trailer",
+      "year": "2016",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1W1K45032R2278412",
+      "name": "Wilson Hopper Bottom",
+      "category": "trailer",
+      "year": "2023",
+      "status": "active",
+      "notes": "",
+      "lastMaintenance": "2025-07-26",
+      "nextMaintenance": "2026-07-26",
+      "maintenanceHistory": [
+        {
+          "id": "MH-615192",
+          "date": "2025-07-26",
+          "type": "Grease / inspection",
+          "technician": "Jordan",
+          "details": "Grease\nInstall illas III valve",
+          "updatedAt": "2025-07-26T21:00:15.192Z"
+        }
+      ],
+      "createdAt": "2025-07-26T20:57:42.157Z",
+      "updatedAt": "2025-07-26T21:00:15.193Z"
+    },
+    {
+      "id": "1W14483A4D2260622",
+      "name": "WILSON HOPPER BOTTOM GRAIN",
+      "category": "trailer",
+      "year": "2013",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1W14503A9D2260968",
+      "name": "WILSON HOPPER BOTTOM GRAIN",
+      "category": "trailer",
+      "year": "2013",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    },
+    {
+      "id": "1W14503A5F2264602",
+      "name": "WILSON HOPPER BOTTOM GRAIN",
+      "category": "trailer",
+      "year": "2015",
+      "notes": "",
+      "lastMaintenance": null,
+      "nextMaintenance": "2026-01-01",
+      "maintenanceHistory": []
+    }
+  ],
+  "timestamp": 1773691648668
+}
