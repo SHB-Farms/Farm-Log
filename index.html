@@ -116,12 +116,31 @@
             cursor: pointer;
         }
 
-        .status-icon.valid { color: var(--success); background: var(--success-light); }
-        .status-icon.invalid { color: var(--error); background: var(--error-light); }
-        .status-icon.none { color: var(--warning); background: var(--warning-light); }
-        .status-icon.syncing { color: var(--warning); background: var(--warning-light); animation: pulse 1.5s infinite; }
-        .status-icon.synced { color: var(--success); background: var(--success-light); }
-        .status-icon.error { color: var(--error); background: var(--error-light); }
+        .status-icon.valid { 
+            color: var(--success); 
+            background: var(--success-light);
+        }
+        .status-icon.invalid { 
+            color: var(--error); 
+            background: var(--error-light);
+        }
+        .status-icon.none { 
+            color: var(--warning); 
+            background: var(--warning-light);
+        }
+        .status-icon.syncing { 
+            color: var(--warning); 
+            background: var(--warning-light);
+            animation: pulse 1.5s infinite; 
+        }
+        .status-icon.synced { 
+            color: var(--success); 
+            background: var(--success-light);
+        }
+        .status-icon.error { 
+            color: var(--error); 
+            background: var(--error-light);
+        }
 
         .status-icon::after {
             content: attr(data-tooltip);
@@ -129,7 +148,7 @@
             top: 110%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -172,6 +191,7 @@
             animation: spin 1s linear infinite;
         }
 
+        /* Sidebar */
         .sidebar {
             width: 260px;
             background: var(--surface);
@@ -361,6 +381,7 @@
             color: var(--text-light);
         }
 
+        /* Equipment List */
         .equipment-list {
             flex: 1;
             padding: 10px;
@@ -492,18 +513,15 @@
             justify-content: center;
             flex-shrink: 0;
         }
-
         .equipment-thumbnail img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .thumbnail-placeholder {
             font-size: 30px;
             color: var(--text-light);
         }
-
         .equipment-info {
             flex: 1;
             min-width: 0;
@@ -561,6 +579,7 @@
             text-overflow: ellipsis;
         }
 
+        /* Overdue maintenance badge */
         .overdue-badge {
             position: absolute;
             top: 8px;
@@ -581,6 +600,7 @@
             100% { opacity: 0.7; }
         }
 
+        /* Status indicator */
         .status-indicator {
             width: 10px;
             height: 10px;
@@ -593,6 +613,7 @@
         .status-inactive { background-color: var(--error); }
         .status-maintenance { background-color: var(--warning); }
 
+        /* Detail Panel */
         .detail-panel {
             width: 0;
             background: var(--surface);
@@ -776,6 +797,7 @@
             color: var(--text-light);
         }
 
+        /* Edit maintenance button styles */
         .edit-maintenance {
             position: absolute;
             top: -5px;
@@ -852,6 +874,7 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
+        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -965,6 +988,7 @@
             gap: 10px;
         }
 
+        /* PIN Modal */
         .pin-input {
             font-size: 1.4rem;
             letter-spacing: 8px;
@@ -1001,6 +1025,7 @@
         .pin-btn:hover { background: var(--surface); }
         .pin-btn:active { transform: scale(0.95); }
 
+        /* Empty State */
         .empty-state {
             display: flex;
             flex-direction: column;
@@ -1034,6 +1059,7 @@
             margin-bottom: 16px;
         }
 
+        /* Loading spinner */
         .spinner {
             width: 36px;
             height: 36px;
@@ -1069,11 +1095,13 @@
             pointer-events: all;
         }
 
+        /* Editable ID indicator */
         .editable-id {
             border-bottom: 2px dashed var(--primary-light);
             padding-bottom: 2px;
         }
 
+        /* Toast notifications */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -1096,6 +1124,7 @@
             10%, 90% { opacity: 1; bottom: 20px; }
         }
 
+        /* Sync Status Bar */
         .sync-status-bar {
             position: fixed;
             bottom: 0;
@@ -1127,6 +1156,7 @@
             font-size: 0.85rem;
         }
         
+        /* Status bar animation */
         @keyframes progress-bar {
             0% { width: 0; }
             100% { width: 100%; }
@@ -1148,6 +1178,7 @@
             transition: width 0.3s ease;
         }
         
+        /* Status icons */
         .status-icon i {
             transition: transform 0.3s ease;
         }
@@ -1156,6 +1187,7 @@
             animation: spin 1s linear infinite;
         }
         
+        /* Welcome message */
         .welcome-message {
             padding: 20px;
             background: rgba(46,125,50,0.05);
@@ -1169,20 +1201,24 @@
             color: var(--primary-dark);
         }
         
+        /* Card hover effect */
         .stat-card:hover .stat-value {
             color: var(--primary);
         }
         
+        /* Category icons */
         .category-icon {
             margin-right: 6px;
         }
 
+        /* Show edit icon on touch devices */
         @media (hover: none) {
           .edit-maintenance {
             opacity: 1 !important;
           }
         }
 
+        /* Mobile optimization for detail panel */
         @media (max-width: 480px) {
           .detail-panel.open {
             width: 100%;
@@ -1264,6 +1300,7 @@
           }
         }
 
+        /* Responsive */
         @media (max-width: 1200px) {
             .detail-panel.open {
                 position: fixed;
@@ -1336,6 +1373,7 @@
             .add-equipment-btn { width: 100%; }
             .form-row { flex-direction: column; gap: 10px; }
             
+            /* Prevent horizontal scrolling */
             body, html {
                 overflow-x: hidden;
                 width: 100%;
@@ -1369,6 +1407,7 @@
             }
         }
 
+        /* Saving Indicator Styles */
         .saving-indicator {
             position: fixed;
             top: 0;
@@ -1474,6 +1513,7 @@
     </div>
     
     <div class="container">
+        <!-- Sidebar -->
         <div class="sidebar">
             <div class="header">
                 <h1><i class="mdi mdi-tractor"></i> SHB Farm</h1>
@@ -1531,6 +1571,7 @@
             </div>
         </div>
         
+        <!-- Equipment List -->
         <div class="equipment-list">
             <div class="list-header">
                 <h2><i class="mdi mdi-view-list"></i> Equipment Inventory</h2>
@@ -1566,9 +1607,12 @@
                         </button>
                     </div>
                 </div>
+                
+                <!-- Equipment items will be inserted here -->
             </div>
         </div>
         
+        <!-- Detail Panel -->
         <div class="detail-panel" id="detailPanel">
             <div class="panel-header">
                 <h2><i class="mdi mdi-information-outline"></i> Equipment Details</h2>
@@ -1602,10 +1646,10 @@
                     </div>
                 </div>
                 
+                <!-- Photo Section -->
                 <div class="detail-section" id="photoSection" style="display:none;">
                     <h3><i class="mdi mdi-camera"></i> Photo</h3>
-                    <div id="detailImage" style="text-align:center; margin:15px 0;">
-                    </div>
+                    <div id="detailImage" style="text-align:center; margin:15px 0;"></div>
                 </div>
                 
                 <div class="detail-section">
@@ -1651,6 +1695,7 @@
         </div>
     </div>
     
+    <!-- GitHub Token Modal -->
     <div class="modal-overlay" id="tokenModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1661,11 +1706,9 @@
             </div>
             <div class="modal-body">
                 <p>Enter your GitHub Personal Access Token (PAT) to enable cloud sync:</p>
-                
                 <div class="form-group">
                     <input type="password" class="form-control" id="tokenInput" placeholder="Enter your GitHub PAT">
                 </div>
-                
                 <div class="form-group">
                     <p><small>
                         <i class="mdi mdi-information"></i> 
@@ -1681,6 +1724,7 @@
         </div>
     </div>
 
+    <!-- PIN Modal -->
     <div class="modal-overlay" id="pinModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1712,6 +1756,7 @@
         </div>
     </div>
     
+    <!-- Equipment Form Modal -->
     <div class="modal-overlay" id="equipmentModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1763,10 +1808,11 @@
                     <textarea id="equipNotes" class="form-control" placeholder="Enter notes about this equipment"></textarea>
                 </div>
                 
+                <!-- Photo upload field with resizing -->
                 <div class="form-group">
                     <label for="equipImage"><i class="mdi mdi-camera"></i> Equipment Photo (optional)</label>
                     <input type="file" id="equipImage" class="form-control" accept="image/*">
-                    <small class="text-light">JPG/PNG • heavily compressed (~250 px wide) for smallest file size & fastest sync</small>
+                    <small class="text-light">Will be resized to ~800px max dimension</small>
                     <div id="imagePreview" style="margin-top:10px; max-width:280px; display:none;">
                         <img id="previewImg" style="width:100%; border-radius:var(--radius-sm); box-shadow:var(--shadow-light);">
                         <button id="removeImageBtn" class="btn btn-outline" style="margin-top:8px; font-size:0.85rem;">Remove Photo</button>
@@ -1791,6 +1837,7 @@
         </div>
     </div>
     
+    <!-- Maintenance Form Modal -->
     <div class="modal-overlay" id="maintenanceModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1807,20 +1854,17 @@
                 
                 <div class="form-group">
                     <label for="maintenanceType"><i class="mdi mdi-tools"></i> Maintenance Type</label>
-                    <input type="text" id="maintenanceType" class="form-control" 
-                           placeholder="Oil change, brake service, etc.">
+                    <input type="text" id="maintenanceType" class="form-control" placeholder="Oil change, brake service, etc.">
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="maintenanceMileage"><i class="mdi mdi-speedometer"></i> Mileage</label>
-                        <input type="number" id="maintenanceMileage" class="form-control" 
-                               placeholder="Enter mileage (optional)" min="0" step="1">
+                        <input type="number" id="maintenanceMileage" class="form-control" placeholder="Enter mileage (optional)" min="0" step="1">
                     </div>
                     <div class="form-group">
                         <label for="maintenanceHours"><i class="mdi mdi-clock-outline"></i> Hours</label>
-                        <input type="number" id="maintenanceHours" class="form-control" 
-                               placeholder="Enter hours (optional)" min="0" step="0.1">
+                        <input type="number" id="maintenanceHours" class="form-control" placeholder="Enter hours (optional)" min="0" step="0.1">
                     </div>
                 </div>
                 
@@ -1846,6 +1890,7 @@
         </div>
     </div>
     
+    <!-- Delete Confirmation Modal -->
     <div class="modal-overlay" id="deleteModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1865,6 +1910,7 @@
         </div>
     </div>
     
+    <!-- Sync Status Bar -->
     <div class="sync-status-bar" id="syncStatusBar">
         <div class="sync-message">
             <div class="spinner" style="width: 24px; height: 24px; border-width: 3px;"></div>
@@ -1878,6 +1924,7 @@
         </div>
     </div>
 
+    <!-- Saving Indicator -->
     <div class="saving-indicator" id="savingIndicator">
         <div class="saving-content">
             <div class="saving-spinner"></div>
@@ -1892,14 +1939,13 @@
     </div>
 
     <script>
-        // ──────────────────────────────────────────────
-        // GitHub configuration
-        // ──────────────────────────────────────────────
+        // GitHub-based data storage
         const GITHUB_USER = "shb-farms";
         const GITHUB_REPO = "Farm-Log";
         const DATA_PATH = "farmdata.json";
         const GITHUB_API = "https://api.github.com";
-
+        
+        // Equipment data
         let equipmentData = [];
         let lastSyncTimestamp = 0;
         let syncInProgress = false;
@@ -1907,22 +1953,26 @@
         let syncIntervalId = null;
         let syncInterval = 60000; // 60 seconds
 
+        // Current selected equipment
         let selectedEquipment = null;
         let adminMode = false;
         const ADMIN_PIN = "1234";
 
+        // Cache for filtered equipment
         let cachedFilteredEquipment = [];
         let lastSearchTerm = '';
         let lastActiveCategory = 'all';
         let lastSortValue = 'name-asc';
 
+        // Track maintenance record being edited
         let maintenanceId = null;
-
+        
+        // Saving indicator variables
         let savingTimer = null;
         let savingProgressInterval = null;
         let savingIndicatorStartTime = 0;
 
-        // DOM elements
+        // DOM Elements
         const equipmentGrid = document.getElementById('equipmentGrid');
         const detailPanel = document.getElementById('detailPanel');
         const closePanelBtn = document.getElementById('closePanel');
@@ -1953,12 +2003,14 @@
         const savingIndicator = document.getElementById('savingIndicator');
         const savingProgressBar = document.getElementById('savingProgressBar');
 
+        // Token modal elements
         const tokenModal = document.getElementById('tokenModal');
         const tokenInput = document.getElementById('tokenInput');
         const saveTokenBtn = document.getElementById('saveTokenBtn');
         const clearTokenBtn = document.getElementById('clearTokenBtn');
         const closeTokenModal = document.getElementById('closeTokenModal');
 
+        // PIN modal elements
         const pinModal = document.getElementById('pinModal');
         const pinInput = document.getElementById('pinInput');
         const closePinModal = document.getElementById('closePinModal');
@@ -1966,6 +2018,7 @@
         const pinEnter = document.getElementById('pinEnter');
         const pinBtns = document.querySelectorAll('.pin-btn[data-value]');
 
+        // Equipment modal elements
         const equipmentModal = document.getElementById('equipmentModal');
         const equipmentModalTitle = document.getElementById('equipmentModalTitle');
         const equipName = document.getElementById('equipName');
@@ -1980,11 +2033,13 @@
         const cancelEquipmentBtn = document.getElementById('cancelEquipmentBtn');
         const closeEquipmentModal = document.getElementById('closeEquipmentModal');
 
+        // Photo elements
         const equipImageInput = document.getElementById('equipImage');
         const imagePreview = document.getElementById('imagePreview');
         const previewImg = document.getElementById('previewImg');
         const removeImageBtn = document.getElementById('removeImageBtn');
 
+        // Maintenance modal elements
         const maintenanceModal = document.getElementById('maintenanceModal');
         const maintenanceModalTitle = document.getElementById('maintenanceModalTitle');
         const maintenanceDate = document.getElementById('maintenanceDate');
@@ -1998,12 +2053,14 @@
         const cancelMaintenanceBtn = document.getElementById('cancelMaintenanceBtn');
         const closeMaintenanceModal = document.getElementById('closeMaintenanceModal');
 
+        // Delete modal elements
         const deleteModal = document.getElementById('deleteModal');
         const deleteEquipmentName = document.getElementById('deleteEquipmentName');
         const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
         const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
         const closeDeleteModal = document.getElementById('closeDeleteModal');
 
+        // Category count elements
         const categoryCounts = {
             all: document.getElementById('count-all'),
             tractor: document.getElementById('count-tractor'),
@@ -2014,14 +2071,13 @@
             other: document.getElementById('count-other')
         };
 
+        // Sorting control
         const sortSelect = document.getElementById('sortSelect');
-
+        
+        // Initialize GitHub token
         let GITHUB_PAT = localStorage.getItem('github_pat') || '';
 
-        // ──────────────────────────────────────────────
-        // Helper functions
-        // ──────────────────────────────────────────────
-
+        // ----- Helper functions -----
         function formatDate(dateString) {
             if (!dateString) return 'N/A';
             const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -2056,8 +2112,15 @@
         }
 
         function updateTokenIndicator() {
-            let tooltip = GITHUB_PAT ? 'GitHub token configured' : 'No GitHub token';
-            let statusClass = GITHUB_PAT ? 'valid' : 'none';
+            let tooltip = '';
+            let statusClass = 'none';
+            if (GITHUB_PAT) {
+                statusClass = 'valid';
+                tooltip = 'GitHub token configured';
+            } else {
+                statusClass = 'none';
+                tooltip = 'No GitHub token';
+            }
             tokenIndicator.className = `status-icon ${statusClass}`;
             tokenIndicator.setAttribute('data-tooltip', tooltip);
         }
@@ -2065,7 +2128,11 @@
         function updateSyncStatus(status, message) {
             syncStatus.className = `status-icon ${status}`;
             syncStatus.setAttribute('data-tooltip', message);
-            syncNowBtn.classList.toggle('syncing', status === 'syncing');
+            if (status === 'syncing') {
+                syncNowBtn.classList.add('syncing');
+            } else {
+                syncNowBtn.classList.remove('syncing');
+            }
         }
 
         function toggleAdminMode() {
@@ -2096,7 +2163,6 @@
             savingIndicator.classList.add('active');
             savingProgressBar.style.width = '0%';
             savingIndicatorStartTime = Date.now();
-
             const totalTime = 10000;
             const interval = 50;
             savingProgressInterval = setInterval(() => {
@@ -2109,15 +2175,16 @@
                 }
             }, interval);
         }
-
+        
         function hideSavingIndicator() {
             const elapsed = Date.now() - savingIndicatorStartTime;
             const minDisplayTime = 10000;
             if (elapsed < minDisplayTime) {
+                const remaining = minDisplayTime - elapsed;
                 savingTimer = setTimeout(() => {
                     savingIndicator.classList.remove('active');
                     savingTimer = null;
-                }, minDisplayTime - elapsed);
+                }, remaining);
             } else {
                 savingIndicator.classList.remove('active');
             }
@@ -2127,30 +2194,28 @@
             }
         }
 
-        // ──────────────────────────────────────────────
-        // Image compression – now 250 px max width + 65% quality
-        // ──────────────────────────────────────────────
-        async function compressImage(file, maxWidth = 250, quality = 0.65) {
+        // ----- Image resizing helper -----
+        function resizeImage(file, maxDim = 800) {
             return new Promise((resolve, reject) => {
-                if (!file.type.startsWith('image/')) {
-                    reject(new Error('Not an image file'));
-                    return;
-                }
                 const reader = new FileReader();
-                reader.onload = (e) => {
+                reader.onload = e => {
                     const img = new Image();
                     img.onload = () => {
-                        const canvas = document.createElement('canvas');
-                        let { width, height } = img;
-                        if (width > maxWidth) {
-                            height = Math.round((maxWidth / width) * height);
-                            width = maxWidth;
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > height && width > maxDim) {
+                            height *= maxDim / width;
+                            width = maxDim;
+                        } else if (height > maxDim) {
+                            width *= maxDim / height;
+                            height = maxDim;
                         }
+                        const canvas = document.createElement('canvas');
                         canvas.width = width;
                         canvas.height = height;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
-                        resolve(canvas.toDataURL('image/jpeg', quality));
+                        resolve(canvas.toDataURL('image/jpeg', 0.8)); // 80% quality
                     };
                     img.onerror = reject;
                     img.src = e.target.result;
@@ -2160,17 +2225,195 @@
             });
         }
 
+        // ----- Encoding/Decoding for GitHub -----
+        function utf8ToBase64(str) {
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(str);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binary);
+        }
+
+        function base64ToUtf8(base64) {
+            const binary = atob(base64);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return new TextDecoder().decode(bytes);
+        }
+
+        async function fetchRemoteData() {
+            if (!GITHUB_PAT) throw new Error('No GitHub token configured');
+            try {
+                const metaResponse = await fetch(
+                    `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
+                    { headers: { "Authorization": `Bearer ${GITHUB_PAT}` } }
+                );
+                if (!metaResponse.ok) {
+                    const errorData = await metaResponse.json();
+                    throw new Error(`GitHub API error: ${errorData.message}`);
+                }
+                const fileInfo = await metaResponse.json();
+                const content = base64ToUtf8(fileInfo.content);
+                const remoteData = JSON.parse(content);
+                return {
+                    equipment: remoteData.equipment || [],
+                    timestamp: remoteData.timestamp || 0,
+                    sha: fileInfo.sha
+                };
+            } catch (error) {
+                console.error('Fetch error:', error);
+                throw new Error('Failed to fetch data: ' + error.message);
+            }
+        }
+
+        async function pushDataToGitHub() {
+            if (!GITHUB_PAT) {
+                updateSyncStatus('error', 'No GitHub token');
+                return false;
+            }
+            const content = JSON.stringify({
+                equipment: equipmentData,
+                timestamp: Date.now()
+            }, null, 2);
+            try {
+                const bodyData = {
+                    message: "Update equipment data",
+                    content: utf8ToBase64(content),
+                    branch: "main"
+                };
+                if (fileSHA) bodyData.sha = fileSHA;
+                const response = await fetch(
+                    `${GITHUB_API}/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DATA_PATH}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Authorization": `Bearer ${GITHUB_PAT}`,
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(bodyData)
+                    }
+                );
+                const result = await response.json();
+                if (response.ok && result.content) {
+                    fileSHA = result.content.sha;
+                    lastSyncTimestamp = Date.now();
+                    return true;
+                } else {
+                    console.error('GitHub API error:', result);
+                    throw new Error(result.message || 'Failed to push data');
+                }
+            } catch (error) {
+                console.error('Push error:', error);
+                if (error.message.includes('409')) {
+                    const remoteData = await fetchRemoteData();
+                    fileSHA = remoteData.sha;
+                    return await pushDataToGitHub();
+                }
+                throw error;
+            }
+        }
+
+        async function saveChanges() {
+            if (!GITHUB_PAT) {
+                showTokenModal();
+                return false;
+            }
+            showSavingIndicator();
+            syncStatusBar.classList.add('active');
+            syncMessage.textContent = "Saving changes to SHB Server...";
+            progressBar.style.width = '0%';
+            updateSyncStatus('syncing', 'Saving changes...');
+            try {
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 10;
+                    progressBar.style.width = `${progress}%`;
+                    if (progress >= 90) clearInterval(progressInterval);
+                }, 200);
+                const success = await pushDataToGitHub();
+                clearInterval(progressInterval);
+                progressBar.style.width = '100%';
+                if (success) {
+                    updateSyncStatus('synced', `Saved at ${new Date().toLocaleTimeString()}`);
+                    syncMessage.textContent = "Changes saved successfully!";
+                    setTimeout(() => {
+                        syncStatusBar.classList.remove('active');
+                        progressBar.style.width = '0%';
+                    }, 2000);
+                    setTimeout(syncData, 5000);
+                    return true;
+                } else {
+                    updateSyncStatus('error', 'Save failed!');
+                    syncMessage.textContent = "Failed to save changes. Please check your token.";
+                    return false;
+                }
+            } catch (error) {
+                console.error('Save error:', error);
+                updateSyncStatus('error', 'Save error: ' + error.message);
+                syncMessage.textContent = "Error: " + error.message;
+                return false;
+            } finally {
+                hideSavingIndicator();
+            }
+        }
+
+        function showTokenModal() {
+            tokenInput.value = GITHUB_PAT || '';
+            tokenModal.classList.add('show');
+        }
+
+        function showEquipmentModal(editMode = false, equipment = null) {
+            if (editMode && equipment) {
+                equipmentModalTitle.textContent = 'Edit Equipment';
+                equipName.value = equipment.name || '';
+                equipCategory.value = equipment.category || 'tractor';
+                equipId.value = equipment.id || '';
+                equipId.disabled = !adminMode;
+                if (adminMode) equipId.classList.add('editable-id');
+                else equipId.classList.remove('editable-id');
+                equipYear.value = equipment.year || '';
+                equipStatus.value = equipment.status || 'active';
+                equipNotes.value = equipment.notes || '';
+                lastService.value = equipment.lastMaintenance || '';
+                nextService.value = equipment.nextMaintenance || '';
+                if (equipment.imageData) {
+                    previewImg.src = equipment.imageData;
+                    imagePreview.style.display = 'block';
+                } else {
+                    imagePreview.style.display = 'none';
+                }
+            } else {
+                equipmentModalTitle.textContent = 'Add New Equipment';
+                equipName.value = '';
+                equipCategory.value = 'tractor';
+                equipId.value = '';
+                equipId.disabled = false;
+                equipId.classList.remove('editable-id');
+                equipYear.value = '';
+                equipStatus.value = 'active';
+                equipNotes.value = '';
+                lastService.value = '';
+                nextService.value = '';
+                imagePreview.style.display = 'none';
+            }
+            equipmentModal.classList.add('show');
+        }
+
+        // Image selection with resizing
         equipImageInput.addEventListener('change', async () => {
             const file = equipImageInput.files[0];
             if (!file) return;
-
-            if (file.size > 5 * 1024 * 1024) {
-                showToast('Large image – compressing to ~250 px...', 'mdi-information');
+            if (file.size > 10 * 1024 * 1024) { // 10 MB max original
+                showToast('Image too large (max 10 MB)', 'mdi-alert');
+                return;
             }
-
             try {
-                const compressed = await compressImage(file, 250, 0.65);
-                previewImg.src = compressed;
+                const resizedDataUrl = await resizeImage(file, 800); // resize to max 800px
+                previewImg.src = resizedDataUrl;
                 imagePreview.style.display = 'block';
             } catch (err) {
                 showToast('Failed to process image', 'mdi-alert');
@@ -2184,16 +2427,598 @@
             equipImageInput.value = '';
         });
 
-        // ──────────────────────────────────────────────
-        // The rest of your script remains unchanged
-        // (token handling, saveEquipment, sync, render, init, etc.)
-        // Copy those functions from your previous working version if needed
-        // ──────────────────────────────────────────────
+        async function saveEquipment() {
+            const name = equipName.value.trim();
+            const category = equipCategory.value;
+            const id = equipId.value.trim();
+            const year = equipYear.value;
+            const status = equipStatus.value;
+            const notes = equipNotes.value;
+            const lastServiceDate = lastService.value;
+            const nextServiceDate = nextService.value;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Your existing init code here...
-            // Make sure to call init() at the end
-        });
+            if (!name || !id) {
+                showToast('Name and ID are required', 'mdi-alert');
+                return;
+            }
+
+            let imageData = null;
+            if (previewImg.src && previewImg.src.startsWith('data:image')) {
+                imageData = previewImg.src; // already resized
+            } else if (selectedEquipment && selectedEquipment.imageData && imagePreview.style.display !== 'none') {
+                imageData = selectedEquipment.imageData;
+            }
+
+            const isEdit = equipmentModalTitle.textContent.includes('Edit');
+
+            if (isEdit) {
+                const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
+                if (index !== -1) {
+                    if (id !== selectedEquipment.id && equipmentData.some(e => e.id === id)) {
+                        showToast('ID already exists', 'mdi-alert');
+                        return;
+                    }
+                    equipmentData[index] = {
+                        ...equipmentData[index],
+                        id,
+                        name,
+                        category,
+                        year,
+                        status,
+                        notes,
+                        lastMaintenance: lastServiceDate,
+                        nextMaintenance: nextServiceDate,
+                        imageData,
+                        updatedAt: new Date().toISOString()
+                    };
+                    selectedEquipment = equipmentData[index];
+                    if (detailPanel.classList.contains('open')) {
+                        openDetailPanel(selectedEquipment);
+                    }
+                    showToast('Equipment updated', 'mdi-check');
+                }
+            } else {
+                if (equipmentData.some(e => e.id === id)) {
+                    showToast('ID already exists', 'mdi-alert');
+                    return;
+                }
+                equipmentData.push({
+                    id,
+                    name,
+                    category,
+                    year,
+                    status,
+                    notes,
+                    lastMaintenance: lastServiceDate,
+                    nextMaintenance: nextServiceDate,
+                    maintenanceHistory: [],
+                    imageData,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                });
+                showToast('Equipment added', 'mdi-check');
+            }
+            
+            cachedFilteredEquipment = [];
+            const success = await saveChanges();
+            if (success) {
+                optimizedRenderEquipment();
+                calculateStats();
+                equipmentModal.classList.remove('show');
+                equipImageInput.value = '';
+                imagePreview.style.display = 'none';
+            }
+        }
+
+        function showMaintenanceModal(record = null) {
+            const isEditMode = !!record;
+            maintenanceModalTitle.textContent = isEditMode ? 'Edit Maintenance Record' : 'Add Maintenance Record';
+            if (isEditMode) {
+                maintenanceDate.value = record.date;
+                maintenanceType.value = record.type;
+                maintenanceMileage.value = record.mileage || '';
+                maintenanceHours.value = record.hours || '';
+                maintenanceTech.value = record.technician || '';
+                maintenanceDetails.value = record.details || '';
+                maintenanceId = record.id;
+                nextServiceDate.style.display = 'none';
+            } else {
+                const today = new Date().toISOString().split('T')[0];
+                maintenanceDate.value = today;
+                maintenanceType.value = '';
+                maintenanceMileage.value = '';
+                maintenanceHours.value = '';
+                maintenanceTech.value = '';
+                maintenanceDetails.value = '';
+                maintenanceId = null;
+                nextServiceDate.style.display = 'block';
+                const nextDate = new Date();
+                nextDate.setFullYear(nextDate.getFullYear() + 1);
+                nextServiceDate.value = nextDate.toISOString().split('T')[0];
+            }
+            maintenanceModal.classList.add('show');
+        }
+
+        async function saveMaintenanceRecord() {
+            if (!selectedEquipment) return;
+            const date = maintenanceDate.value;
+            const type = maintenanceType.value.trim();
+            const mileage = maintenanceMileage.value ? parseInt(maintenanceMileage.value) : null;
+            const hours = maintenanceHours.value ? parseFloat(maintenanceHours.value) : null;
+            const tech = maintenanceTech.value.trim();
+            const details = maintenanceDetails.value.trim();
+            const nextServiceValue = nextServiceDate.value;
+            if (!date) { showToast('Please select a date', 'mdi-alert'); return; }
+            if (!type) { showToast('Please enter maintenance type', 'mdi-alert'); return; }
+            const record = {
+                id: maintenanceId || 'MH-' + Date.now().toString().slice(-6),
+                date,
+                type,
+                mileage,
+                hours,
+                technician: tech,
+                details,
+                updatedAt: new Date().toISOString()
+            };
+            const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
+            if (index !== -1) {
+                if (!equipmentData[index].maintenanceHistory) equipmentData[index].maintenanceHistory = [];
+                if (maintenanceId) {
+                    const recordIndex = equipmentData[index].maintenanceHistory.findIndex(r => r.id === maintenanceId);
+                    if (recordIndex !== -1) {
+                        equipmentData[index].maintenanceHistory[recordIndex] = record;
+                        showToast('Maintenance record updated', 'mdi-check');
+                    }
+                } else {
+                    equipmentData[index].maintenanceHistory.unshift(record);
+                    showToast('Maintenance record added', 'mdi-check');
+                    equipmentData[index].nextMaintenance = nextServiceValue;
+                }
+                equipmentData[index].lastMaintenance = date;
+                equipmentData[index].updatedAt = new Date().toISOString();
+                cachedFilteredEquipment = [];
+                const success = await saveChanges();
+                if (success) {
+                    optimizedRenderEquipment();
+                    openDetailPanel(equipmentData[index]);
+                    maintenanceModal.classList.remove('show');
+                    maintenanceId = null;
+                }
+            }
+        }
+
+        async function confirmDeleteEquipment() {
+            if (!selectedEquipment) return;
+            deleteEquipmentName.textContent = selectedEquipment.name;
+            deleteModal.classList.add('show');
+        }
+
+        async function deleteEquipment() {
+            if (!selectedEquipment) return;
+            const index = equipmentData.findIndex(e => e.id === selectedEquipment.id);
+            if (index !== -1) {
+                equipmentData.splice(index, 1);
+                cachedFilteredEquipment = [];
+                const success = await saveChanges();
+                if (success) {
+                    optimizedRenderEquipment();
+                    calculateStats();
+                    closeDetailPanel();
+                    showToast('Equipment deleted', 'mdi-check');
+                } else {
+                    showToast('Failed to delete. Check token!', 'mdi-alert');
+                }
+            }
+            deleteModal.classList.remove('show');
+        }
+
+        async function syncData(force = false) {
+            if (syncInProgress || !GITHUB_PAT) return;
+            syncInProgress = true;
+            updateSyncStatus('syncing', 'Syncing...');
+            loadingOverlay.classList.add('active');
+            try {
+                const remote = await fetchRemoteData();
+                cachedFilteredEquipment = [];
+                if (force || remote.timestamp > lastSyncTimestamp) {
+                    const mergedEquipment = mergeEquipmentData(equipmentData, remote.equipment);
+                    equipmentData = mergedEquipment;
+                    fileSHA = remote.sha;
+                    lastSyncTimestamp = remote.timestamp;
+                    showToast('Data synced successfully', 'mdi-cloud-check');
+                } else {
+                    showToast('Data is up to date', 'mdi-cloud-check');
+                }
+                updateSyncStatus('synced', `Synced at ${new Date().toLocaleTimeString()}`);
+            } catch (error) {
+                console.error('Sync error:', error);
+                if (error.message.includes('404')) {
+                    equipmentData = [];
+                    cachedFilteredEquipment = [];
+                    const pushSuccess = await pushDataToGitHub();
+                    if (pushSuccess) {
+                        updateSyncStatus('synced', 'Initialized new data file');
+                    } else {
+                        updateSyncStatus('error', 'Failed to initialize data');
+                    }
+                } else {
+                    updateSyncStatus('error', 'Sync failed: ' + error.message);
+                    showToast('Sync failed: ' + error.message, 'mdi-alert');
+                }
+            } finally {
+                syncInProgress = false;
+                loadingOverlay.classList.remove('active');
+                optimizedRenderEquipment();
+                calculateStats();
+            }
+        }
+
+        function mergeEquipmentData(localData, remoteData) {
+            const remoteMap = new Map(remoteData.map(item => [item.id, item]));
+            const mergedData = [];
+            for (const localItem of localData) {
+                const remoteItem = remoteMap.get(localItem.id);
+                if (remoteItem) {
+                    const mergedItem = {
+                        ...remoteItem,
+                        ...localItem,
+                        maintenanceHistory: mergeMaintenanceHistory(
+                            remoteItem.maintenanceHistory || [],
+                            localItem.maintenanceHistory || []
+                        )
+                    };
+                    mergedData.push(mergedItem);
+                    remoteMap.delete(localItem.id);
+                } else {
+                    mergedData.push(localItem);
+                }
+            }
+            for (const remoteItem of remoteData) {
+                if (remoteMap.has(remoteItem.id)) mergedData.push(remoteItem);
+            }
+            return mergedData;
+        }
+
+        function mergeMaintenanceHistory(remoteHistory, localHistory) {
+            const historyMap = new Map();
+            for (const record of remoteHistory) historyMap.set(record.id, record);
+            for (const record of localHistory) historyMap.set(record.id, record);
+            return Array.from(historyMap.values()).sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        function calculateStats() {
+            for (const category in categoryCounts) categoryCounts[category].textContent = '0';
+            equipmentData.forEach(equip => {
+                if (categoryCounts[equip.category]) {
+                    const current = parseInt(categoryCounts[equip.category].textContent);
+                    categoryCounts[equip.category].textContent = current + 1;
+                }
+            });
+            categoryCounts.all.textContent = equipmentData.length;
+            stats.total.textContent = equipmentData.length;
+            stats.overdue.textContent = equipmentData.filter(isMaintenanceOverdue).length;
+            if (equipmentData.length > 0) {
+                welcomeMessage.style.display = 'none';
+            } else {
+                welcomeMessage.style.display = 'block';
+            }
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function optimizedFilterEquipment() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const activeCategory = document.querySelector('.category-chip.active').dataset.category;
+            const sortValue = sortSelect.value;
+            if (searchTerm === lastSearchTerm && activeCategory === lastActiveCategory && sortValue === lastSortValue && cachedFilteredEquipment.length > 0) {
+                return cachedFilteredEquipment;
+            }
+            const loadingIndicator = document.querySelector('.search-loading');
+            loadingIndicator.classList.add('active');
+            let filtered = equipmentData;
+            if (activeCategory !== 'all') filtered = filtered.filter(equip => equip.category === activeCategory);
+            if (searchTerm) {
+                filtered = filtered.filter(equip => {
+                    const searchString = ((equip.name || '') + '|' + (equip.id || '') + '|' + (equip.notes || '') + '|' + (equip.year ? equip.year.toString() : '')).toLowerCase();
+                    return searchString.includes(searchTerm);
+                });
+            }
+            filtered = optimizedSortEquipment(filtered, sortValue);
+            cachedFilteredEquipment = filtered;
+            lastSearchTerm = searchTerm;
+            lastActiveCategory = activeCategory;
+            lastSortValue = sortValue;
+            loadingIndicator.classList.remove('active');
+            return filtered;
+        }
+
+        function optimizedSortEquipment(equipment, sortValue) {
+            switch(sortValue) {
+                case 'name-asc': return equipment.sort((a, b) => a.name.localeCompare(b.name));
+                case 'name-desc': return equipment.sort((a, b) => b.name.localeCompare(a.name));
+                case 'year-asc': return equipment.sort((a, b) => (a.year || 0) - (b.year || 0));
+                case 'year-desc': return equipment.sort((a, b) => (b.year || 0) - (a.year || 0));
+                case 'nextService': return equipment.sort((a, b) => {
+                    const dateA = a.nextMaintenance ? new Date(a.nextMaintenance) : new Date(0);
+                    const dateB = b.nextMaintenance ? new Date(b.nextMaintenance) : new Date(0);
+                    return dateA - dateB;
+                });
+                default: return equipment.sort((a, b) => a.name.localeCompare(b.name));
+            }
+        }
+
+        function optimizedRenderEquipment() {
+            const filteredEquipment = optimizedFilterEquipment();
+            if (filteredEquipment.length === 0) {
+                equipmentGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon"><i class="mdi mdi-magnify-close"></i></div>
+                        <h3>No Equipment Found</h3>
+                        <p>Try changing your filters or search term to find what you're looking for.</p>
+                        <button class="btn btn-outline" id="resetFiltersBtn"><i class="mdi mdi-filter-remove"></i> Reset Filters</button>
+                    </div>
+                `;
+                document.getElementById('resetFiltersBtn').addEventListener('click', resetFilters);
+                return;
+            }
+            const fragment = document.createDocumentFragment();
+            filteredEquipment.forEach(equip => {
+                const item = document.createElement('div');
+                item.className = 'equipment-item';
+                const statusIndicator = equip.status ? `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span> ${getStatusText(equip.status)}` : '';
+                const categoryIcon = {
+                    tractor: 'mdi-tractor',
+                    truck: 'mdi-truck',
+                    trailer: 'mdi-trailer',
+                    implement: 'mdi-tools',
+                    car: 'mdi-car',
+                    van: 'mdi-van-utility',
+                    pickup: 'mdi-pickup',
+                    other: 'mdi-cog'
+                }[equip.category] || 'mdi-tools';
+                item.innerHTML = `
+                    <div class="equipment-thumbnail">
+                        ${equip.imageData ? `<img src="${equip.imageData}" alt="${equip.name}">` : `<div class="thumbnail-placeholder"><i class="mdi ${categoryIcon}"></i></div>`}
+                    </div>
+                    <div class="equipment-info">
+                        <div class="equipment-item-header">
+                            <div class="equipment-name">${equip.name}</div>
+                            ${isMaintenanceOverdue(equip) ? '<div class="overdue-badge"><i class="mdi mdi-alert"></i> MAINTENANCE DUE</div>' : ''}
+                        </div>
+                        <div class="equipment-id">${equip.id}</div>
+                        <div class="equipment-meta">
+                            <span>Year: ${equip.year || 'N/A'}</span>
+                            <span>Next Service: ${formatDate(equip.nextMaintenance)}</span>
+                            <span>${statusIndicator}</span>
+                        </div>
+                        <div class="equipment-notes">${equip.notes || 'No notes available'}</div>
+                    </div>
+                `;
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.equipment-item').forEach(i => i.classList.remove('selected'));
+                    item.classList.add('selected');
+                    openDetailPanel(equip);
+                });
+                fragment.appendChild(item);
+            });
+            equipmentGrid.innerHTML = '';
+            equipmentGrid.appendChild(fragment);
+        }
+
+        function resetFilters() {
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            document.querySelectorAll('.category-chip').forEach(chip => chip.classList.remove('active'));
+            document.querySelector('.category-chip[data-category="all"]').classList.add('active');
+            cachedFilteredEquipment = [];
+            lastSearchTerm = '';
+            lastActiveCategory = 'all';
+            lastSortValue = 'name-asc';
+            optimizedRenderEquipment();
+        }
+
+        function openDetailPanel(equip) {
+            selectedEquipment = equip;
+            document.getElementById('detailId').textContent = equip.id;
+            document.getElementById('detailName').textContent = equip.name;
+            document.getElementById('detailCategory').textContent = equip.category.charAt(0).toUpperCase() + equip.category.slice(1);
+            document.getElementById('detailYear').textContent = equip.year || 'N/A';
+            document.getElementById('detailStatus').innerHTML = equip.status ? `<span class="status-indicator" style="background-color: ${getStatusColor(equip.status)}"></span> ${getStatusText(equip.status)}` : '';
+            document.getElementById('detailLastService').textContent = formatDate(equip.lastMaintenance);
+            document.getElementById('detailNextService').textContent = formatDate(equip.nextMaintenance);
+            document.getElementById('detailNotes').textContent = equip.notes || 'No notes available';
+            const photoSection = document.getElementById('photoSection');
+            const detailImage = document.getElementById('detailImage');
+            if (equip.imageData) {
+                detailImage.innerHTML = `<img src="${equip.imageData}" style="max-width:100%; border-radius:var(--radius); box-shadow:var(--shadow);">`;
+                photoSection.style.display = 'block';
+            } else {
+                photoSection.style.display = 'none';
+            }
+            const warningElement = document.getElementById('maintenanceWarning');
+            warningElement.style.display = isMaintenanceOverdue(equip) ? 'flex' : 'none';
+            renderMaintenanceHistory(equip.maintenanceHistory || []);
+            detailPanel.classList.add('open');
+            if (adminMode) {
+                editEquipmentBtn.style.display = 'flex';
+                deleteEquipmentBtn.style.display = 'flex';
+            }
+        }
+
+        function renderMaintenanceHistory(history) {
+            maintenanceHistory.innerHTML = '';
+            if (!history || history.length === 0) {
+                maintenanceHistory.innerHTML = '<div class="history-item"><div class="history-content">No maintenance records found</div></div>';
+                return;
+            }
+            const fragment = document.createDocumentFragment();
+            history.forEach(record => {
+                const item = document.createElement('div');
+                item.className = 'history-item';
+                const editBtn = adminMode ? `<button class="edit-maintenance" data-id="${record.id}"><i class="mdi mdi-pencil"></i></button>` : '';
+                let usageInfo = '';
+                if (record.mileage || record.hours) {
+                    usageInfo = `<div class="history-usage">`;
+                    if (record.mileage) usageInfo += `<span>Mileage: ${record.mileage.toLocaleString()} miles</span>`;
+                    if (record.mileage && record.hours) usageInfo += ` | `;
+                    if (record.hours) usageInfo += `<span>Hours: ${record.hours.toLocaleString()} hrs</span>`;
+                    usageInfo += `</div>`;
+                }
+                item.innerHTML = `
+                    <div class="history-header">
+                        <span class="history-date">${formatDate(record.date)}</span>
+                        <span class="history-type">${record.type}</span>
+                        ${editBtn}
+                    </div>
+                    <div class="history-content">${record.details}</div>
+                    ${usageInfo}
+                    <div class="history-tech"><span>Technician: ${record.technician || 'N/A'}</span></div>
+                `;
+                if (adminMode) {
+                    item.querySelector('.edit-maintenance').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showMaintenanceModal(record);
+                    });
+                }
+                fragment.appendChild(item);
+            });
+            maintenanceHistory.appendChild(fragment);
+        }
+
+        function closeDetailPanel() {
+            detailPanel.classList.remove('open');
+            document.querySelectorAll('.equipment-item').forEach(i => i.classList.remove('selected'));
+            selectedEquipment = null;
+        }
+
+        function startSyncInterval() {
+            if (syncIntervalId) clearInterval(syncIntervalId);
+            syncIntervalId = setInterval(() => syncData(false), syncInterval);
+        }
+
+        async function init() {
+            updateTokenIndicator();
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (GITHUB_PAT) {
+                await syncData(true);
+                startSyncInterval();
+            } else {
+                updateSyncStatus('error', 'No GitHub token configured');
+            }
+            
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            document.getElementById('adminToggle').addEventListener('click', toggleAdminMode);
+            tokenIndicator.addEventListener('click', () => {
+                tokenInput.value = GITHUB_PAT || '';
+                tokenModal.classList.add('show');
+            });
+            saveTokenBtn.addEventListener('click', () => {
+                const token = tokenInput.value.trim();
+                if (token) {
+                    GITHUB_PAT = token;
+                    localStorage.setItem('github_pat', token);
+                    updateTokenIndicator();
+                    tokenModal.classList.remove('show');
+                    setTimeout(() => {
+                        syncData(true);
+                        startSyncInterval();
+                    }, 1000);
+                    showToast('Token saved', 'mdi-check');
+                }
+            });
+            clearTokenBtn.addEventListener('click', () => {
+                GITHUB_PAT = '';
+                localStorage.removeItem('github_pat');
+                updateTokenIndicator();
+                tokenModal.classList.remove('show');
+                showToast('Token cleared', 'mdi-check');
+            });
+            closeTokenModal.addEventListener('click', () => tokenModal.classList.remove('show'));
+            pinBtns.forEach(btn => btn.addEventListener('click', () => {
+                if (pinInput.value.length < 4) pinInput.value += btn.dataset.value;
+            }));
+            pinBackspace.addEventListener('click', () => pinInput.value = pinInput.value.slice(0, -1));
+            pinEnter.addEventListener('click', () => {
+                if (pinInput.value === ADMIN_PIN) {
+                    adminMode = true;
+                    adminToggle.classList.add('active');
+                    addEquipmentBtn.style.display = 'flex';
+                    editEquipmentBtn.style.display = 'flex';
+                    deleteEquipmentBtn.style.display = 'flex';
+                    pinModal.classList.remove('show');
+                    showToast('Admin mode activated', 'mdi-shield-check');
+                } else {
+                    pinInput.value = '';
+                    showToast('Invalid PIN', 'mdi-lock-alert');
+                }
+            });
+            closePinModal.addEventListener('click', () => pinModal.classList.remove('show'));
+            closePanelBtn.addEventListener('click', closeDetailPanel);
+            addEquipmentBtn.addEventListener('click', () => showEquipmentModal());
+            editEquipmentBtn.addEventListener('click', () => {
+                if (selectedEquipment) showEquipmentModal(true, selectedEquipment);
+            });
+            addMaintenanceBtn.addEventListener('click', () => {
+                if (selectedEquipment) showMaintenanceModal();
+            });
+            deleteEquipmentBtn.addEventListener('click', () => {
+                if (selectedEquipment) confirmDeleteEquipment();
+            });
+            saveEquipmentBtn.addEventListener('click', saveEquipment);
+            cancelEquipmentBtn.addEventListener('click', () => equipmentModal.classList.remove('show'));
+            closeEquipmentModal.addEventListener('click', () => equipmentModal.classList.remove('show'));
+            saveMaintenanceBtn.addEventListener('click', saveMaintenanceRecord);
+            cancelMaintenanceBtn.addEventListener('click', () => maintenanceModal.classList.remove('show'));
+            closeMaintenanceModal.addEventListener('click', () => maintenanceModal.classList.remove('show'));
+            confirmDeleteBtn.addEventListener('click', deleteEquipment);
+            cancelDeleteBtn.addEventListener('click', () => deleteModal.classList.remove('show'));
+            closeDeleteModal.addEventListener('click', () => deleteModal.classList.remove('show'));
+            searchInput.addEventListener('input', debounce(() => {
+                clearSearchBtn.style.display = searchInput.value ? 'block' : 'none';
+                optimizedRenderEquipment();
+            }, 300));
+            clearSearchBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearSearchBtn.style.display = 'none';
+                optimizedRenderEquipment();
+            });
+            categoryFilters.forEach(chip => chip.addEventListener('click', () => {
+                categoryFilters.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                optimizedRenderEquipment();
+            }));
+            sortSelect.addEventListener('change', () => optimizedRenderEquipment());
+            quickAddBtn.addEventListener('click', () => showEquipmentModal());
+            quickSyncBtn.addEventListener('click', () => syncData(true));
+            syncNowBtn.addEventListener('click', () => syncData(true));
+            maintenanceDate.addEventListener('change', () => {
+                if (maintenanceDate.value) {
+                    const nextDate = new Date(maintenanceDate.value);
+                    nextDate.setFullYear(nextDate.getFullYear() + 1);
+                    nextServiceDate.value = nextDate.toISOString().split('T')[0];
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
