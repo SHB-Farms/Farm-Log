@@ -1812,7 +1812,7 @@
                 <div class="form-group">
                     <label for="equipImage"><i class="mdi mdi-camera"></i> Equipment Photo (optional)</label>
                     <input type="file" id="equipImage" class="form-control" accept="image/*">
-                    <small class="text-light">Will be resized to ~400px max dimension (60% quality)</small>
+                    <small class="text-light">Will be resized to ~250px max dimension (30% quality) – tiny file size</small>
                     <div id="imagePreview" style="margin-top:10px; max-width:280px; display:none;">
                         <img id="previewImg" style="width:100%; border-radius:var(--radius-sm); box-shadow:var(--shadow-light);">
                         <button id="removeImageBtn" class="btn btn-outline" style="margin-top:8px; font-size:0.85rem;">Remove Photo</button>
@@ -2194,8 +2194,8 @@
             }
         }
 
-        // ----- Image resizing helper (smaller: max 400px, 60% quality) -----
-        function resizeImage(file, maxDim = 400, quality = 0.6) {
+        // ----- Image resizing helper (smaller: max 250px, 30% quality) -----
+        function resizeImage(file, maxDim = 250, quality = 0.3) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.onload = e => {
@@ -2403,7 +2403,7 @@
             equipmentModal.classList.add('show');
         }
 
-        // Image selection with smaller resizing (400px, 60% quality)
+        // Image selection with tiny resizing (250px, 30% quality)
         equipImageInput.addEventListener('change', async () => {
             const file = equipImageInput.files[0];
             if (!file) return;
@@ -2412,7 +2412,7 @@
                 return;
             }
             try {
-                const resizedDataUrl = await resizeImage(file, 400, 0.6);
+                const resizedDataUrl = await resizeImage(file, 250, 0.3);
                 previewImg.src = resizedDataUrl;
                 imagePreview.style.display = 'block';
             } catch (err) {
