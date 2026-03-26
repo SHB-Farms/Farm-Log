@@ -1024,9 +1024,19 @@
       "category": "truck",
       "year": "2005",
       "notes": "#29",
-      "lastMaintenance": "2025-12-08",
-      "nextMaintenance": "2026-12-08",
+      "lastMaintenance": "2026-02-14",
+      "nextMaintenance": "2027-02-14",
       "maintenanceHistory": [
+        {
+          "id": "MH-234826",
+          "date": "2026-02-14",
+          "type": "Cutoff",
+          "mileage": 97000,
+          "hours": null,
+          "technician": "Jordan",
+          "details": "Weld cutoff on Vin: 3BPZXKEX2HF173200\nReplace air dryer",
+          "updatedAt": "2026-03-26T01:23:54.826Z"
+        },
         {
           "id": "MH-743617",
           "date": "2025-12-08",
@@ -1114,7 +1124,7 @@
           "updatedAt": "2025-08-09T17:35:29.598Z"
         }
       ],
-      "updatedAt": "2025-12-08T19:05:43.620Z",
+      "updatedAt": "2026-03-26T01:23:54.832Z",
       "status": "active"
     },
     {
@@ -1755,5 +1765,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1774279511374
+  "timestamp": 1774488234834
 }
