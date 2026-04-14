@@ -1763,7 +1763,21 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
+    },
+    {
+      "id": "01234",
+      "name": "Walinga Vacuvater",
+      "category": "other",
+      "year": "",
+      "status": "active",
+      "notes": "Greased, pressure washed, and topped off hydraulic oil on March 2026",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "imageData": null,
+      "createdAt": "2026-04-14T19:11:37.437Z",
+      "updatedAt": "2026-04-14T19:11:37.437Z"
     }
   ],
-  "timestamp": 1774488234834
+  "timestamp": 1776193897438
 }
