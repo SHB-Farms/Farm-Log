@@ -546,9 +546,19 @@
       "category": "truck",
       "year": "1999",
       "notes": "OIL FILTER NAPA 1799\nFUEL FILTER NAPA 3403\nAIR FILTER NAPA 2253\nCOOLANT FILTER NAPA 4071",
-      "lastMaintenance": "2026-02-02",
-      "nextMaintenance": "2027-02-02",
+      "lastMaintenance": "2026-04-16",
+      "nextMaintenance": "2027-04-16",
       "maintenanceHistory": [
+        {
+          "id": "MH-240001",
+          "date": "2026-04-16",
+          "type": "Transmission rebuilt. New clutch. New rear main seal. New bushings front axle.",
+          "mileage": null,
+          "hours": null,
+          "technician": "Alex",
+          "details": "",
+          "updatedAt": "2026-04-16T17:24:00.001Z"
+        },
         {
           "id": "MH-811833",
           "date": "2026-02-02",
@@ -560,7 +570,7 @@
           "updatedAt": "2026-02-02T18:43:31.833Z"
         }
       ],
-      "updatedAt": "2026-02-02T18:43:31.834Z"
+      "updatedAt": "2026-04-16T17:24:00.003Z"
     },
     {
       "id": "1HTSCAAM01H379367",
@@ -1679,6 +1689,20 @@
       "maintenanceHistory": []
     },
     {
+      "id": "01234",
+      "name": "Walinga Vacuvater",
+      "category": "other",
+      "year": "",
+      "status": "active",
+      "notes": "Greased, pressure washed, and topped off hydraulic oil on March 2026",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "imageData": null,
+      "createdAt": "2026-04-14T19:11:37.437Z",
+      "updatedAt": "2026-04-14T19:11:37.437Z"
+    },
+    {
       "id": "513",
       "name": "Wilrich Disc Ripper",
       "category": "implement",
@@ -1763,21 +1787,7 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
-    },
-    {
-      "id": "01234",
-      "name": "Walinga Vacuvater",
-      "category": "other",
-      "year": "",
-      "status": "active",
-      "notes": "Greased, pressure washed, and topped off hydraulic oil on March 2026",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
-      "imageData": null,
-      "createdAt": "2026-04-14T19:11:37.437Z",
-      "updatedAt": "2026-04-14T19:11:37.437Z"
     }
   ],
-  "timestamp": 1776193897438
+  "timestamp": 1776360240004
 }
