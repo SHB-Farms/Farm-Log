@@ -1380,11 +1380,22 @@
       "category": "truck",
       "year": "2014",
       "notes": "NAPA AIR FILTER 500149 or Donaldson P625128\nPACCAR FUEL FILTER K37-1004\nFLEETGUARD FUEL FILTER LF 5774\nFLEETGUARD OIL FILTER LF 14000NN\nAIR DRYER TRP-AC1001\nHendrickson ft 330-29 Lift Axle Push Down Bag- Fan belt tensioner Cummins 3691282",
-      "lastMaintenance": "",
-      "nextMaintenance": "",
-      "maintenanceHistory": [],
+      "lastMaintenance": "2026-05-05",
+      "nextMaintenance": "2027-05-05",
+      "maintenanceHistory": [
+        {
+          "id": "MH-285292",
+          "date": "2026-05-05",
+          "type": "Oil change",
+          "mileage": 493254,
+          "hours": null,
+          "technician": "LRG",
+          "details": "Oil, fuel filter change, greased",
+          "updatedAt": "2026-05-05T23:21:25.292Z"
+        }
+      ],
       "status": "active",
-      "updatedAt": "2025-10-07T19:01:29.096Z"
+      "updatedAt": "2026-05-05T23:21:25.293Z"
     },
     {
       "id": "1XPXD40X1ED224934",
@@ -1819,5 +1830,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1777998332869
+  "timestamp": 1778023285294
 }
