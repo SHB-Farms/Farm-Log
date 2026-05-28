@@ -872,19 +872,6 @@
       "status": "active"
     },
     {
-      "id": "HACMX135ERDH20091",
-      "name": "MAXXUM Loader 135",
-      "category": "tractor",
-      "year": "2024",
-      "notes": "48142232 charge pump oi filter\n87708150 transmission pump oil filter\n",
-      "lastMaintenance": "",
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": [],
-      "status": "active",
-      "imageData": null,
-      "updatedAt": "2026-03-23T15:25:11.372Z"
-    },
-    {
       "id": "A0G63667",
       "name": "MCI PASSENGER BUS",
       "category": "van",
@@ -1833,5 +1820,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1780010846885
+  "timestamp": 1780011094877
 }
