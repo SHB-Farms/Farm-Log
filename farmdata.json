@@ -825,9 +825,19 @@
       "category": "tractor",
       "year": "2023",
       "notes": "48142231 hydraulic charge pump 47715391 hydraulic suction pump                                     5802872619 engine oil filter\n5802726987 water/fuel separator ",
-      "lastMaintenance": "2025-06-27",
-      "nextMaintenance": "2026-06-27",
+      "lastMaintenance": "2026-04-22",
+      "nextMaintenance": "2027-04-22",
       "maintenanceHistory": [
+        {
+          "id": "MH-784531",
+          "date": "2026-04-22",
+          "type": "engine oil change engine oil filter hydraulic oil filter fuel filters air filters",
+          "mileage": null,
+          "hours": 927,
+          "technician": "michael gross",
+          "details": "5802872619 engine oil filter\n5802726987 fuel filter\n92129321 fuel filter\n87683000 secondary engine air filter\n87682990 primary engine oil filter\n87726699 inside cab air filter\n[2] 87726695 outside cab air filter\n48142231 spin-on hydraulic filter",
+          "updatedAt": "2026-05-28T23:43:04.531Z"
+        },
         {
           "id": "MH-811065",
           "date": "2025-06-27",
@@ -845,7 +855,7 @@
           "updatedAt": "2025-06-27T21:05:54.447Z"
         }
       ],
-      "updatedAt": "2026-03-14T21:04:17.829Z",
+      "updatedAt": "2026-05-28T23:43:04.531Z",
       "status": "active"
     },
     {
@@ -1820,5 +1830,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1780011094877
+  "timestamp": 1780011784531
 }
