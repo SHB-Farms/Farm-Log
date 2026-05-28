@@ -1289,7 +1289,7 @@
     {
       "id": "1XP5DB9X67D669848",
       "name": "Peterbilt 379 Truck 34",
-      "category": "tractor",
+      "category": "truck",
       "year": "2006",
       "status": "active",
       "notes": "Motor serial #MXS 83243",
@@ -1308,7 +1308,8 @@
         }
       ],
       "createdAt": "2025-07-12T16:12:12.373Z",
-      "updatedAt": "2025-10-06T15:23:34.174Z"
+      "updatedAt": "2026-05-28T23:26:38.790Z",
+      "imageData": null
     },
     {
       "id": "1XP5DB9X277D669846",
@@ -1830,5 +1831,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1779505546527
+  "timestamp": 1780010798791
 }
