@@ -1245,7 +1245,7 @@
     {
       "id": "1XP-5DB9X-X-7D669853",
       "name": "Peterbilt 379 Truck 33",
-      "category": "tractor",
+      "category": "truck",
       "year": "2006",
       "status": "active",
       "notes": "CAT OIL FILTER 1R-1808\nCAT FUEL FILTER 1R-0749\nCAT FUEL FILTER 256-8753",
@@ -1284,7 +1284,8 @@
         }
       ],
       "createdAt": "2025-08-09T17:41:56.683Z",
-      "updatedAt": "2025-10-28T23:18:40.793Z"
+      "updatedAt": "2026-05-28T23:27:05.877Z",
+      "imageData": null
     },
     {
       "id": "1XP5DB9X67D669848",
@@ -1831,5 +1832,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1780010798791
+  "timestamp": 1780010825878
 }
