@@ -1828,7 +1828,21 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
+    },
+    {
+      "id": "MAN00000V01087124",
+      "name": "Manitou",
+      "category": "tractor",
+      "year": "",
+      "status": "active",
+      "notes": "",
+      "lastMaintenance": "",
+      "nextMaintenance": "",
+      "maintenanceHistory": [],
+      "imageData": null,
+      "createdAt": "2026-05-30T18:03:15.622Z",
+      "updatedAt": "2026-05-30T18:03:15.622Z"
     }
   ],
-  "timestamp": 1780011784531
+  "timestamp": 1780164195623
 }
