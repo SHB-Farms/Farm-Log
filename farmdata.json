@@ -1833,16 +1833,16 @@
       "id": "MAN00000V01087124",
       "name": "Manitou",
       "category": "tractor",
-      "year": "",
+      "year": "2022",
       "status": "active",
-      "notes": "",
+      "notes": "FILTERS\n52686670 primary air filter\n52686672 secondary air filter\n52708330 fuel filter\n964294 engine oil filter\n958671 cabin air filter\n52543388 cabin air filter\n745878 transmission oil filter\n518251 transmission oil filter\n282526 hydraulic cartr filter\n964303 fuel filter\n266219 breather vent filter",
       "lastMaintenance": "",
       "nextMaintenance": "",
       "maintenanceHistory": [],
       "imageData": null,
       "createdAt": "2026-05-30T18:03:15.622Z",
-      "updatedAt": "2026-05-30T18:03:15.622Z"
+      "updatedAt": "2026-05-30T18:14:11.942Z"
     }
   ],
-  "timestamp": 1780164195623
+  "timestamp": 1780164851942
 }
