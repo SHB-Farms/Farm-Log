@@ -516,9 +516,21 @@
       "category": "truck",
       "year": "2004",
       "notes": "NAPA OIL FILTER 7744XD\nNAPA AIR FILTER 6870\nFS 19684",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "lastMaintenance": "2026-06-01",
+      "nextMaintenance": "2027-06-01",
+      "maintenanceHistory": [
+        {
+          "id": "MH-874012",
+          "date": "2026-06-01",
+          "type": "Oil changed oil filter",
+          "mileage": null,
+          "hours": null,
+          "technician": "Alex",
+          "details": "Changed oil and oil filter",
+          "updatedAt": "2026-06-01T16:37:54.012Z"
+        }
+      ],
+      "updatedAt": "2026-06-01T16:37:54.013Z"
     },
     {
       "id": "D0715FCA10578",
@@ -794,6 +806,31 @@
         }
       ],
       "updatedAt": "2025-06-28T00:34:01.289Z"
+    },
+    {
+      "id": "MAN00000V01087124",
+      "name": "Manitou",
+      "category": "tractor",
+      "year": "2022",
+      "status": "active",
+      "notes": "FILTERS\n52686670 primary air filter\n52686672 secondary air filter\n52708330 fuel filter\n964294 engine oil filter\n958671 cabin air filter\n52543388 cabin air filter\n745878 transmission oil filter\n518251 transmission oil filter\n282526 hydraulic cartr filter\n964303 fuel filter\n266219 breather vent filter",
+      "lastMaintenance": "2026-05-30",
+      "nextMaintenance": "2027-05-30",
+      "maintenanceHistory": [
+        {
+          "id": "MH-900469",
+          "date": "2026-05-30",
+          "type": "all filters and oil change",
+          "mileage": null,
+          "hours": null,
+          "technician": "michael gross",
+          "details": "",
+          "updatedAt": "2026-05-30T18:15:00.469Z"
+        }
+      ],
+      "imageData": null,
+      "createdAt": "2026-05-30T18:03:15.622Z",
+      "updatedAt": "2026-05-30T18:15:00.469Z"
     },
     {
       "id": "HACMX135CPDH02650",
@@ -1828,32 +1865,7 @@
       "lastMaintenance": null,
       "nextMaintenance": "2026-01-01",
       "maintenanceHistory": []
-    },
-    {
-      "id": "MAN00000V01087124",
-      "name": "Manitou",
-      "category": "tractor",
-      "year": "2022",
-      "status": "active",
-      "notes": "FILTERS\n52686670 primary air filter\n52686672 secondary air filter\n52708330 fuel filter\n964294 engine oil filter\n958671 cabin air filter\n52543388 cabin air filter\n745878 transmission oil filter\n518251 transmission oil filter\n282526 hydraulic cartr filter\n964303 fuel filter\n266219 breather vent filter",
-      "lastMaintenance": "2026-05-30",
-      "nextMaintenance": "2027-05-30",
-      "maintenanceHistory": [
-        {
-          "id": "MH-900469",
-          "date": "2026-05-30",
-          "type": "all filters and oil change",
-          "mileage": null,
-          "hours": null,
-          "technician": "michael gross",
-          "details": "",
-          "updatedAt": "2026-05-30T18:15:00.469Z"
-        }
-      ],
-      "imageData": null,
-      "createdAt": "2026-05-30T18:03:15.622Z",
-      "updatedAt": "2026-05-30T18:15:00.469Z"
     }
   ],
-  "timestamp": 1780164900469
+  "timestamp": 1780331874015
 }
