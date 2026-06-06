@@ -1474,9 +1474,19 @@
       "category": "truck",
       "year": "2011",
       "notes": "OIL FILTER FLEET GUARD 9009\nFUEL FILTER FLEET GUARD FF 5636\nNAPA AIR FILTER 2610",
-      "lastMaintenance": "2025-11-18",
-      "nextMaintenance": "2026-11-18",
+      "lastMaintenance": "2026-06-06",
+      "nextMaintenance": "2027-06-06",
       "maintenanceHistory": [
+        {
+          "id": "MH-991682",
+          "date": "2026-06-06",
+          "type": "Air filter",
+          "mileage": 26909,
+          "hours": 9270,
+          "technician": "LCG",
+          "details": "Changed air filter",
+          "updatedAt": "2026-06-06T15:49:51.682Z"
+        },
         {
           "id": "MH-615607",
           "date": "2025-11-18",
@@ -1489,7 +1499,7 @@
         }
       ],
       "status": "active",
-      "updatedAt": "2025-11-18T00:26:55.607Z"
+      "updatedAt": "2026-06-06T15:49:51.683Z"
     },
     {
       "id": "HACPU150HSD200708",
@@ -1867,5 +1877,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1780331874015
+  "timestamp": 1780760991687
 }
