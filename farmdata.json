@@ -1328,9 +1328,19 @@
       "year": "2006",
       "status": "active",
       "notes": "Motor serial #MXS 83243",
-      "lastMaintenance": "2025-10-06",
-      "nextMaintenance": "2026-10-06",
+      "lastMaintenance": "2026-07-14",
+      "nextMaintenance": "2027-07-14",
       "maintenanceHistory": [
+        {
+          "id": "MH-662261",
+          "date": "2026-07-14",
+          "type": "Service",
+          "mileage": 80916,
+          "hours": 13393,
+          "technician": "LRG/LCG",
+          "details": "Oil change, greased, rebuilt transmission, changed coolant and fuel lines, did a full DOT!",
+          "updatedAt": "2026-07-14T16:47:42.261Z"
+        },
         {
           "id": "MH-214173",
           "date": "2025-10-06",
@@ -1343,7 +1353,7 @@
         }
       ],
       "createdAt": "2025-07-12T16:12:12.373Z",
-      "updatedAt": "2026-05-28T23:26:38.790Z",
+      "updatedAt": "2026-07-14T16:47:42.261Z",
       "imageData": null
     },
     {
@@ -1877,5 +1887,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1780760991687
+  "timestamp": 1784047662262
 }
