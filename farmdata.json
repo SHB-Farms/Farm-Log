@@ -1373,9 +1373,19 @@
       "year": "2006",
       "status": "active",
       "notes": "A/C COMPRESSOR LF4377",
-      "lastMaintenance": "2026-05-05",
-      "nextMaintenance": "2027-05-05",
+      "lastMaintenance": "2026-09-29",
+      "nextMaintenance": "2027-09-29",
       "maintenanceHistory": [
+        {
+          "id": "MH-212321",
+          "date": "2026-09-29",
+          "type": "Service",
+          "mileage": 364386,
+          "hours": 28559,
+          "technician": "LCG",
+          "details": "Oil change Full DOT Added transmission oil Greased",
+          "updatedAt": "2026-09-29T00:03:32.321Z"
+        },
         {
           "id": "MH-332868",
           "date": "2026-05-05",
@@ -1418,7 +1428,7 @@
         }
       ],
       "createdAt": "2025-08-11T16:55:53.758Z",
-      "updatedAt": "2026-05-28T23:27:26.884Z",
+      "updatedAt": "2026-09-29T00:03:32.322Z",
       "imageData": null
     },
     {
@@ -1930,5 +1940,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1790191511880
+  "timestamp": 1790640212323
 }
