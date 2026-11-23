@@ -548,9 +548,21 @@
       "category": "truck",
       "year": "1992",
       "notes": "",
-      "lastMaintenance": null,
-      "nextMaintenance": "2026-01-01",
-      "maintenanceHistory": []
+      "lastMaintenance": "2026-11-23",
+      "nextMaintenance": "2027-11-23",
+      "maintenanceHistory": [
+        {
+          "id": "MH-984111",
+          "date": "2026-11-23",
+          "type": "Yearly",
+          "mileage": null,
+          "hours": null,
+          "technician": "",
+          "details": "Fuel filter water seperator 3232\nOil i think 1788 and 1789\nAir filter 2253\n3336 and 3341 fuel i think",
+          "updatedAt": "2026-11-23T19:26:24.114Z"
+        }
+      ],
+      "updatedAt": "2026-11-23T19:26:24.115Z"
     },
     {
       "id": "1HTSLAAM6YH278926",
@@ -1950,5 +1962,5 @@
       "maintenanceHistory": []
     }
   ],
-  "timestamp": 1795460854607
+  "timestamp": 1795461984115
 }
